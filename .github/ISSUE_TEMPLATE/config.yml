@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Sister repos
+    url: https://github.com/tiagovilasboas/awesome-agentic-ai
+    about: Curated MCP / HITL / AppSec links — do not paste catalogs into this architecture repo.

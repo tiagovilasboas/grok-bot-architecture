@@ -1,0 +1,61 @@
+name: Improve docs
+description: Clarify architecture, crew, HITL, connectors, or cookbooks — not a new ADR.
+title: "docs: "
+labels:
+  - docs
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for a concrete gap in the OS docs. If the change is architecturally significant, use **Propose an ADR** instead.
+        See [CONTRIBUTING.md](../../CONTRIBUTING.md).
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Architecture / layers
+        - Crew roles
+        - Handoffs
+        - HITL
+        - Routines
+        - Connectors
+        - Security
+        - Token economy
+        - Cookbook
+        - Examples
+        - House style (AGENTS.md, templates)
+    validations:
+      required: true
+  - type: input
+    id: path
+    attributes:
+      label: File
+      description: Path of the doc that is wrong or thin.
+      placeholder: docs/crew/handoffs.md
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: Gap
+      description: What a Staff reader cannot decide after reading the file.
+      placeholder: The Inbox → Entrega hop has no expected output, so a ship can start from a draft email.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed fix
+      description: Smallest change that closes the gap (one rule, one field, one example).
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: This is not a new architectural decision (no ADR needed).
+          required: true
+        - label: No private system prompts, client IP, or invented screenshots.
+          required: true
