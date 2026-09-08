@@ -10,7 +10,7 @@ Pattern first: crew, shared computer, HITL, connectors. [Grok Bot](https://curso
 |---|---|
 | **Symptom** | The board looks busy; quality and the bill both drop. Hops carry last week’s mail. Código greps the whole tree. A routine “summarizes the inbox” every morning. |
 | **Mistake** | Treating context as free and coordination as intelligence. Transcript dumps, union tool schemas on the chief-of-staff, browser pixels as “context”. |
-| **Control** | [ADR 0005](../adr/0005-token-thrift.md) · [token-economy.md](../token-economy.md). Refs, not blobs. One job in the window. Routine `budget` + `stop`. Measure with traces; do not invent prod numbers here. |
+| **Control** | [ADR 0005](../adr/0005-token-thrift.md) · [context-engineering.md](../context-engineering.md) · [token-economy.md](../token-economy.md). Refs, not blobs. One job in the window. Routine `budget` + `stop`. Measure with traces; do not invent prod numbers here. |
 
 **Stop doing:** Pasting the chat into the next specialist. Attaching every MCP server “for routing”. Dispatching three cloud agents because the board has three open cards.
 
@@ -50,4 +50,4 @@ Grok Bot / Cursor Cloud is the mapping we use. Any desktop host + any remote cod
 
 When a loop feels fast and slightly wrong, find the row before you add a role. If the row is not here, it is probably a product bug or an eval miss — not a new swimlane.
 
-[architecture.md](../architecture.md) (diagram ↔ ADRs) · [security.md](../security.md) · [token-economy.md](../token-economy.md)
+[architecture.md](../architecture.md) (diagram ↔ ADRs) · [security.md](../security.md) · [context-engineering.md](../context-engineering.md) · [token-economy.md](../token-economy.md)

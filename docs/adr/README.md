@@ -24,6 +24,7 @@ Never reuse a number. When reversing a decision, keep the old file and mark it `
 ## Related
 
 - Layer model (diagram ↔ this index): [../architecture.md](../architecture.md)
+- Window assembly (what enters, fail-closed): [../context-engineering.md](../context-engineering.md)
 - Crew contracts: [../crew/roles.md](../crew/roles.md)
 - When the loop is fast and wrong: [../cookbook/failure-modes.md](../cookbook/failure-modes.md)
 - Host swap without a domain rewrite: keep ADRs 0001–0006; change only the example host mapping (Grok Bot / Cursor today)
