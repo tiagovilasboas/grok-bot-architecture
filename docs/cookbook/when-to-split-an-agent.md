@@ -18,7 +18,7 @@ A Chief-of-staff + one specialist is a legal OS ([first-week.md](first-week.md))
 | **Secrets** | Inbox context can see bank or deploy | Quinto / Entrega off Inbox |
 | **Write-boundary** | The same window drafts mail *and* merges | Inbox vs Código vs Entrega |
 | **Untrusted content** | Issue text or mail can reach an exfil tool | Drop a lethal-trifecta leg ([security.md](../security.md)) |
-| **Token window** | Routing needs a summary because the body no longer fits | New role **or** a tighter query — try the query first ([token-economy.md](../token-economy.md)) |
+| **Token window** | Routing needs a summary because the body no longer fits | New role **or** a tighter query — try the query first ([context-engineering.md](../context-engineering.md) · [token-economy.md](../token-economy.md)) |
 | **Cadence** | A routine and an ad-hoc job keep preempting each other | Same role, two cards — split only if secrets differ |
 | **Machine** | A 40-minute SWE loop blocks HITL on the desktop | Not a new personality: cloud agent ([when-to-use-cloud-agent.md](when-to-use-cloud-agent.md)) |
 

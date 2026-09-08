@@ -1,6 +1,6 @@
 # Token economy
 
-Tokens are the **operating budget** of this OS, not a cloud invoice anecdote. [ADR 0005](adr/0005-token-thrift.md): thrift is a control. This page is how to apply it without inventing production figures.
+Tokens are the **operating budget** of this OS, not a cloud invoice anecdote. [ADR 0005](adr/0005-token-thrift.md): thrift is a control. This page is the **budget lens** (where tokens go). Window assembly SoT — what enters, poison, oversize, evals: [context-engineering.md](context-engineering.md).
 
 ## What we will not claim
 
@@ -42,3 +42,4 @@ The orchestrator is the cheapest place to waste money: it sees every card and wa
 - First week: stay at two roles until a window collides ([first-week.md](cookbook/first-week.md)).
 - Cloud: pay the remote job when the desktop window would otherwise hold a 40-minute SWE loop ([when-to-use-cloud-agent.md](cookbook/when-to-use-cloud-agent.md)).
 - Token burn / fan-out / Mac vs box / silent approval: [failure-modes.md](cookbook/failure-modes.md).
+- Window assembly (poison / oversize / evals): [context-engineering.md](context-engineering.md).
