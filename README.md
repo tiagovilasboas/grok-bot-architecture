@@ -70,11 +70,13 @@ Then: [`routines.md`](docs/routines.md) · [`connectors.md`](docs/connectors.md)
 
 ## Related
 
-- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Brain · workers · ops (runtime / host swap)
-- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — IDE Planner / Implementer / Reviewer / Ops (editor crew)
-- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — MCP · harness · HITL · agent security (curated list)
-- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Measure, do not train (eval harness)
-- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — Skills · runbooks · guardrails (PR review kit)
+Siblings are scoped kits — not this desktop OS.
+
+- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Reference architecture: brain · workers · ops. Swap the host, keep the domain.
+- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — Crew pattern: Planner → Implementer → Reviewer → Ops. Kiro is the example host.
+- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — Curated list: MCP · harness · AppSec. Decision filter, not a catalog.
+- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Evals: suites, named metrics, reports. Measure; do not train.
+- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec PR review: skills, runbooks, `path:line` or silence.
 
 Pattern refs: [MCP](https://modelcontextprotocol.io/docs/learn/architecture) · [Anthropic — effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [LangGraph HITL](https://docs.langchain.com/oss/python/langgraph/interrupts) · [OTel GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/) · [OWASP agentic](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) · [AGENTS.md](https://agents.md/) · [12-factor agents](https://github.com/humanlayer/12-factor-agents)
 
