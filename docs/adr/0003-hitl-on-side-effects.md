@@ -14,3 +14,6 @@ Agents that merge, deploy, rotate secrets, or message **as the user** create irr
 + Interrupt is inspectable and eval-able
 − Slower demos; document the wait
 − “Send the draft” is still a privileged write if it goes out as the user
+
+## See
+[architecture.md](../architecture.md) (User ↔ CoS HITL). Silent approval: [cookbook/failure-modes.md](../cookbook/failure-modes.md) · [crew/hitl.md](../crew/hitl.md).
