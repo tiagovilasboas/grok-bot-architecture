@@ -110,8 +110,9 @@ Routines are the same loop on a schedule ([routines.md](routines.md)).
 
 ## What this is not
 
-- Not [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) (IDE Planner / Implementer / Reviewer / Ops). That crew reviews and ships code in an editor. This OS sits on a **desktop computer** and includes inbox, storefront, money, and ship.
-- Not [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) (runtime layers). Jarvis tells you how to swap a harness. This repo tells you how to run a **living assistant** on one.
+- Not [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) (Planner → Implementer → Reviewer → Ops; Kiro is the example host). That crew reviews and ships code in an editor. This OS sits on a **desktop computer** and includes inbox, storefront, money, and ship.
+- Not [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) (brain · workers · ops). Jarvis is the reference architecture for swapping a host. This repo is the **living assistant** on one shared computer.
+- Not the sibling kits: [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) (curated list), [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) (evals), [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) (AppSec `path:line`).
 - Not a private prompt pack. If a sentence only works as a secret system prompt, it does not belong here.
 
 ## Public refs (patterns, not SDKs)
