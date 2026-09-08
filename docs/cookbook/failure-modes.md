@@ -6,7 +6,7 @@ Pattern first: crew, shared computer, HITL, connectors. [Grok Bot](https://curso
 
 ## Token burn
 
-| | |
+| Lens | What you see |
 |---|---|
 | **Symptom** | The board looks busy; quality and the bill both drop. Hops carry last week’s mail. Código greps the whole tree. A routine “summarizes the inbox” every morning. |
 | **Mistake** | Treating context as free and coordination as intelligence. Transcript dumps, union tool schemas on the chief-of-staff, browser pixels as “context”. |
@@ -16,7 +16,7 @@ Pattern first: crew, shared computer, HITL, connectors. [Grok Bot](https://curso
 
 ## Fan-out spam
 
-| | |
+| Lens | What you see |
 |---|---|
 | **Symptom** | One user sentence becomes five specialists, two cloud jobs, and a mesh of hops. Nobody owns `done_when`. Inbox pings Código “just in case”. |
 | **Mistake** | Orchestrator as a fan-out switch. Splitting for ceremony. Specialists spawning peers. |
@@ -26,7 +26,7 @@ Pattern first: crew, shared computer, HITL, connectors. [Grok Bot](https://curso
 
 ## Mac vs box
 
-| | |
+| Lens | What you see |
 |---|---|
 | **Symptom** | The laptop chat *is* the OS. Or the remote machine *is* a second OS that can merge, mail, and pay. HITL lives “wherever the model is running.” The only board is the thread. |
 | **Mistake** | Confusing the **desktop session** (the Mac you sit at) with the **shared computer** (board, interrupts, working tree) and with **extra rooms** (cloud / remote boxes). |
@@ -38,7 +38,7 @@ Grok Bot / Cursor Cloud is the mapping we use. Any desktop host + any remote cod
 
 ## Silent approval
 
-| | |
+| Lens | What you see |
 |---|---|
 | **Symptom** | `decided_by` is a model. The demo was waiting. “It’s just us.” A cloud PR is already on `main`. A draft RSVP left the mailbox. |
 | **Mistake** | HITL as a personality setting. Inventing resume. Treating `default_on_timeout=wait` as `approve`. |
