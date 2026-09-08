@@ -59,16 +59,24 @@ Example names (`Inbox`, `Código`, `Vitrine`, `Quinto`, `Entrega`, `Obs`) are **
 
 ## Start
 
-1. [`docs/architecture.md`](docs/architecture.md)
-2. [`docs/crew/roles.md`](docs/crew/roles.md) · [`docs/crew/hitl.md`](docs/crew/hitl.md)
-3. [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md)
+| # | Read | Why |
+|---|---|---|
+| 1 | [`docs/architecture.md`](docs/architecture.md) | Layers and trust |
+| 2 | [`docs/adr/README.md`](docs/adr/README.md) | Accepted decisions (0001–0006) |
+| 3 | [`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md) | Job · objective · write-boundary |
+| 4 | [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md) | Stand up; then loops that look fast and go wrong |
+
+Then: [`routines.md`](docs/routines.md) · [`connectors.md`](docs/connectors.md) · [`security.md`](docs/security.md) · [`token-economy.md`](docs/token-economy.md).
 
 ## Related
 
-- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — brain · workers · ops
-- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — IDE crew
-- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) · [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) · [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review)
-- Pattern refs: [MCP](https://modelcontextprotocol.io/docs/learn/architecture) · [Anthropic — effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [LangGraph HITL](https://docs.langchain.com/oss/python/langgraph/interrupts) · [OTel GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/) · [OWASP agentic](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) · [AGENTS.md](https://agents.md/) · [12-factor agents](https://github.com/humanlayer/12-factor-agents)
+- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Brain · workers · ops (runtime / host swap)
+- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — IDE Planner / Implementer / Reviewer / Ops (editor crew)
+- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — MCP · harness · HITL · agent security (curated list)
+- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Measure, do not train (eval harness)
+- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — Skills · runbooks · guardrails (PR review kit)
+
+Pattern refs: [MCP](https://modelcontextprotocol.io/docs/learn/architecture) · [Anthropic — effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [LangGraph HITL](https://docs.langchain.com/oss/python/langgraph/interrupts) · [OTel GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/) · [OWASP agentic](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) · [AGENTS.md](https://agents.md/) · [12-factor agents](https://github.com/humanlayer/12-factor-agents)
 
 ## Contributing
 
