@@ -60,7 +60,7 @@ flowchart TB
 | Desktop session · Shared FS (computer ≠ chat) | [ADR 0002](adr/0002-shared-computer-vs-desktop.md) |
 | User ↔ CoS (`goal / HITL resume`, `HITL`) | [ADR 0003](adr/0003-hitl-on-side-effects.md) |
 | Specialists → Connectors; Browser `exception` | [ADR 0004](adr/0004-connectors-over-browser.md) |
-| Hops as refs, not blobs (envelope, not drawn) | [ADR 0005](adr/0005-token-thrift.md) |
+| Hops as refs, not blobs (envelope, not drawn) | [ADR 0005](adr/0005-token-thrift.md) · [context-engineering.md](context-engineering.md) |
 | Código → Cloud; Cloud → Files (`PR + refs`) | [ADR 0006](adr/0006-cloud-agents-for-code.md) |
 
 Index: [adr/README.md](adr/README.md). When the loop feels fast and wrong: [cookbook/failure-modes.md](cookbook/failure-modes.md).
@@ -102,7 +102,7 @@ If a specialist can see (2) and (3) and reach (4), you have the [lethal trifecta
 1. User states a one-sentence goal.
 2. Chief-of-staff writes a board card: owner, done-when, write-policy, refs.
 3. Specialist works **only** that card. Tools come from its connector allowlist.
-4. Handoff is a typed envelope ([crew/handoffs.md](crew/handoffs.md)), not a transcript paste.
+4. Handoff is a typed envelope ([crew/handoffs.md](crew/handoffs.md)), not a transcript paste. What may enter the window: [context-engineering.md](context-engineering.md).
 5. Privileged write → interrupt → human `decision` ([crew/hitl.md](crew/hitl.md)).
 6. Obs records outcome (trace id, tokens if known, residual risk). No invented prod numbers.
 
@@ -119,6 +119,7 @@ Routines are the same loop on a schedule ([routines.md](routines.md)).
 
 - [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture) — host / client / server
 - [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) — orchestrator–workers, when not to add agents
+- [Effective context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — smallest high-signal set; we map it to the board
 - [12-factor agents](https://github.com/humanlayer/12-factor-agents) — own context and pause/resume
 - [AGENTS.md](https://agents.md/) — in-repo agent SoT
 - [LangGraph interrupts](https://docs.langchain.com/oss/python/langgraph/interrupts) — persist + resume

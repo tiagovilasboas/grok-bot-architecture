@@ -65,6 +65,7 @@ Example names (`Inbox`, `Código`, `Vitrine`, `Quinto`, `Entrega`, `Obs`) are **
 | 2 | [`docs/adr/README.md`](docs/adr/README.md) | Accepted decisions (0001–0006) |
 | 3 | [`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md) | Job · objective · write-boundary |
 | 4 | [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md) | Stand up; then loops that look fast and go wrong |
+| 5 | [`docs/context-engineering.md`](docs/context-engineering.md) | What enters the window; thrift; fail-closed |
 
 Then: [`routines.md`](docs/routines.md) · [`connectors.md`](docs/connectors.md) · [`security.md`](docs/security.md) · [`token-economy.md`](docs/token-economy.md).
 
@@ -78,7 +79,7 @@ Siblings are scoped kits — not this desktop OS.
 - [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Evals: suites, named metrics, reports. Measure; do not train.
 - [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec PR review: skills, runbooks, `path:line` or silence.
 
-Pattern refs: [MCP](https://modelcontextprotocol.io/docs/learn/architecture) · [Anthropic — effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [LangGraph HITL](https://docs.langchain.com/oss/python/langgraph/interrupts) · [OTel GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/) · [OWASP agentic](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) · [AGENTS.md](https://agents.md/) · [12-factor agents](https://github.com/humanlayer/12-factor-agents)
+Pattern refs: [MCP](https://modelcontextprotocol.io/docs/learn/architecture) · [Anthropic — effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [Anthropic — context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) · [LangGraph HITL](https://docs.langchain.com/oss/python/langgraph/interrupts) · [OTel GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/) · [OWASP agentic](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) · [AGENTS.md](https://agents.md/) · [12-factor agents](https://github.com/humanlayer/12-factor-agents)
 
 ## Contributing
 
