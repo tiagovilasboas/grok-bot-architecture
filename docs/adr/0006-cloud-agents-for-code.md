@@ -14,3 +14,6 @@ Desktop sessions are good at HITL, connectors, and “sit with the human.” The
 + Cleaner write-boundary (branch + PR)
 − Another host to keep vendor-agnostic; do not bake Cursor Cloud into the pattern
 − Cloud agents still inherit HITL: they do not merge themselves
+
+## See
+[architecture.md](../architecture.md) (Código → Cloud). Mac vs box: [cookbook/failure-modes.md](../cookbook/failure-modes.md) · [cookbook/when-to-use-cloud-agent.md](../cookbook/when-to-use-cloud-agent.md).

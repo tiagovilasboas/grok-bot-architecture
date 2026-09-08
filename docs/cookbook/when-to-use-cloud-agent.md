@@ -2,7 +2,7 @@
 
 Cloud / remote agents are **extra machines** for isolated code, not a second Inbox. [ADR 0006](../adr/0006-cloud-agents-for-code.md). The desktop chief-of-staff keeps the board and the merge gate.
 
-Grok Bot / Cursor Cloud is the **example mapping**. The decision is host-agnostic: long isolated implementation leaves the shared desktop session.
+Grok Bot / Cursor Cloud is the **example mapping**. The decision is host-agnostic: long isolated implementation leaves the shared desktop session. Do not confuse the Mac session with the box ([failure-modes.md](failure-modes.md) — Mac vs box).
 
 ## Use a cloud agent when all of these hold
 

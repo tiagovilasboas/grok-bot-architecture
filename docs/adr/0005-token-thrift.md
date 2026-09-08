@@ -14,3 +14,6 @@ Multi-agent designs lose on coordination and context long before they lose on mo
 + Forces a real board instead of chat archaeology
 − Adapters must resolve refs; chat-only hosts feel thinner
 − A tight budget will refuse useful-but-huge context; that is the point
+
+## See
+[architecture.md](../architecture.md) (hops as refs) · [token-economy.md](../token-economy.md). Token burn: [cookbook/failure-modes.md](../cookbook/failure-modes.md).

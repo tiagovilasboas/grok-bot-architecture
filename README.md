@@ -61,7 +61,7 @@ Example names (`Inbox`, `Código`, `Vitrine`, `Quinto`, `Entrega`, `Obs`) are **
 
 1. [`docs/architecture.md`](docs/architecture.md)
 2. [`docs/crew/roles.md`](docs/crew/roles.md) · [`docs/crew/hitl.md`](docs/crew/hitl.md)
-3. [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md)
+3. [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md)
 
 ## Related
 

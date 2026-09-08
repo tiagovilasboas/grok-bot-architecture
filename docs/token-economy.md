@@ -41,3 +41,4 @@ The orchestrator is the cheapest place to waste money: it sees every card and wa
 
 - First week: stay at two roles until a window collides ([first-week.md](cookbook/first-week.md)).
 - Cloud: pay the remote job when the desktop window would otherwise hold a 40-minute SWE loop ([when-to-use-cloud-agent.md](cookbook/when-to-use-cloud-agent.md)).
+- Token burn / fan-out / Mac vs box / silent approval: [failure-modes.md](cookbook/failure-modes.md).

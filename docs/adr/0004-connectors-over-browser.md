@@ -14,3 +14,6 @@ Prefer **connectors** — [MCP](https://modelcontextprotocol.io/docs/learn/archi
 + Swap a server without rewriting the specialist
 − Some surfaces have no MCP/API; browser stays, with a recorded exception
 − Connector sprawl is still a host decision ([awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) criteria), not a catalog dump
+
+## See
+[architecture.md](../architecture.md) (Connectors; Browser `exception`) · [connectors.md](../connectors.md).

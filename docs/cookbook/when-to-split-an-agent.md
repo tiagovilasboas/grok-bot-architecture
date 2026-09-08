@@ -38,7 +38,7 @@ Example names in this repo (`Inbox`, `Código`, `Vitrine`, `Quinto`, `Entrega`, 
 
 - **Evaluator as a seventh agent** when you have no eval artifact. Use [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) first.
 - **Mirror every human job title.** The OS is smaller than the company.
-- **Split to “move faster.”** Extra hops are tokens and missed gates. Anthropic’s effective-agents note still applies: add complexity when it measurably helps.
+- **Split to “move faster.”** Extra hops are tokens and missed gates. Anthropic’s effective-agents note still applies: add complexity when it measurably helps. Fan-out spam is a failure mode, not a crew ([failure-modes.md](failure-modes.md)).
 
 ## After you split
 

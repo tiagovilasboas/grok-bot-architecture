@@ -14,7 +14,7 @@ docs/routines.md              scheduled / evented loops
 docs/connectors.md            MCP / APIs over browser
 docs/security.md              lethal trifecta + privileged writes
 docs/token-economy.md         context budget as a control
-docs/cookbook/                first week · split · cloud
+docs/cookbook/                first week · split · cloud · failure modes
 examples/                     filled board + interrupt record
 ```
 

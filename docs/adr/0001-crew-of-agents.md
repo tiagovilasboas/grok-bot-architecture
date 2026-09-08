@@ -14,3 +14,6 @@ We will run a **crew**: a **chief-of-staff** (plan, route, interrupt) plus **spe
 + Host swap keeps the same jobs
 − Coordination cost; a two-role crew is often enough on week one
 − Need typed handoffs ([docs/crew/handoffs.md](../crew/handoffs.md))
+
+## See
+[architecture.md](../architecture.md) (CoS → specialists). Fan-out spam: [cookbook/failure-modes.md](../cookbook/failure-modes.md).

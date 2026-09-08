@@ -23,6 +23,7 @@ Never reuse a number. When reversing a decision, keep the old file and mark it `
 
 ## Related
 
-- Layer model: [../architecture.md](../architecture.md)
+- Layer model (diagram ↔ this index): [../architecture.md](../architecture.md)
 - Crew contracts: [../crew/roles.md](../crew/roles.md)
-- Host swap without a domain rewrite: keep ADRs 0001–0006; change only the example host mapping
+- When the loop is fast and wrong: [../cookbook/failure-modes.md](../cookbook/failure-modes.md)
+- Host swap without a domain rewrite: keep ADRs 0001–0006; change only the example host mapping (Grok Bot / Cursor today)

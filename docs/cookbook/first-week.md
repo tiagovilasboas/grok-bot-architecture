@@ -53,7 +53,7 @@ Doing both in week one is how the board dies.
 
 ## Day 5 — what you refuse
 
-Write down what you will **not** automate yet. Suggested defaults: send-as-user, prod deploy, bank, “watch the web”. Add a third specialist only if [when-to-split-an-agent.md](when-to-split-an-agent.md) fires.
+Write down what you will **not** automate yet. Suggested defaults: send-as-user, prod deploy, bank, “watch the web”. Add a third specialist only if [when-to-split-an-agent.md](when-to-split-an-agent.md) fires. If the loop already feels fast and slightly wrong, read [failure-modes.md](failure-modes.md) before hiring.
 
 ## Done-when (week)
 

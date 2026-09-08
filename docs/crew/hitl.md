@@ -31,7 +31,7 @@ decided_at:    <iso-8601>
 notes:         <optional>
 ```
 
-**Never invent `decided_by`.** A model completing the form is a failed gate, not a clever agent.
+**Never invent `decided_by`.** A model completing the form is a failed gate, not a clever agent. That is silent approval ([cookbook/failure-modes.md](../cookbook/failure-modes.md)).
 
 ## Allowlists
 
