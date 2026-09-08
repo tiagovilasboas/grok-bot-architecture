@@ -14,3 +14,6 @@ The OS is a **shared computer**: working tree, `examples/`-shaped board, persist
 + Honest split between “I typed in chat” and “the computer changed”
 − Chat-only hosts need a thin adapter (files or a ticket) for board + interrupt
 − Shared FS is a trust boundary: specialists still do not share every secret
+
+## See
+[architecture.md](../architecture.md) (Desktop session · Shared FS). Mac vs box: [cookbook/failure-modes.md](../cookbook/failure-modes.md).

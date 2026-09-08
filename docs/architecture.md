@@ -43,14 +43,27 @@ flowchart TB
   Quinto --> Conn
   Entrega --> Conn
   Obs --> Conn
-  Inbox -.->|"exception"| Browser
-  Vitrine -.->|"exception"| Browser
-  Codigo --> Cloud
+  Inbox -.->|"exception · ADR 0004"| Browser
+  Vitrine -.->|"exception · ADR 0004"| Browser
+  Codigo -->|"ADR 0006"| Cloud
   CoS --- Files
   Desktop --- Files
-  Cloud -->|"PR + refs"| Files
-  CoS -->|"HITL"| User
+  Cloud -->|"PR + refs · ADR 0006"| Files
+  CoS -->|"HITL · ADR 0003"| User
 ```
+
+**Diagram ↔ ADR** — the picture is the map; the records are the decisions.
+
+| On the diagram | Decision |
+|---|---|
+| CoS → specialists (crew, not a monolith) | [ADR 0001](adr/0001-crew-of-agents.md) |
+| Desktop session · Shared FS (computer ≠ chat) | [ADR 0002](adr/0002-shared-computer-vs-desktop.md) |
+| User ↔ CoS (`goal / HITL resume`, `HITL`) | [ADR 0003](adr/0003-hitl-on-side-effects.md) |
+| Specialists → Connectors; Browser `exception` | [ADR 0004](adr/0004-connectors-over-browser.md) |
+| Hops as refs, not blobs (envelope, not drawn) | [ADR 0005](adr/0005-token-thrift.md) |
+| Código → Cloud; Cloud → Files (`PR + refs`) | [ADR 0006](adr/0006-cloud-agents-for-code.md) |
+
+Index: [adr/README.md](adr/README.md). When the loop feels fast and wrong: [cookbook/failure-modes.md](cookbook/failure-modes.md).
 
 | Layer | Owns | Must not |
 |---|---|---|
@@ -60,7 +73,7 @@ flowchart TB
 | **Connectors** | Schema’d tools and resources | Become the architecture; dump the catalog into context |
 | **Host computer** | Session, FS, optional cloud machine | Be confused with the OS (see [ADR 0002](adr/0002-shared-computer-vs-desktop.md)) |
 
-Vendor-agnostic rule: if you swap Cursor for another desktop harness, the table above still holds. Only the **mapping** (where the board file lives, how MCP is attached, how a cloud job is spawned) changes. That is the same honesty as [jarvis-architecture ADR 0003](https://github.com/tiagovilasboas/jarvis-architecture/blob/main/docs/adr/0003-vendor-agnostic.md), applied to a living assistant instead of a brain · workers · ops runtime.
+Vendor-agnostic rule: if you swap the example host (Grok Bot / Cursor) for another desktop harness, the table above still holds. Only the **mapping** (where the board file lives, how MCP is attached, how a cloud job is spawned) changes. That is the same honesty as [jarvis-architecture ADR 0003](https://github.com/tiagovilasboas/jarvis-architecture/blob/main/docs/adr/0003-vendor-agnostic.md), applied to a living assistant instead of a brain · workers · ops runtime.
 
 ## Shared computer
 
