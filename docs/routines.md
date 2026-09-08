@@ -40,7 +40,7 @@ Evented is better than scheduled when the source already exists: “PR opened”
 
 ## Budget and stop
 
-- **Hops:** morning triage that spawns five specialists is a design bug. One owner, optional one hop to Obs.
+- **Hops:** morning triage that spawns five specialists is a design bug. One owner, optional one hop to Obs ([failure-modes.md](cookbook/failure-modes.md) — fan-out spam).
 - **Tokens:** if the routine needs last week’s full inbox, it needs a connector query with a filter, not a dump.
 - **Wall time:** desktop sessions sleep. Long code does not belong in a routine — dispatch Código’s cloud path ([ADR 0006](adr/0006-cloud-agents-for-code.md)).
 - **On budget hit:** persist a `block` on the board. Do not “finish loosely”.
