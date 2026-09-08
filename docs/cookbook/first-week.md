@@ -64,10 +64,10 @@ Write down what you will **not** automate yet. Suggested defaults: send-as-user,
 
 ## Sister repos when you need them
 
-Not this OS. One job each:
+Not this OS. One job each.
 
-- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — brain · workers · ops; swap a host without rewriting the domain
-- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — IDE Planner / Implementer / Reviewer / Ops
-- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — MCP · harness · HITL · agent security
-- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — eval harness; measure, do not train
-- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — skills · runbooks · guardrails (`path:line`)
+- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Reference architecture: brain · workers · ops. Swap the host, keep the domain.
+- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — Crew pattern: Planner → Implementer → Reviewer → Ops. Kiro is the example host.
+- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — Curated list: MCP · harness · AppSec. Decision filter, not a catalog.
+- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Evals: suites, named metrics, reports. Measure; do not train.
+- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec PR review: skills, runbooks, `path:line` or silence.
