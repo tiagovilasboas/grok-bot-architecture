@@ -64,7 +64,10 @@ Write down what you will **not** automate yet. Suggested defaults: send-as-user,
 
 ## Sister repos when you need them
 
-- Swap runtime language: [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture)
-- IDE review crew (different pattern): [kiro-crew](https://github.com/tiagovilasboas/kiro-crew)
-- Measure the loop: [agent-measurement](https://github.com/tiagovilasboas/agent-measurement)
-- Review guardrails: [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review)
+Not this OS. One job each:
+
+- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — brain · workers · ops; swap a host without rewriting the domain
+- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — IDE Planner / Implementer / Reviewer / Ops
+- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — MCP · harness · HITL · agent security
+- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — eval harness; measure, do not train
+- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — skills · runbooks · guardrails (`path:line`)
