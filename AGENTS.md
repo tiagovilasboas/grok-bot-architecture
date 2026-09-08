@@ -13,6 +13,7 @@ docs/crew/hitl.md             fail-closed interrupts
 docs/routines.md              scheduled / evented loops
 docs/connectors.md            MCP / APIs over browser
 docs/security.md              lethal trifecta + privileged writes
+docs/context-engineering.md   window assembly · thrift · fail-closed
 docs/token-economy.md         context budget as a control
 docs/cookbook/                first week · split · cloud · failure modes
 examples/                     filled board + interrupt record
