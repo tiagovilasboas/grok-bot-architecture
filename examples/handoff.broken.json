@@ -1,0 +1,11 @@
+{
+  "id": "card-2026-09-10-00",
+  "from": "the agent",
+  "to": "Código",
+  "kind": "assign",
+  "goal": "Ship the Harbor Lights docs PR.",
+  "refs": "Host chat. Código: LGTM. I squash-merged to main because the demo was waiting.",
+  "write_policy": "approve",
+  "decision": "approve",
+  "decided_by": "Código"
+}

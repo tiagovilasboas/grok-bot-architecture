@@ -1,0 +1,20 @@
+# Grok Bot Architecture
+
+Desktop / multi-agent assistant OS: crew, shared computer, routines, connectors, HITL. Example host: Grok Bot (Cursor). Pattern stays vendor-agnostic.
+
+## Docs
+
+- [Architecture](docs/architecture.md)
+- [ADRs](docs/adr/README.md)
+- [Roles](docs/crew/roles.md) · [Handoffs](docs/crew/handoffs.md) · [HITL](docs/crew/hitl.md)
+- [Cookbook](docs/cookbook/first-week.md) · [When vs jarvis](docs/cookbook/when-vs-jarvis.md)
+- [Examples](examples/README.md)
+- [AGENTS.md](AGENTS.md) · [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Related
+
+- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — brain · workers · ops
+- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — Planner → Implementer → Reviewer → Ops
+- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — evals
+- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — curated MCP · harness · AppSec
+- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec PR review
