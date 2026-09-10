@@ -1,0 +1,17 @@
+{
+  "id": "card-2026-09-10-01",
+  "from": "Chief-of-staff",
+  "to": "Código",
+  "kind": "assign",
+  "goal": "Add a ship-checklist heading to the Harbor Lights docs PR; do not merge.",
+  "refs": [
+    "docs/crew/hitl.md",
+    "docs/cookbook/when-to-use-cloud-agent.md",
+    "pr://example/harbor-lights/12"
+  ],
+  "write_policy": "draft",
+  "done_when": "PR ref names residual risk; merge stays an interrupt.",
+  "observability": {
+    "trace_id": "card-2026-09-10-01"
+  }
+}
