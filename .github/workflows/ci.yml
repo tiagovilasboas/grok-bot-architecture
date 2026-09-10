@@ -1,0 +1,31 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  fixtures:
+    name: validate fixtures
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate handoff fixtures
+        run: node scripts/validate-handoff.mjs
+
+      - name: Validate interrupt fixtures
+        run: node scripts/validate-interrupt.mjs
+
+  links:
+    name: check relative links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check relative markdown links
+        run: bash scripts/check-relative-links.sh
