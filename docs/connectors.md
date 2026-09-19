@@ -2,6 +2,10 @@
 
 Connectors are how the shared computer talks to the world. They are **not** the architecture. [ADR 0004](adr/0004-connectors-over-browser.md): schema’d MCP / APIs first; browser last.
 
+## Plugin = connector
+
+Here a **plugin** is a **connector**: schema’d MCP or first-party API with auth, allowlist, and a write-boundary — not a marketplace catalog. Same rule as [ADR 0004](adr/0004-connectors-over-browser.md): connector first; browser last; fail closed when there is no contract. Trust and secrets stay on the host; specialists get a subset, never the union.
+
 ## Placement
 
 ```text
