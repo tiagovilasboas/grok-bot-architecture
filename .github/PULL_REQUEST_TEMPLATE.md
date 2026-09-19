@@ -11,6 +11,7 @@ What changed? Name the files and the decision (if any).
 Concrete checks a reviewer can run. Paths and commands in English fences:
 
 ```text
+node scripts/validate-all.mjs
 wc -l AGENTS.md
 test "$(wc -l < AGENTS.md)" -le 80
 ls LICENSE CONTRIBUTING.md docs/adr/README.md docs/architecture.md docs/crew/roles.md

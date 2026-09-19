@@ -23,7 +23,7 @@ specialist  →  host MCP client  →  server (tools · resources · prompts)
 | What is the exfil path? | Send, write-remote, arbitrary URL |
 | How do we evict it? | No uninstall story |
 
-Adding a server is a **host decision**. Do not paste catalogs into this repo. Curation criteria live in [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai). Official security notes: [MCP security best practices](https://modelcontextprotocol.io/docs/latest/tutorials/security/security_best_practices).
+Adding a server is a **host decision**. Do not paste catalogs into this repo. Official security notes: [MCP security best practices](https://modelcontextprotocol.io/docs/latest/tutorials/security/security_best_practices).
 
 ## Allowlists (by role, examples)
 
