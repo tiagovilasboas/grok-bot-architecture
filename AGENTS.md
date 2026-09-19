@@ -26,6 +26,7 @@ scripts/validate-*.mjs        zero-dep; CI in .github/workflows/ci.yml
 |---|---|
 | Pattern | Crew of specialists, one shared computer, routines, connectors, HITL |
 | Example host | Grok Bot on Cursor. Swap the host; keep roles, gates, and connector contracts |
+| Limit | Pattern / reference, not a hosted OS. The host is replaceable. |
 
 ## Do
 

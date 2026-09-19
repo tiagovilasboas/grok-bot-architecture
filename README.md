@@ -42,6 +42,26 @@ Handoff fixture expectations failed.
 
 That is the contract: ghost owners, transcript `refs`, invented `decision`, and `default_on_timeout: approve` do not ship.
 
+## Judgment
+
+**Do not use a crew** when **one human, one repo, one chat** is enough. That is a sitting, not an OS. A second specialist without a secrets / write-boundary / window collision is ceremony.
+
+If you run this pattern, the checkers above are the gate — not a vibe:
+
+| Rule | Fail closed |
+|---|---|
+| Timeout | `default_on_timeout` must be **`wait`**. Never `approve`. If nobody answers, the write stays paused. |
+| Owners | Ghost owners fail closed. `from` / `to` are roles (`Chief-of-staff`, `Código`), not `"the agent"` or `"the model"`. |
+| Resume | Invented `decision` / `decided_by` on a hop is a failed gate. Resume lives on the interrupt record; only a human fills it. |
+
+A vs B filter: [`docs/cookbook/when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md).
+
+## Limit
+
+This repository is a **pattern / reference** — ADRs, crew contracts, and `node scripts/validate-all.mjs`. It is **not** a hosted OS you log into, a product CLI, or a vendor SDK.
+
+The **host is replaceable**. Grok Bot / Cursor is the example mapping. Swap the desktop harness; keep user · chief-of-staff · specialists · connectors · shared computer.
+
 Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agentic AI
 
 ## Architecture
@@ -97,12 +117,6 @@ Example names (`Inbox`, `Código`, `Vitrine`, `Quinto`, `Entrega`, `Obs`) are **
 
 Machine-checked envelopes: [`examples/`](examples/) · `node scripts/validate-handoff.mjs` · `node scripts/validate-interrupt.mjs` · `node scripts/validate-all.mjs`.
 
-## When to use this pattern
-
-Use this log when you are standing up a **desktop multi-agent assistant OS** and need the decisions (crew, shared computer, HITL, connectors, thrift) in one place. Skip it when one human, one repo, one chat is enough — a crew is ceremony.
-
-Short filter: [`docs/cookbook/when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md).
-
 ## Start
 
 | # | Read | Why |
@@ -110,7 +124,7 @@ Short filter: [`docs/cookbook/when-to-use-this-pattern.md`](docs/cookbook/when-t
 | 1 | [`docs/architecture.md`](docs/architecture.md) | Layers and trust |
 | 2 | [`docs/adr/README.md`](docs/adr/README.md) | Accepted decisions (0001–0006) |
 | 3 | [`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md) | Job · objective · write-boundary |
-| 4 | [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md) | Stand up; then loops that look fast and go wrong |
+| 4 | [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md) | Stand up; A vs B; loops that look fast and go wrong |
 | 5 | [`docs/context-engineering.md`](docs/context-engineering.md) | What enters the window; thrift; fail-closed |
 
 Then: [`routines.md`](docs/routines.md) · [`connectors.md`](docs/connectors.md) · [`security.md`](docs/security.md) · [`token-economy.md`](docs/token-economy.md).
