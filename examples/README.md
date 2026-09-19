@@ -10,6 +10,14 @@ Markdown **shapes** (copy the headings; blank the fields) and JSON **fixtures** 
 Contracts: [`docs/crew/handoffs.md`](../docs/crew/handoffs.md) · [`docs/crew/hitl.md`](../docs/crew/hitl.md). JSON `refs` are arrays; the markdown shapes may show a single ref line.
 
 ```text
+node scripts/validate-all.mjs
+```
+
+Or the individual checkers:
+
+```text
 node scripts/validate-handoff.mjs
 node scripts/validate-interrupt.mjs
 ```
+
+Every `examples/*.broken.json` must be rejected. Every `*.fixed.json` must be accepted.

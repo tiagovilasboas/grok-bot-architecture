@@ -37,7 +37,7 @@ The cloud agent **does not** merge, rotate secrets, or mail the user. It may pus
 ## After it returns
 
 1. Código or the chief-of-staff attaches PR / SHA refs to the board.
-2. Review happens like any other change ([agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) if you want that kit).
+2. Review happens like any other change (a human, or a written review contract in your tree).
 3. Entrega + HITL for merge/deploy.
 
 If the remote job opened a PR and also merged it, the gate failed — treat it as an incident, not a speed win.

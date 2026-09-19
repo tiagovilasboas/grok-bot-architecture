@@ -20,6 +20,9 @@ jobs:
       - name: Validate interrupt fixtures
         run: node scripts/validate-interrupt.mjs
 
+      - name: Validate all contracts
+        run: node scripts/validate-all.mjs
+
   links:
     name: check relative links
     runs-on: ubuntu-latest

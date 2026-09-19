@@ -63,7 +63,7 @@ Pattern refs: [Design Patterns for Securing LLM Agents](https://arxiv.org/abs/25
 
 Prefer [OTel GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/) and [agent spans](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/). Log tool name, decision, interrupt id. Do not log tokens, mail bodies, or ledger rows into a public trace.
 
-This repo will not publish “we ran this in prod” numbers. If you need measurement, use [agent-measurement](https://github.com/tiagovilasboas/agent-measurement).
+This repo will not publish “we ran this in prod” numbers. Keep measurement artifacts in your tree.
 
 ## Explicitly out of scope here
 

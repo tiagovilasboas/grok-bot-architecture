@@ -34,7 +34,7 @@ Chief-of-staff is the only orchestrator. Specialists do not spawn peers. Add a r
 ### Código
 
 - **Job:** Implement one card in one repo (or dispatch a cloud agent that does).
-- **Objective:** A reviewable change. Reviewer-quality bar lives in [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review); this role does not silently LGTM itself.
+- **Objective:** A reviewable change. Reviewer-quality bar is a human or a written review contract; this role does not silently LGTM itself.
 - **Write-boundary:** Branch / working tree. Merge to default and production deploy are Entrega + HITL, not Código.
 - **Cloud:** Allowed when the job is isolated and long. The desktop session keeps the board and the merge gate.
 
@@ -62,7 +62,7 @@ Chief-of-staff is the only orchestrator. Specialists do not spawn peers. Add a r
 - **Job:** Make the loop inspectable: traces, eval hooks, interrupt ageing, token notes.
 - **Objective:** A Staff reader can answer “did it run, what did it touch, what is still open?”
 - **Write-boundary:** Dashboards and notes. Paging the human is allowed. Muting prod alerts is HITL.
-- **Evidence:** Prefer [OTel GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/) names. Measure in [agent-measurement](https://github.com/tiagovilasboas/agent-measurement). Do not paste fake latency graphs here.
+- **Evidence:** Prefer [OTel GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/) names. Keep scores in your tree. Do not paste fake latency graphs here.
 
 ## Fail-closed reminder
 

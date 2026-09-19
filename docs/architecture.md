@@ -73,7 +73,7 @@ Index: [adr/README.md](adr/README.md). When the loop feels fast and wrong: [cook
 | **Connectors** | Schema’d tools and resources | Become the architecture; dump the catalog into context |
 | **Host computer** | Session, FS, optional cloud machine | Be confused with the OS (see [ADR 0002](adr/0002-shared-computer-vs-desktop.md)) |
 
-Vendor-agnostic rule: if you swap the example host (Grok Bot / Cursor) for another desktop harness, the table above still holds. Only the **mapping** (where the board file lives, how MCP is attached, how a cloud job is spawned) changes. That is the same honesty as [jarvis-architecture ADR 0003](https://github.com/tiagovilasboas/jarvis-architecture/blob/main/docs/adr/0003-vendor-agnostic.md), applied to a living assistant instead of a brain · workers · ops runtime.
+Vendor-agnostic rule: if you swap the example host (Grok Bot / Cursor) for another desktop harness, the table above still holds. Only the **mapping** (where the board file lives, how MCP is attached, how a cloud job is spawned) changes. A host swap must not force a domain rewrite.
 
 ## Shared computer
 
@@ -110,10 +110,12 @@ Routines are the same loop on a schedule ([routines.md](routines.md)).
 
 ## What this is not
 
-- Not [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) (Planner → Implementer → Reviewer → Ops; Kiro is the example host). That crew reviews and ships code in an editor. This OS sits on a **desktop computer** and includes inbox, storefront, money, and ship.
-- Not [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) (brain · workers · ops). Jarvis is the reference architecture for swapping a host. This repo is the **living assistant** on one shared computer.
-- Not the sibling kits: [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) (curated list), [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) (evals), [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) (AppSec `path:line`).
+- Not a single chat with every tool. That is the problem the crew solves ([ADR 0001](adr/0001-crew-of-agents.md)).
+- Not a vendor SDK or a host-only playbook. Grok Bot / Cursor is one mapping.
+- Not an eval harness or an AppSec review kit. Measure and review in your tree; this OS keeps the board and the gates.
 - Not a private prompt pack. If a sentence only works as a secret system prompt, it does not belong here.
+
+When the pattern applies: [cookbook/when-to-use-this-pattern.md](cookbook/when-to-use-this-pattern.md).
 
 ## Public refs (patterns, not SDKs)
 

@@ -1,8 +1,46 @@
 # Grok Bot Architecture
 
-Desktop / multi-agent assistant OS: crew of specialists, shared computer, routines, connectors, HITL. Example host: [Grok Bot](https://cursor.com) (Cursor).
+**Decision this repo helps you make:** whether a desktop assistant should be a **crew on a shared computer** — typed handoffs, fail-closed HITL, connectors over the browser, token thrift — or a single chat with every tool.
 
-Padrão de SO assistant; Grok Bot / Cursor é o host de exemplo.
+Staff ADRs and crew contracts. The proof is the validators, not a product CLI.
+
+```text
+node scripts/validate-all.mjs
+```
+
+Broken fixtures under `examples/*.broken.json` must be **rejected**. Fixed fixtures must be **accepted**. CI runs the same command (and the two checkers it wraps).
+
+### Sample pass
+
+```text
+self-test: OK
+examples/handoff.broken.json: REJECTED (expected)
+  - done_when must be a non-empty string
+  - from must be a role, not "the agent"
+  - refs must be an array of pointers (paths, SHAs, issue ids, URLs — not a transcript blob)
+  - write_policy must be read | draft | hitl:<merge|deploy|secrets|messaging-as-user> | allowlist:<name>
+  - decision / decided_by belong on the interrupt record; do not invent a resume on the hop
+examples/handoff.fixed.json: ACCEPTED (expected)
+OK
+self-test: OK
+examples/interrupt.broken.json: REJECTED (expected)
+  - gate must be one of merge, deploy, secrets, messaging-as-user (got undefined)
+  - default_on_timeout must be "wait" (got "approve")
+  - decided_by must be a human identifier; never invent a specialist or model
+examples/interrupt.fixed.json: ACCEPTED (expected)
+OK
+```
+
+### Sample fail
+
+A broken fixture the checker accepts (or a fixed fixture it rejects) fails the run:
+
+```text
+examples/handoff.broken.json: ACCEPTED (expected REJECTED)
+Handoff fixture expectations failed.
+```
+
+That is the contract: ghost owners, transcript `refs`, invented `decision`, and `default_on_timeout: approve` do not ship.
 
 Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agentic AI
 
@@ -57,7 +95,13 @@ Example names (`Inbox`, `Código`, `Vitrine`, `Quinto`, `Entrega`, `Obs`) are **
 
 [`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md)
 
-Machine-checked envelopes: [`examples/`](examples/) · `node scripts/validate-handoff.mjs` · `node scripts/validate-interrupt.mjs`.
+Machine-checked envelopes: [`examples/`](examples/) · `node scripts/validate-handoff.mjs` · `node scripts/validate-interrupt.mjs` · `node scripts/validate-all.mjs`.
+
+## When to use this pattern
+
+Use this log when you are standing up a **desktop multi-agent assistant OS** and need the decisions (crew, shared computer, HITL, connectors, thrift) in one place. Skip it when one human, one repo, one chat is enough — a crew is ceremony.
+
+Short filter: [`docs/cookbook/when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md).
 
 ## Start
 
@@ -71,17 +115,18 @@ Machine-checked envelopes: [`examples/`](examples/) · `node scripts/validate-ha
 
 Then: [`routines.md`](docs/routines.md) · [`connectors.md`](docs/connectors.md) · [`security.md`](docs/security.md) · [`token-economy.md`](docs/token-economy.md).
 
-## Related
+## Pattern refs
 
-Siblings are scoped kits — not this desktop OS.
+External patterns, not SDKs and not a sibling farm:
 
-- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Reference architecture: brain · workers · ops. Swap the host, keep the domain. Split: [`docs/cookbook/when-vs-jarvis.md`](docs/cookbook/when-vs-jarvis.md).
-- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — Crew pattern: Planner → Implementer → Reviewer → Ops. Kiro is the example host.
-- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — Curated list: MCP · harness · AppSec. Decision filter, not a catalog.
-- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Evals: suites, named metrics, reports. Measure; do not train.
-- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec PR review: skills, runbooks, `path:line` or silence.
-
-Pattern refs: [MCP](https://modelcontextprotocol.io/docs/learn/architecture) · [Anthropic — effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [Anthropic — context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) · [LangGraph HITL](https://docs.langchain.com/oss/python/langgraph/interrupts) · [OTel GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/) · [OWASP agentic](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) · [AGENTS.md](https://agents.md/) · [12-factor agents](https://github.com/humanlayer/12-factor-agents)
+- [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture)
+- [Anthropic — building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
+- [Anthropic — effective context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+- [LangGraph HITL](https://docs.langchain.com/oss/python/langgraph/interrupts)
+- [OWASP Top 10 for Agentic Applications (2026)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
+- [AGENTS.md](https://agents.md/)
+- [12-factor agents](https://github.com/humanlayer/12-factor-agents)
+- [OTel GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/)
 
 ## Contributing
 

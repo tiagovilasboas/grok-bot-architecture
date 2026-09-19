@@ -18,7 +18,7 @@ Propose changes through issues and pull requests. Do not commit to `main`.
 
 Architecture, crew contracts, ADRs, cookbooks, and **filled examples that invent no private prompts or screenshots**.
 
-This repo is **not** a vendor SDK, a system-prompt dump, or a client playbook. Do not add host-only APIs as if they were the OS. Do not paste private workspace trees from sister repos.
+This repo is **not** a vendor SDK, a system-prompt dump, or a client playbook. Do not add host-only APIs as if they were the OS. Do not paste private workspace trees from other repos.
 
 ## Quality bar
 
@@ -111,7 +111,7 @@ docs/adr/0007-example-decision.md
 - Treat MCP as the agent-to-tool protocol, not as a vendor.
 - Keep HITL (or an explicit allowlist) on privileged writes.
 - Pass work as a typed envelope, not a pasted transcript.
-- Name Grok Bot, Cursor, Goose, Codex, Kiro as examples only.
+- Name Grok Bot, Cursor, Goose, or Codex as examples only.
 
 **Don't**
 

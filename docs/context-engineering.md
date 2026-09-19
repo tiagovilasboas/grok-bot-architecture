@@ -6,7 +6,7 @@ Pattern first: [Anthropic — effective context engineering](https://www.anthrop
 
 ## What we will not claim
 
-This repository has **no first-party prod numbers** — no window sizes we “run in prod,” no token invoices, no compaction ratios. Public write-ups may publish theirs; we use the lesson, not the integers. Scores live in [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) **in your tree**.
+This repository has **no first-party prod numbers** — no window sizes we “run in prod,” no token invoices, no compaction ratios. Public write-ups may publish theirs; we use the lesson, not the integers. Scores live in **your tree**.
 
 ## What enters the window
 
@@ -55,7 +55,7 @@ Token burn and fan-out are the same failure when the window is the dump ([cookbo
 
 **Obs** makes the loop inspectable: what entered, whether a budget stopped the run, residual risk. Log tool name, decision, interrupt id. Do not log secrets or bodies ([crew/roles.md](crew/roles.md#obs)).
 
-**Evals** are not this OS. Use [agent-measurement](https://github.com/tiagovilasboas/agent-measurement): suites, named metrics, markdown reports. Measure; do not train. EXAMPLE fills there are not prod scores.
+**Evals** are not this OS. Suites, named metrics, and markdown reports live in your tree. Measure; do not train. Example fills are not prod scores.
 
 Checkable here (score **there**, in your tree):
 

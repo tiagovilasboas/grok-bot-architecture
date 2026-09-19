@@ -2,7 +2,7 @@
 
 Architectural Decision Records for this desktop / multi-agent assistant OS. One decision per file. Short form follows [Nygard's template](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) as described on [adr.github.io](https://adr.github.io/) (Status · Context · Decision · Consequences).
 
-How to propose a new record: [CONTRIBUTING.md](../../CONTRIBUTING.md).
+How to propose a new record: [CONTRIBUTING.md](../../CONTRIBUTING.md). When to use this log: [cookbook/when-to-use-this-pattern.md](../cookbook/when-to-use-this-pattern.md). Machine-check the envelopes: `node scripts/validate-all.mjs`.
 
 ## Index
 
