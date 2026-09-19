@@ -13,11 +13,11 @@ flowchart TB
   subgraph os [Assistant OS]
     CoS["Chief-of-staff<br/>plan · route · interrupt · board"]
     Inbox["Inbox"]
-    Codigo["Código"]
+    Eng["Eng"]
     Vitrine["Vitrine"]
     Quinto["Quinto"]
     Entrega["Entrega"]
-    Obs["Obs"]
+    Cibersec["Cibersec"]
   end
 
   subgraph edge [Edge]
@@ -33,19 +33,19 @@ flowchart TB
 
   User -->|"goal / HITL resume"| CoS
   CoS --> Inbox
-  CoS --> Codigo
+  CoS --> Eng
   CoS --> Vitrine
   CoS --> Quinto
   CoS --> Entrega
-  CoS --> Obs
+  CoS --> Cibersec
   Inbox --> Conn
   Vitrine --> Conn
   Quinto --> Conn
   Entrega --> Conn
-  Obs --> Conn
+  Cibersec --> Conn
   Inbox -.->|"exception · ADR 0004"| Browser
   Vitrine -.->|"exception · ADR 0004"| Browser
-  Codigo -->|"ADR 0006"| Cloud
+  Eng -->|"ADR 0006"| Cloud
   CoS --- Files
   Desktop --- Files
   Cloud -->|"PR + refs · ADR 0006"| Files
@@ -61,7 +61,7 @@ flowchart TB
 | User ↔ CoS (`goal / HITL resume`, `HITL`) | [ADR 0003](adr/0003-hitl-on-side-effects.md) |
 | Specialists → Connectors; Browser `exception` | [ADR 0004](adr/0004-connectors-over-browser.md) |
 | Hops as refs, not blobs (envelope, not drawn) | [ADR 0005](adr/0005-token-thrift.md) · [context-engineering.md](context-engineering.md) |
-| Código → Cloud; Cloud → Files (`PR + refs`) | [ADR 0006](adr/0006-cloud-agents-for-code.md) |
+| Eng → Cloud; Cloud → Files (`PR + refs`) | [ADR 0006](adr/0006-cloud-agents-for-code.md) |
 
 Index: [adr/README.md](adr/README.md). When the loop feels fast and wrong: [cookbook/failure-modes.md](cookbook/failure-modes.md).
 
@@ -104,7 +104,7 @@ If a specialist can see (2) and (3) and reach (4), you have the [lethal trifecta
 3. Specialist works **only** that card. Tools come from its connector allowlist.
 4. Handoff is a typed envelope ([crew/handoffs.md](crew/handoffs.md)), not a transcript paste. What may enter the window: [context-engineering.md](context-engineering.md).
 5. Privileged write → interrupt → human `decision` ([crew/hitl.md](crew/hitl.md)).
-6. Obs records outcome (trace id, tokens if known, residual risk). No invented prod numbers.
+6. Cibersec records outcome (trace id, tokens if known, residual risk). No invented prod numbers.
 
 Routines are the same loop on a schedule ([routines.md](routines.md)).
 
