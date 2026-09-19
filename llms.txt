@@ -1,6 +1,6 @@
 # Grok Bot Architecture
 
-Desktop / multi-agent assistant OS: crew, shared computer, routines, connectors, HITL. Example host: Grok Bot (Cursor). Pattern stays vendor-agnostic.
+Pattern / reference (not a hosted OS): crew, shared computer, routines, connectors, HITL. Example host: Grok Bot (Cursor). Host is replaceable; layers stay vendor-agnostic.
 
 Prove the contracts:
 

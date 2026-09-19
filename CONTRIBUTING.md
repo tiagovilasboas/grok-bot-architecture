@@ -18,7 +18,7 @@ Propose changes through issues and pull requests. Do not commit to `main`.
 
 Architecture, crew contracts, ADRs, cookbooks, and **filled examples that invent no private prompts or screenshots**.
 
-This repo is **not** a vendor SDK, a system-prompt dump, or a client playbook. Do not add host-only APIs as if they were the OS. Do not paste private workspace trees from other repos.
+This repo is a **pattern / reference**, not a hosted OS, a vendor SDK, a product CLI, a system-prompt dump, or a client playbook. Do not add host-only APIs as if they were the OS. Do not paste private workspace trees from other repos.
 
 ## Quality bar
 

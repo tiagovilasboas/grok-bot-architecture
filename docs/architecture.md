@@ -1,6 +1,6 @@
 # Architecture
 
-This is the operating system, not the chat product. Layers are portable. Grok Bot (Cursor) is one host mapping.
+This repository is a **pattern / reference**, not a hosted OS. Layers are portable. Grok Bot (Cursor) is one replaceable host mapping.
 
 ## Layers
 
@@ -110,9 +110,10 @@ Routines are the same loop on a schedule ([routines.md](routines.md)).
 
 ## What this is not
 
+- **Not a hosted OS.** This repository is a pattern / reference (ADRs, contracts, checkers). You map it onto a host you already sit at.
 - Not a single chat with every tool. That is the problem the crew solves ([ADR 0001](adr/0001-crew-of-agents.md)).
-- Not a vendor SDK or a host-only playbook. Grok Bot / Cursor is one mapping.
-- Not an eval harness or an AppSec review kit. Measure and review in your tree; this OS keeps the board and the gates.
+- Not a vendor SDK, a product CLI, or a host-only playbook. Grok Bot / Cursor is one **replaceable** mapping.
+- Not an eval harness or an AppSec review kit. Measure and review in your tree; this log keeps the board and the gates.
 - Not a private prompt pack. If a sentence only works as a secret system prompt, it does not belong here.
 
 When the pattern applies: [cookbook/when-to-use-this-pattern.md](cookbook/when-to-use-this-pattern.md).
