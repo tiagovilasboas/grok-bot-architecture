@@ -7,7 +7,7 @@ Accepted
 A single desktop agent with every tool mixes planning, inbox, code, money, and ship in one window. Secrets leak across jobs. HITL becomes a shrug. Evals cannot score a role that does five things.
 
 ## Decision
-We will run a **crew**: a **chief-of-staff** (plan, route, interrupt) plus **specialists** with an explicit **job**, **objective**, and **write-boundary**. The chief-of-staff does not hold every tool secret. Example names (`Inbox`, `Código`, `Vitrine`, `Quinto`, `Entrega`, `Obs`) are pattern labels, not a product roster. Do not add a role until context, secrets, or write-boundary actually collide.
+We will run a **crew**: a **chief-of-staff** (plan, route, interrupt) plus **specialists** with an explicit **job**, **objective**, and **write-boundary**. The chief-of-staff does not hold every tool secret. Example names (`Inbox`, `Eng`, `Vitrine`, `Quinto`, `Entrega`, `Cibersec`) are pattern labels, not a product roster. Do not add a role until context, secrets, or write-boundary actually collide.
 
 ## Consequences
 + Scoped evals and HITL per write-boundary

@@ -19,7 +19,7 @@ Start with **Chief-of-staff + one specialist** that matches the pain:
 | If the pain is… | Specialist |
 |---|---|
 | Mail / mentions | Inbox |
-| A real repo | Código |
+| A real repo | Eng |
 | A public page | Vitrine |
 | Money close | Quinto |
 
@@ -46,8 +46,8 @@ If you skipped step 4 because “it’s just us”, you did not finish the day.
 
 Pick **one**:
 
-- A tiny routine (morning triage **drafts only**, or a weekly Obs note) with a budget and a stop ([routines.md](../routines.md)), or
-- One isolated Código job on a cloud agent ([when-to-use-cloud-agent.md](when-to-use-cloud-agent.md)).
+- A tiny routine (morning triage **drafts only**, or a weekly Cibersec note) with a budget and a stop ([routines.md](../routines.md)), or
+- One isolated Eng job on a cloud agent ([when-to-use-cloud-agent.md](when-to-use-cloud-agent.md)).
 
 Doing both in week one is how the board dies.
 

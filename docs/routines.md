@@ -26,9 +26,9 @@ If a routine cannot name `stop`, it is a daemon, not a routine. Do not add daemo
 |---|---|---|---|---|
 | Morning triage | Inbox | Weekday 09:00 local | Labels, board cards, drafts | Send-as-user |
 | Day-5 close | Quinto | Monthly on the 5th | Ledger draft + anomaly list | Bank / tax send |
-| Storefront drift | Vitrine | After a Código PR that touches public paths | Preview card | Publish |
+| Storefront drift | Vitrine | After a Eng PR that touches public paths | Preview card | Publish |
 | Ship window | Entrega | When a card is `kind: done` and write-policy says ship | Staging + checklist | Deploy / customer send |
-| Loop health | Obs | Weekly | Trace/eval note | Mute prod, delete data |
+| Loop health | Cibersec | Weekly | AppSec/LGPD + light obs note | Mute prod, delete data |
 
 Rename the cadence. Keep the gates.
 
@@ -40,9 +40,9 @@ Evented is better than scheduled when the source already exists: “PR opened”
 
 ## Budget and stop
 
-- **Hops:** morning triage that spawns five specialists is a design bug. One owner, optional one hop to Obs ([failure-modes.md](cookbook/failure-modes.md) — fan-out spam).
+- **Hops:** morning triage that spawns five specialists is a design bug. One owner, optional one hop to Cibersec ([failure-modes.md](cookbook/failure-modes.md) — fan-out spam).
 - **Tokens:** if the routine needs last week’s full inbox, it needs a connector query with a filter, not a dump.
-- **Wall time:** desktop sessions sleep. Long code does not belong in a routine — dispatch Código’s cloud path ([ADR 0006](adr/0006-cloud-agents-for-code.md)).
+- **Wall time:** desktop sessions sleep. Long code does not belong in a routine — dispatch Eng’s cloud path ([ADR 0006](adr/0006-cloud-agents-for-code.md)).
 - **On budget hit:** persist a `block` on the board. Do not “finish loosely”.
 
 ## HITL inside a routine

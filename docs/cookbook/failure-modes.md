@@ -8,7 +8,7 @@ Pattern first: crew, shared computer, HITL, connectors. [Grok Bot](https://curso
 
 | Lens | What you see |
 |---|---|
-| **Symptom** | The board looks busy; quality and the bill both drop. Hops carry last week’s mail. Código greps the whole tree. A routine “summarizes the inbox” every morning. |
+| **Symptom** | The board looks busy; quality and the bill both drop. Hops carry last week’s mail. Eng greps the whole tree. A routine “summarizes the inbox” every morning. |
 | **Mistake** | Treating context as free and coordination as intelligence. Transcript dumps, union tool schemas on the chief-of-staff, browser pixels as “context”. |
 | **Control** | [ADR 0005](../adr/0005-token-thrift.md) · [context-engineering.md](../context-engineering.md) · [token-economy.md](../token-economy.md). Refs, not blobs. One job in the window. Routine `budget` + `stop`. Measure with traces; do not invent prod numbers here. |
 
@@ -18,9 +18,9 @@ Pattern first: crew, shared computer, HITL, connectors. [Grok Bot](https://curso
 
 | Lens | What you see |
 |---|---|
-| **Symptom** | One user sentence becomes five specialists, two cloud jobs, and a mesh of hops. Nobody owns `done_when`. Inbox pings Código “just in case”. |
+| **Symptom** | One user sentence becomes five specialists, two cloud jobs, and a mesh of hops. Nobody owns `done_when`. Inbox pings Eng “just in case”. |
 | **Mistake** | Orchestrator as a fan-out switch. Splitting for ceremony. Specialists spawning peers. |
-| **Control** | [ADR 0001](../adr/0001-crew-of-agents.md) · [when-to-split-an-agent.md](when-to-split-an-agent.md). Chief-of-staff assigns **one** specialist. Extra hops need a collision (secrets, write-boundary, window). Routines: one owner, optional one hop to Obs ([routines.md](../routines.md)). |
+| **Control** | [ADR 0001](../adr/0001-crew-of-agents.md) · [when-to-split-an-agent.md](when-to-split-an-agent.md). Chief-of-staff assigns **one** specialist. Extra hops need a collision (secrets, write-boundary, window). Routines: one owner, optional one hop to Cibersec ([routines.md](../routines.md)). |
 
 **Stop doing:** “Notify the whole crew.” Evaluator-as-seventh-agent with no eval artifact. Cloud fan-out that fails the five tests in [when-to-use-cloud-agent.md](when-to-use-cloud-agent.md).
 

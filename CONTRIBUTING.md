@@ -87,7 +87,7 @@ For each role in `docs/crew/roles.md`, keep three things obvious:
 2. **Objective** — what “done” looks like.
 3. **Write boundary** — writes vs comment-only, and whether HITL is required.
 
-Example names (`Inbox`, `Código`, `Vitrine`, `Quinto`, `Entrega`, `Obs`) are pattern labels. Prefer denser contracts over new names.
+Example names (`Inbox`, `Eng`, `Vitrine`, `Quinto`, `Entrega`, `Cibersec`) are pattern labels. Prefer denser contracts over new names.
 
 Handoffs (`docs/crew/handoffs.md`) are a message protocol: next owner + expected output. No silent hop.
 

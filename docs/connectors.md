@@ -35,11 +35,11 @@ Adding a server is a **host decision**. Do not paste catalogs into this repo. Of
 |---|---|---|
 | Chief-of-staff | Board, interrupt store, read-only status | Bank, deploy, mail send |
 | Inbox | Mail/chat **read** + draft | Send, calendar invite-as-user |
-| Código | Git host, repo FS, test runner, cloud-agent spawn | Production deploy keys |
+| Eng | Git host, repo FS, test runner, cloud-agent spawn | Production deploy keys |
 | Vitrine | CMS / storefront **draft** APIs | Live publish |
 | Quinto | Ledger export **read**, local sheet | Payment rails |
 | Entrega | Staging, package registry (staging) | Prod deploy, customer mail |
-| Obs | OTel / eval backends | Alert mute, log delete |
+| Cibersec | OTel / eval backends | Alert mute, log delete |
 
 These are pattern examples. Write the real map on the shared computer.
 
