@@ -124,8 +124,9 @@ Machine-checked envelopes: [`examples/`](examples/) · `node scripts/validate-ha
 | 1 | [`docs/architecture.md`](docs/architecture.md) | Layers and trust |
 | 2 | [`docs/adr/README.md`](docs/adr/README.md) | Accepted decisions (0001–0006) |
 | 3 | [`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md) | Job · objective · write-boundary |
-| 4 | [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md) | Stand up; A vs B; loops that look fast and go wrong |
-| 5 | [`docs/context-engineering.md`](docs/context-engineering.md) | What enters the window; thrift; fail-closed |
+| 4 | [`docs/cookbook/capabilities-and-controls.md`](docs/cookbook/capabilities-and-controls.md) | What the crew can do vs controls that fail closed |
+| 5 | [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md) | Stand up; A vs B; loops that look fast and go wrong |
+| 6 | [`docs/context-engineering.md`](docs/context-engineering.md) | What enters the window; thrift; fail-closed |
 
 Then: [`routines.md`](docs/routines.md) · [`connectors.md`](docs/connectors.md) · [`security.md`](docs/security.md) · [`token-economy.md`](docs/token-economy.md).
 
