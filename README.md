@@ -51,7 +51,7 @@ If you run this pattern, the checkers above are the gate — not a vibe:
 | Rule | Fail closed |
 |---|---|
 | Timeout | `default_on_timeout` must be **`wait`**. Never `approve`. If nobody answers, the write stays paused. |
-| Owners | Ghost owners fail closed. `from` / `to` are roles (`Chief-of-staff`, `Código`), not `"the agent"` or `"the model"`. |
+| Owners | Ghost owners fail closed. `from` / `to` are roles (`Chief-of-staff`, `Eng`), not `"the agent"` or `"the model"`. |
 | Resume | Invented `decision` / `decided_by` on a hop is a failed gate. Resume lives on the interrupt record; only a human fills it. |
 
 A vs B filter: [`docs/cookbook/when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md).
@@ -70,7 +70,7 @@ Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agen
 flowchart TB
   User["User"]
   CoS["Chief-of-staff<br/>plan · route · interrupt"]
-  Specs["Specialists<br/>Inbox · Código · Vitrine · Quinto · Entrega · Obs"]
+  Specs["Specialists<br/>Inbox · Eng · Vitrine · Quinto · Entrega · Cibersec"]
   Conn["Connectors<br/>MCP · APIs"]
   Host["Host computer<br/>desktop session · files · browser last"]
 
@@ -101,17 +101,17 @@ Layers and trust boundaries: [`docs/architecture.md`](docs/architecture.md) · A
 
 ## Crew
 
-Example names (`Inbox`, `Código`, `Vitrine`, `Quinto`, `Entrega`, `Obs`) are **pattern labels**. Keep job · objective · write-boundary.
+Example names (`Inbox`, `Eng`, `Vitrine`, `Quinto`, `Entrega`, `Cibersec`) are **pattern labels**. Keep job · objective · write-boundary.
 
 | Role | Job | Writes |
 |---|---|---|
 | **Chief-of-staff** | Plan, route, interrupt | Board + interrupts |
 | **Inbox** | Triage inbound | Drafts; send-as-user → HITL |
-| **Código** | Repo change in scope | Branch / cloud PR; merge → HITL |
+| **Eng** | Repo change in scope | Branch / cloud PR; merge → HITL |
 | **Vitrine** | Public surface | Draft / PR; publish → HITL |
 | **Quinto** | Finance close | Ledger drafts; pay → HITL |
 | **Entrega** | Package and ship | Staging; deploy → HITL |
-| **Obs** | Traces / evals | Notes; mute prod → HITL |
+| **Cibersec** | AppSec / LGPD · light obs | Notes; mute prod → HITL |
 
 [`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md)
 
@@ -128,6 +128,8 @@ Machine-checked envelopes: [`examples/`](examples/) · `node scripts/validate-ha
 | 5 | [`docs/context-engineering.md`](docs/context-engineering.md) | What enters the window; thrift; fail-closed |
 
 Then: [`routines.md`](docs/routines.md) · [`connectors.md`](docs/connectors.md) · [`security.md`](docs/security.md) · [`token-economy.md`](docs/token-economy.md).
+
+A **plugin** here is a **connector** (schema’d MCP/API with allowlist and write-boundary), not a marketplace catalog — [connectors.md](docs/connectors.md#plugin--connector).
 
 ## Pattern refs
 
