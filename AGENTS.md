@@ -15,7 +15,7 @@ docs/connectors.md            MCP / APIs over browser
 docs/security.md              lethal trifecta + privileged writes
 docs/context-engineering.md   window assembly · thrift · fail-closed
 docs/token-economy.md         context budget as a control
-docs/cookbook/                first week · split · cloud · failure modes · when to use
+docs/cookbook/                first week · capabilities/controls · split · cloud · failure modes · when to use
 examples/                     markdown shapes + JSON fixtures (broken/fixed)
 scripts/validate-*.mjs        zero-dep; CI in .github/workflows/ci.yml
 ```
