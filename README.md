@@ -56,6 +56,12 @@ If you run this pattern, the checkers above are the gate — not a vibe:
 
 A vs B filter: [`docs/cookbook/when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md).
 
+## Limit
+
+This repository is a **pattern / reference** — ADRs, crew contracts, and `node scripts/validate-all.mjs`. It is **not** a hosted OS you log into, a product CLI, or a vendor SDK.
+
+The **host is replaceable**. Grok Bot / Cursor is the example mapping. Swap the desktop harness; keep user · chief-of-staff · specialists · connectors · shared computer.
+
 Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agentic AI
 
 ## Architecture
@@ -118,7 +124,7 @@ Machine-checked envelopes: [`examples/`](examples/) · `node scripts/validate-ha
 | 1 | [`docs/architecture.md`](docs/architecture.md) | Layers and trust |
 | 2 | [`docs/adr/README.md`](docs/adr/README.md) | Accepted decisions (0001–0006) |
 | 3 | [`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md) | Job · objective · write-boundary |
-| 4 | [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md) | Stand up; then loops that look fast and go wrong |
+| 4 | [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md) | Stand up; A vs B; loops that look fast and go wrong |
 | 5 | [`docs/context-engineering.md`](docs/context-engineering.md) | What enters the window; thrift; fail-closed |
 
 Then: [`routines.md`](docs/routines.md) · [`connectors.md`](docs/connectors.md) · [`security.md`](docs/security.md) · [`token-economy.md`](docs/token-economy.md).
