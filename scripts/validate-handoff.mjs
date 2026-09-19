@@ -150,7 +150,7 @@ function selfTestFailures() {
   const ghost = validateHandoff({
     id: "card-self-ghost",
     from: "the agent",
-    to: "Código",
+    to: "Eng",
     kind: "assign",
     goal: "Ship a docs heading.",
     refs: ["docs/crew/handoffs.md"],
@@ -164,14 +164,14 @@ function selfTestFailures() {
   const invented = validateHandoff({
     id: "card-self-decision",
     from: "Chief-of-staff",
-    to: "Código",
+    to: "Eng",
     kind: "assign",
     goal: "Ship a docs heading.",
     refs: ["docs/crew/handoffs.md"],
     write_policy: "draft",
     done_when: "PR ref exists.",
     decision: "approve",
-    decided_by: "Código",
+    decided_by: "Eng",
   });
   if (!invented.some((error) => error.includes("decision"))) {
     failures.push("invented decision on the hop must be rejected");
@@ -180,10 +180,10 @@ function selfTestFailures() {
   const blobRefs = validateHandoff({
     id: "card-self-refs",
     from: "Chief-of-staff",
-    to: "Código",
+    to: "Eng",
     kind: "assign",
     goal: "Ship a docs heading.",
-    refs: "Host chat. Código: LGTM.",
+    refs: "Host chat. Eng: LGTM.",
     write_policy: "draft",
     done_when: "PR ref exists.",
   });
@@ -194,7 +194,7 @@ function selfTestFailures() {
   const badPolicy = validateHandoff({
     id: "card-self-policy",
     from: "Chief-of-staff",
-    to: "Código",
+    to: "Eng",
     kind: "assign",
     goal: "Ship a docs heading.",
     refs: ["docs/crew/handoffs.md"],
@@ -208,7 +208,7 @@ function selfTestFailures() {
   const missingDone = validateHandoff({
     id: "card-self-done",
     from: "Chief-of-staff",
-    to: "Código",
+    to: "Eng",
     kind: "assign",
     goal: "Ship a docs heading.",
     refs: ["docs/crew/handoffs.md"],
@@ -221,7 +221,7 @@ function selfTestFailures() {
   const ok = validateHandoff({
     id: "card-self-ok",
     from: "Chief-of-staff",
-    to: "Código",
+    to: "Eng",
     kind: "assign",
     goal: "Ship a docs heading.",
     refs: ["docs/crew/handoffs.md"],

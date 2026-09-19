@@ -26,12 +26,11 @@ const ISO_UTC = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
 const SPECIALIST_ROLES = new Set([
   "chief-of-staff",
   "inbox",
-  "código",
-  "codigo",
+  "eng",
   "vitrine",
   "quinto",
   "entrega",
-  "obs",
+  "cibersec",
 ]);
 const NON_HUMAN = /^(the\s+)?agents?$|^models?$|^assistants?$/i;
 
@@ -203,7 +202,7 @@ function selfTestFailures() {
     refs: ["pr://example/1"],
     default_on_timeout: "wait",
     decision: "approve",
-    decided_by: "Código",
+    decided_by: "Eng",
     decided_at: "2026-09-10T14:03:00Z",
   });
   if (!invented.some((error) => error.includes("decided_by"))) {
