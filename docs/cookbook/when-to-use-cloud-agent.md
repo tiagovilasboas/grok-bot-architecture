@@ -22,7 +22,7 @@ Grok Bot / Cursor Cloud is the **example mapping**. The decision is host-agnosti
 
 ## Dispatch contract
 
-Chief-of-staff (or Código) writes a card the remote job can execute without the chat:
+Chief-of-staff (or Eng) writes a card the remote job can execute without the chat:
 
 | Field | Cloud job needs |
 |---|---|
@@ -36,7 +36,7 @@ The cloud agent **does not** merge, rotate secrets, or mail the user. It may pus
 
 ## After it returns
 
-1. Código or the chief-of-staff attaches PR / SHA refs to the board.
+1. Eng or the chief-of-staff attaches PR / SHA refs to the board.
 2. Review happens like any other change (a human, or a written review contract in your tree).
 3. Entrega + HITL for merge/deploy.
 

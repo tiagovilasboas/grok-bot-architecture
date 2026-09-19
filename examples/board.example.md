@@ -31,7 +31,7 @@ Chief-of-staff: <host session id or "desktop">
 | `id` | `card-2026-09-07-02` |
 | `goal` | Add a fail-closed check on the ship script in this repo’s docs (example: a checklist heading) |
 | `from` | Chief-of-staff |
-| `to` | Código |
+| `to` | Eng |
 | `kind` | `assign` |
 | `refs` | `docs/crew/hitl.md`, `docs/cookbook/when-to-use-cloud-agent.md` |
 | `write_policy` | `draft` (branch). `hitl:merge` to default |
@@ -46,7 +46,7 @@ Chief-of-staff: <host session id or "desktop">
 |---|---|
 | `id` | `card-2026-09-07-03` |
 | `goal` | Staging checklist for the docs PR; do not deploy anything |
-| `from` | Código |
+| `from` | Eng |
 | `to` | Entrega |
 | `kind` | `review` |
 | `refs` | `card-2026-09-07-02`, `pr://example/grok-bot-architecture/1` |

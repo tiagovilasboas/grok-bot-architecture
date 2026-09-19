@@ -12,11 +12,11 @@ This repository has **no first-party prod numbers**. Anthropic’s public multi-
 |---|---|---|
 | Handoff | Paste of the whole thread | Envelope + `refs` only |
 | Inbox | Last 500 mails in context | Connector query + filter; card, not dump |
-| Código | Full-repo grep every hop | Card names likely paths; cloud agent gets a fresh window |
+| Eng | Full-repo grep every hop | Card names likely paths; cloud agent gets a fresh window |
 | Browser | Pixels / DOM as “context” | Don’t; connector first ([ADR 0004](adr/0004-connectors-over-browser.md)) |
 | Routines | Polling “in case” | Trigger + `budget` + `stop` ([routines.md](routines.md)) |
 | Chief-of-staff | Union of every tool schema | Per-role allowlist |
-| Obs | Replaying bodies into traces | Span ids, not payloads |
+| Cibersec | Replaying bodies into traces | Span ids, not payloads |
 
 ## Rules that survive a host swap
 
@@ -29,7 +29,7 @@ This repository has **no first-party prod numbers**. Anthropic’s public multi-
 
 ## Chief-of-staff discipline
 
-The orchestrator is the cheapest place to waste money: it sees every card and wants every tool. Keep it **thin** — board, interrupts, routing. If it needs the mail body to route, Inbox writes a one-line summary + ref. If it needs the diff to route, Código writes `what / why / risk` + PR url.
+The orchestrator is the cheapest place to waste money: it sees every card and wants every tool. Keep it **thin** — board, interrupts, routing. If it needs the mail body to route, Inbox writes a one-line summary + ref. If it needs the diff to route, Eng writes `what / why / risk` + PR url.
 
 ## What “thrift” is not
 
