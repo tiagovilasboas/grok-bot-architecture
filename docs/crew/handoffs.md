@@ -42,4 +42,4 @@ No silent hop. If Código finishes and Entrega starts without a card update, tha
 - **Cross-secret ride.** Quinto refs do not ride along on an Inbox hop.
 - **Browser as envelope.** Screenshots are not a contract. If you attach one, you took it; do not invent it.
 
-Filled board: [../../examples/board.example.md](../../examples/board.example.md).
+Filled board: [../../examples/board.example.md](../../examples/board.example.md). Machine-check: `node scripts/validate-handoff.mjs` (or `node scripts/validate-all.mjs`).

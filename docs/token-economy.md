@@ -4,7 +4,7 @@ Tokens are the **operating budget** of this OS, not a cloud invoice anecdote. [A
 
 ## What we will not claim
 
-This repository has **no first-party prod numbers**. Anthropic’s public multi-agent write-up is often cited (~4× vs chat, ~15× multi-agent). Those are **theirs**. We use the lesson (coordination dominates), not the integers. If you need a score, run [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) and keep the artifact in *your* tree.
+This repository has **no first-party prod numbers**. Anthropic’s public multi-agent write-up is often cited (~4× vs chat, ~15× multi-agent). Those are **theirs**. We use the lesson (coordination dominates), not the integers. If you need a score, keep the artifact in *your* tree.
 
 ## Where tokens actually go
 

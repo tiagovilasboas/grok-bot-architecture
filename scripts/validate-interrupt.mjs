@@ -4,8 +4,9 @@
  * Extra fields are allowed. Missing required fields fail closed.
  * A filled decision without a human decided_by is a failed gate.
  *
- * Default: examples/interrupt.broken.json must be rejected;
- *          examples/interrupt.fixed.json must be accepted.
+ * Default: every examples/interrupt*.broken.json must be rejected;
+ *          every examples/interrupt*.fixed.json must be accepted.
+ * Inline self-tests pin timeout-approve, missing gate, and invented decided_by.
  *
  *   node scripts/validate-interrupt.mjs
  *   node scripts/validate-interrupt.mjs path/to/record.json
@@ -13,6 +14,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  listExampleFixtures,
+  reportFixtureBatch,
+  reportSelfTests,
+} from "./lib/fixtures.mjs";
 
 const GATES = new Set(["merge", "deploy", "secrets", "messaging-as-user"]);
 const DECISIONS = new Set(["approve", "reject", "edit"]);
@@ -158,13 +164,110 @@ export function validateInterrupt(record) {
 }
 
 /**
+ * @returns {string[]}
+ */
+function selfTestFailures() {
+  const failures = [];
+
+  const timeoutApprove = validateInterrupt({
+    id: "interrupt-self-timeout",
+    gate: "merge",
+    asked_at: "2026-09-10T14:02:00Z",
+    asked_by: "Entrega",
+    summary: "Merge a docs PR.",
+    refs: ["pr://example/1"],
+    default_on_timeout: "approve",
+  });
+  if (!timeoutApprove.some((error) => error.includes("default_on_timeout"))) {
+    failures.push("default_on_timeout approve must be rejected");
+  }
+
+  const missingGate = validateInterrupt({
+    id: "interrupt-self-gate",
+    asked_at: "2026-09-10T14:02:00Z",
+    asked_by: "Entrega",
+    summary: "Merge a docs PR.",
+    refs: ["pr://example/1"],
+    default_on_timeout: "wait",
+  });
+  if (!missingGate.some((error) => error.includes("gate"))) {
+    failures.push("missing gate must be rejected");
+  }
+
+  const invented = validateInterrupt({
+    id: "interrupt-self-decider",
+    gate: "merge",
+    asked_at: "2026-09-10T14:02:00Z",
+    asked_by: "Entrega",
+    summary: "Merge a docs PR.",
+    refs: ["pr://example/1"],
+    default_on_timeout: "wait",
+    decision: "approve",
+    decided_by: "Código",
+    decided_at: "2026-09-10T14:03:00Z",
+  });
+  if (!invented.some((error) => error.includes("decided_by"))) {
+    failures.push("specialist decided_by must be rejected");
+  }
+
+  const emptyHuman = validateInterrupt({
+    id: "interrupt-self-empty-human",
+    gate: "merge",
+    asked_at: "2026-09-10T14:02:00Z",
+    asked_by: "Entrega",
+    summary: "Merge a docs PR.",
+    refs: ["pr://example/1"],
+    default_on_timeout: "wait",
+    decision: "approve",
+    decided_by: "",
+    decided_at: "2026-09-10T14:03:00Z",
+  });
+  if (!emptyHuman.some((error) => error.includes("decided_by"))) {
+    failures.push("empty decided_by with a decision must be rejected");
+  }
+
+  const openOk = validateInterrupt({
+    id: "interrupt-self-open",
+    gate: "merge",
+    asked_at: "2026-09-10T14:02:00Z",
+    asked_by: "Entrega",
+    summary: "Merge a docs PR.",
+    refs: ["pr://example/1"],
+    default_on_timeout: "wait",
+    decision: "",
+    decided_by: "",
+    decided_at: "",
+  });
+  if (openOk.length > 0) {
+    failures.push(`open interrupt must be accepted (${openOk.join("; ")})`);
+  }
+
+  const closedOk = validateInterrupt({
+    id: "interrupt-self-closed",
+    gate: "messaging-as-user",
+    asked_at: "2026-09-10T14:02:00Z",
+    asked_by: "Inbox",
+    summary: "Send a draft as the user.",
+    refs: ["mail://drafts/d-1"],
+    default_on_timeout: "wait",
+    decision: "reject",
+    decided_by: "tiago",
+    decided_at: "2026-09-10T16:40:00Z",
+  });
+  if (closedOk.length > 0) {
+    failures.push(`human resume must be accepted (${closedOk.join("; ")})`);
+  }
+
+  return failures;
+}
+
+/**
  * @param {string} filePath
- * @returns {{ errors: string[], record: unknown }}
+ * @returns {string[]}
  */
 function readAndValidate(filePath) {
   const raw = fs.readFileSync(filePath, "utf8");
-  const record = JSON.parse(raw);
-  return { errors: validateInterrupt(record), record };
+  return validateInterrupt(JSON.parse(raw));
 }
 
 /**
@@ -179,7 +282,7 @@ function main() {
     let failed = false;
     for (const rel of extra) {
       const filePath = path.resolve(rel);
-      const { errors } = readAndValidate(filePath);
+      const errors = readAndValidate(filePath);
       if (errors.length === 0) {
         console.log(`${rel}: ACCEPTED`);
       } else {
@@ -193,37 +296,25 @@ function main() {
     return failed ? 1 : 0;
   }
 
-  const brokenPath = path.join(root, "examples", "interrupt.broken.json");
-  const fixedPath = path.join(root, "examples", "interrupt.fixed.json");
+  const examplesDir = path.join(root, "examples");
+  const broken = listExampleFixtures(examplesDir, "interrupt", "broken");
+  const fixed = listExampleFixtures(examplesDir, "interrupt", "fixed");
 
-  if (!fs.existsSync(brokenPath) || !fs.existsSync(fixedPath)) {
-    console.error("Missing examples/interrupt.broken.json or examples/interrupt.fixed.json");
-    return 1;
-  }
-
-  const broken = readAndValidate(brokenPath);
-  const fixed = readAndValidate(fixedPath);
-  let failed = false;
-
-  if (broken.errors.length === 0) {
-    failed = true;
-    console.log("examples/interrupt.broken.json: ACCEPTED (expected REJECTED)");
-  } else {
-    console.log("examples/interrupt.broken.json: REJECTED (expected)");
-    for (const error of broken.errors) {
-      console.log(`  - ${error}`);
-    }
-  }
-
-  if (fixed.errors.length > 0) {
-    failed = true;
-    console.log("examples/interrupt.fixed.json: REJECTED (expected ACCEPTED)");
-    for (const error of fixed.errors) {
-      console.log(`  - ${error}`);
-    }
-  } else {
-    console.log("examples/interrupt.fixed.json: ACCEPTED (expected)");
-  }
+  let failed = reportSelfTests(selfTestFailures());
+  failed =
+    reportFixtureBatch({
+      label: "examples/interrupt*.broken.json",
+      files: broken,
+      validate: validateInterrupt,
+      expect: "reject",
+    }) || failed;
+  failed =
+    reportFixtureBatch({
+      label: "examples/interrupt*.fixed.json",
+      files: fixed,
+      validate: validateInterrupt,
+      expect: "accept",
+    }) || failed;
 
   if (failed) {
     console.error("Interrupt fixture expectations failed.");

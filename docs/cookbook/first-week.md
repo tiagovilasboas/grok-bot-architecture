@@ -59,15 +59,16 @@ Write down what you will **not** automate yet. Suggested defaults: send-as-user,
 
 - [ ] Board has at least one `done` card with refs
 - [ ] One interrupt record with a human `decided_by`
+- [ ] `node scripts/validate-all.mjs` passes on the fixtures you copied
 - [ ] `AGENTS.md` still ≤ 80 lines and still harness-agnostic
 - [ ] No private prompts or invented screenshots landed in git
 
-## Sister repos when you need them
+## Prove the envelopes
 
-Not this OS. One job each.
+Copy a fixture, then run the same checkers CI runs:
 
-- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Reference architecture: brain · workers · ops. Swap the host, keep the domain.
-- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — Crew pattern: Planner → Implementer → Reviewer → Ops. Kiro is the example host.
-- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — Curated list: MCP · harness · AppSec. Decision filter, not a catalog.
-- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Evals: suites, named metrics, reports. Measure; do not train.
-- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec PR review: skills, runbooks, `path:line` or silence.
+```text
+node scripts/validate-all.mjs
+```
+
+If you are still deciding whether this OS is the right artifact, read [when-to-use-this-pattern.md](when-to-use-this-pattern.md) before hiring a third specialist.

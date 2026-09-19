@@ -73,5 +73,5 @@ body:
           required: true
         - label: This issue proposes a single decision (not a bundle).
           required: true
-        - label: Examples (Grok Bot, Cursor, Goose, Codex, Kiro) stay examples, not dependencies.
+        - label: Examples (Grok Bot, Cursor, Goose, Codex) stay examples, not dependencies.
           required: true
