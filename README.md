@@ -70,7 +70,7 @@ Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agen
 flowchart TB
   User["User"]
   CoS["Chief-of-staff<br/>plan · route · interrupt"]
-  Specs["Specialists<br/>Inbox · Eng · Vitrine · Quinto · Entrega · Cibersec"]
+  Specs["Specialists<br/>Mesa: Inbox · Eng · Vitrine · Cibersec · Carreira<br/>Apps: Quinto · LotRace · Hobby: IronToy"]
   Conn["Connectors<br/>MCP · APIs"]
   Host["Host computer<br/>desktop session · files · browser last"]
 
@@ -101,19 +101,26 @@ Layers and trust boundaries: [`docs/architecture.md`](docs/architecture.md) · A
 
 ## Crew
 
-Example names (`Inbox`, `Eng`, `Vitrine`, `Quinto`, `Entrega`, `Cibersec`) are **pattern labels**. Keep job · objective · write-boundary.
+Example labels are **pattern names**, not a product hiring plan. Keep job · objective · write-boundary.
+
+**Mesa (Staff):** Chief-of-staff (Chefe/Principal), Eng, Vitrine, Cibersec, Inbox, Carreira.
+**Apps hub (not Staff Mesa):** Quinto, LotRace.
+**Hobby (optional):** IronToy.
+Ship/merge/deploy stay HITL; Eng owns the PR and CoS/human merge. Entrega is not a first-class Mesa seat on the example host (packaging folds into Eng + HITL).
 
 | Role | Job | Writes |
 |---|---|---|
 | **Chief-of-staff** | Plan, route, interrupt | Board + interrupts |
 | **Inbox** | Triage inbound | Drafts; send-as-user → HITL |
-| **Eng** | Repo change in scope | Branch / cloud PR; merge → HITL |
+| **Eng** | Repo change + package for review | Branch / cloud PR; merge/deploy → HITL |
 | **Vitrine** | Public surface | Draft / PR; publish → HITL |
-| **Quinto** | Finance close | Ledger drafts; pay → HITL |
-| **Entrega** | Package and ship | Staging; deploy → HITL |
 | **Cibersec** | AppSec / LGPD · light obs | Notes; mute prod → HITL |
+| **Carreira** | Career / public professional surface | Drafts; messaging/publish → HITL |
+| **Quinto** (Apps) | Finance close | Ledger drafts; pay → HITL |
+| **LotRace** (Apps) | App product loop | App drafts; merge/prod → HITL |
+| **IronToy** (Hobby) | Optional side product | Same fail-closed gates |
 
-[`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md)
+[`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md) · [`skills.md`](docs/skills.md)
 
 Machine-checked envelopes: [`examples/`](examples/) · `node scripts/validate-handoff.mjs` · `node scripts/validate-interrupt.mjs` · `node scripts/validate-all.mjs`.
 
@@ -123,7 +130,7 @@ Machine-checked envelopes: [`examples/`](examples/) · `node scripts/validate-ha
 |---|---|---|
 | 1 | [`docs/architecture.md`](docs/architecture.md) | Layers and trust |
 | 2 | [`docs/adr/README.md`](docs/adr/README.md) | Accepted decisions (0001–0006) |
-| 3 | [`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md) | Job · objective · write-boundary |
+| 3 | [`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md) · [`skills.md`](docs/skills.md) | Job · objective · write-boundary · host skills |
 | 4 | [`docs/cookbook/capabilities-and-controls.md`](docs/cookbook/capabilities-and-controls.md) | What the crew can do vs controls that fail closed |
 | 5 | [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md) | Stand up; A vs B; loops that look fast and go wrong |
 | 6 | [`docs/context-engineering.md`](docs/context-engineering.md) | What enters the window; thrift; fail-closed |
