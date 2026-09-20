@@ -10,14 +10,22 @@ flowchart TB
     User["User<br/>goals · decisions · allowlists"]
   end
 
-  subgraph os [Assistant OS]
+  subgraph mesa [Mesa · Staff crew]
     CoS["Chief-of-staff<br/>plan · route · interrupt · board"]
     Inbox["Inbox"]
     Eng["Eng"]
     Vitrine["Vitrine"]
-    Quinto["Quinto"]
-    Entrega["Entrega"]
     Cibersec["Cibersec"]
+    Carreira["Carreira"]
+  end
+
+  subgraph apps [Apps hub · not Staff Mesa]
+    Quinto["Quinto"]
+    LotRace["LotRace"]
+  end
+
+  subgraph hobby [Hobby · optional]
+    IronToy["IronToy"]
   end
 
   subgraph edge [Edge]
@@ -35,14 +43,18 @@ flowchart TB
   CoS --> Inbox
   CoS --> Eng
   CoS --> Vitrine
-  CoS --> Quinto
-  CoS --> Entrega
   CoS --> Cibersec
+  CoS --> Carreira
+  CoS --> Quinto
+  CoS --> LotRace
+  CoS -.->|"optional"| IronToy
   Inbox --> Conn
   Vitrine --> Conn
+  Carreira --> Conn
   Quinto --> Conn
-  Entrega --> Conn
+  LotRace --> Conn
   Cibersec --> Conn
+  IronToy -.-> Conn
   Inbox -.->|"exception · ADR 0004"| Browser
   Vitrine -.->|"exception · ADR 0004"| Browser
   Eng -->|"ADR 0006"| Cloud
@@ -56,7 +68,7 @@ flowchart TB
 
 | On the diagram | Decision |
 |---|---|
-| CoS → specialists (crew, not a monolith) | [ADR 0001](adr/0001-crew-of-agents.md) |
+| CoS → specialists (crew, not a monolith; not an open swarm) | [ADR 0001](adr/0001-crew-of-agents.md) |
 | Desktop session · Shared FS (computer ≠ chat) | [ADR 0002](adr/0002-shared-computer-vs-desktop.md) |
 | User ↔ CoS (`goal / HITL resume`, `HITL`) | [ADR 0003](adr/0003-hitl-on-side-effects.md) |
 | Specialists → Connectors; Browser `exception` | [ADR 0004](adr/0004-connectors-over-browser.md) |
@@ -65,15 +77,19 @@ flowchart TB
 
 Index: [adr/README.md](adr/README.md). When the loop feels fast and wrong: [cookbook/failure-modes.md](cookbook/failure-modes.md).
 
+Ship / merge / deploy stay **HITL**. On the example host, Eng owns the PR; CoS / human merge. **Entrega** is not drawn as a Mesa specialist — optional ship role; packaging folds into Eng + HITL ([roles.md](crew/roles.md)).
+
 | Layer | Owns | Must not |
 |---|---|---|
 | **User** | Goals, allowlists, resume of privileged writes | Be impersonated |
 | **Chief-of-staff** | Plan, route, board, interrupt records | Hold every connector secret; ship as the user |
-| **Specialists** | One job, one write-boundary | Silent hops; extra tools “just in case” |
+| **Specialists** | One job, one write-boundary | Silent hops; extra tools “just in case”; peer-spawn swarms |
 | **Connectors** | Schema’d tools and resources | Become the architecture; dump the catalog into context |
 | **Host computer** | Session, FS, optional cloud machine | Be confused with the OS (see [ADR 0002](adr/0002-shared-computer-vs-desktop.md)) |
 
 Vendor-agnostic rule: if you swap the example host (Grok Bot / Cursor) for another desktop harness, the table above still holds. Only the **mapping** (where the board file lives, how MCP is attached, how a cloud job is spawned) changes. A host swap must not force a domain rewrite.
+
+Reusable host skills (recipes, not agents): [skills.md](skills.md).
 
 ## Shared computer
 
@@ -83,6 +99,7 @@ The crew shares **one computer**, not one context window:
 - **Interrupt records** — paused writes (`examples/interrupt-record.example.md`).
 - **Working tree** — code and docs the specialists are allowed to touch.
 - **Connector config** — which MCP/API servers exist; credentials stay in the host secret store, not in the chief-of-staff prompt.
+- **Skills library** — optional host-level `SKILL.md` recipes any specialist can load ([skills.md](skills.md)).
 
 Desktop chat is the **keyboard**. Cloud agents are **extra rooms** for long code ([ADR 0006](adr/0006-cloud-agents-for-code.md)). Neither replaces the board.
 
@@ -101,7 +118,7 @@ If a specialist can see (2) and (3) and reach (4), you have the [lethal trifecta
 
 1. User states a one-sentence goal.
 2. Chief-of-staff writes a board card: owner, done-when, write-policy, refs.
-3. Specialist works **only** that card. Tools come from its connector allowlist.
+3. Specialist works **only** that card. Tools come from its connector allowlist. Skills may be loaded as recipes — they do not bypass HITL.
 4. Handoff is a typed envelope ([crew/handoffs.md](crew/handoffs.md)), not a transcript paste. What may enter the window: [context-engineering.md](context-engineering.md).
 5. Privileged write → interrupt → human `decision` ([crew/hitl.md](crew/hitl.md)).
 6. Cibersec records outcome (trace id, tokens if known, residual risk). No invented prod numbers.
@@ -112,6 +129,7 @@ Routines are the same loop on a schedule ([routines.md](routines.md)).
 
 - **Not a hosted OS.** This repository is a pattern / reference (ADRs, contracts, checkers). You map it onto a host you already sit at.
 - Not a single chat with every tool. That is the problem the crew solves ([ADR 0001](adr/0001-crew-of-agents.md)).
+- Not an open multi-agent **swarm** of peers spawning peers. This pattern is **crew + HITL + typed handoffs**.
 - Not a vendor SDK, a product CLI, or a host-only playbook. Grok Bot / Cursor is one **replaceable** mapping.
 - Not an eval harness or an AppSec review kit. Measure and review in your tree; this log keeps the board and the gates.
 - Not a private prompt pack. If a sentence only works as a secret system prompt, it does not belong here.

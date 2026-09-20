@@ -27,7 +27,8 @@ If a routine cannot name `stop`, it is a daemon, not a routine. Do not add daemo
 | Morning triage | Inbox | Weekday 09:00 local | Labels, board cards, drafts | Send-as-user |
 | Day-5 close | Quinto | Monthly on the 5th | Ledger draft + anomaly list | Bank / tax send |
 | Storefront drift | Vitrine | After a Eng PR that touches public paths | Preview card | Publish |
-| Ship window | Entrega | When a card is `kind: done` and write-policy says ship | Staging + checklist | Deploy / customer send |
+| Ship window | Eng (+ CoS / human HITL) | When a card is `kind: done` and write-policy says ship | Staging + checklist | Deploy / customer send |
+| Career surface | Carreira | When a profile / application card opens | Local drafts | Messaging-as-user / publish |
 | Loop health | Cibersec | Weekly | AppSec/LGPD + light obs note | Mute prod, delete data |
 
 Rename the cadence. Keep the gates.

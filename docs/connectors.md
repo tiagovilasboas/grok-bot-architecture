@@ -38,7 +38,9 @@ Adding a server is a **host decision**. Do not paste catalogs into this repo. Of
 | Eng | Git host, repo FS, test runner, cloud-agent spawn | Production deploy keys |
 | Vitrine | CMS / storefront **draft** APIs | Live publish |
 | Quinto | Ledger export **read**, local sheet | Payment rails |
-| Entrega | Staging, package registry (staging) | Prod deploy, customer mail |
+| Eng (ship packaging) | Staging refs, package registry (staging) | Prod deploy, customer mail |
+| Carreira | Career surface drafts | Messaging-as-user, profile publish |
+| LotRace / IronToy | App / hobby repo drafts | Prod deploy without HITL |
 | Cibersec | OTel / eval backends | Alert mute, log delete |
 
 These are pattern examples. Write the real map on the shared computer.

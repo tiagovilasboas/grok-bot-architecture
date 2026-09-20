@@ -7,9 +7,10 @@ Harness-agnostic source of truth for this **desktop / multi-agent assistant OS**
 ```text
 docs/architecture.md          layers: user · chief-of-staff · specialists · connectors · host computer
 docs/adr/                     Nygard decision log (Accepted)
-docs/crew/roles.md            job · objective · write-boundary
+docs/crew/roles.md            job · objective · write-boundary (Mesa · Apps · Hobby)
 docs/crew/handoffs.md         typed hops (refs, not transcripts)
 docs/crew/hitl.md             fail-closed interrupts
+docs/skills.md                host-level reusable skills (recipes, not agents)
 docs/routines.md              scheduled / evented loops
 docs/connectors.md            MCP / APIs over browser
 docs/security.md              lethal trifecta + privileged writes
@@ -35,6 +36,7 @@ scripts/validate-*.mjs        zero-dep; CI in .github/workflows/ci.yml
 - Fail closed on merge, deploy, secrets, and messaging-as-user. Persist the interrupt; resume only with an explicit human decision. CI rejects invented decisions (`node scripts/validate-all.mjs`).
 - Prefer connectors (MCP / APIs) over driving the browser. Browser is last resort and untrusted content.
 - Spend tokens on the current job. Long isolated code work goes to a cloud agent ([ADR 0006](docs/adr/0006-cloud-agents-for-code.md)).
+- Skills are recipes any specialist can load ([docs/skills.md](docs/skills.md)); they are not agents and do not bypass HITL.
 
 ## Don't
 

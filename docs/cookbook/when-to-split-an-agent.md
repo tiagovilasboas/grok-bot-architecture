@@ -15,8 +15,8 @@ A Chief-of-staff + one specialist is a legal OS ([first-week.md](first-week.md))
 
 | Collision | Symptom | Split |
 |---|---|---|
-| **Secrets** | Inbox context can see bank or deploy | Quinto / Entrega off Inbox |
-| **Write-boundary** | The same window drafts mail *and* merges | Inbox vs Eng vs Entrega |
+| **Secrets** | Inbox context can see bank or deploy | Quinto (Apps) / deploy keys off Inbox |
+| **Write-boundary** | The same window drafts mail *and* merges | Inbox vs Eng (merge stays HITL) |
 | **Untrusted content** | Issue text or mail can reach an exfil tool | Drop a lethal-trifecta leg ([security.md](../security.md)) |
 | **Token window** | Routing needs a summary because the body no longer fits | New role **or** a tighter query — try the query first ([context-engineering.md](../context-engineering.md) · [token-economy.md](../token-economy.md)) |
 | **Cadence** | A routine and an ad-hoc job keep preempting each other | Same role, two cards — split only if secrets differ |
@@ -32,7 +32,7 @@ If you cannot fill that table, do not add a role.
 4. Cut the connector allowlist to what that job needs.
 5. Add **one** hop on [handoffs.md](../crew/handoffs.md). If you need a mesh, you over-split.
 
-Example names in this repo (`Inbox`, `Eng`, `Vitrine`, `Quinto`, `Entrega`, `Cibersec`) are labels for those collisions — not a hiring plan.
+Example Mesa labels (`Inbox`, `Eng`, `Vitrine`, `Cibersec`, `Carreira`) plus Apps (`Quinto`, `LotRace`) and optional Hobby (`IronToy`) are labels for those collisions — not a hiring plan. Entrega is not a first-class Mesa seat on the example host.
 
 ## Refusals
 

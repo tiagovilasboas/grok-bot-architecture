@@ -18,7 +18,7 @@ Grok Bot / Cursor Cloud is the **example mapping**. The decision is host-agnosti
 - The job needs Inbox, Quinto, or Vitrine connectors.
 - The change is small enough that dispatch costs more than the edit.
 - You cannot state `done_when` without a conversation.
-- You were about to send a cloud agent at **production** with deploy keys. That is Entrega + HITL, not cloud.
+- You were about to send a cloud agent at **production** with deploy keys. That is Eng packaging + HITL (CoS / human), not cloud.
 
 ## Dispatch contract
 
@@ -38,7 +38,7 @@ The cloud agent **does not** merge, rotate secrets, or mail the user. It may pus
 
 1. Eng or the chief-of-staff attaches PR / SHA refs to the board.
 2. Review happens like any other change (a human, or a written review contract in your tree).
-3. Entrega + HITL for merge/deploy.
+3. Eng → CoS + HITL for merge/deploy.
 
 If the remote job opened a PR and also merged it, the gate failed — treat it as an incident, not a speed win.
 
