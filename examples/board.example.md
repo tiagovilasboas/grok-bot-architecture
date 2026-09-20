@@ -45,9 +45,9 @@ Chief-of-staff: <host session id or "desktop">
 | Field | Example value |
 |---|---|
 | `id` | `card-2026-09-07-03` |
-| `goal` | Staging checklist for the docs PR; do not deploy anything |
+| `goal` | Package residual risk for the docs PR; do not merge or deploy |
 | `from` | Eng |
-| `to` | Entrega |
+| `to` | Chief-of-staff |
 | `kind` | `review` |
 | `refs` | `card-2026-09-07-02`, `pr://example/grok-bot-architecture/1` |
 | `write_policy` | `read` (this repo has no prod) |

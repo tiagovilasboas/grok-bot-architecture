@@ -29,9 +29,9 @@ summary:            Send the conference RSVP draft as the user
 refs:               mail://drafts/d-992
 default_on_timeout: wait
 decision:           reject
-decided_by:         tiago
+decided_by:         user
 decided_at:         2026-09-07T16:40:00Z
-notes:              Keep as draft; I will reply from the phone.
+notes:              Keep as draft; the human will reply later from another channel.
 ```
 
 Rules:

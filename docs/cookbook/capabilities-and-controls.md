@@ -10,6 +10,7 @@
 | **Connectors** | Schema’d MCP / APIs with auth and a write-boundary. Browser last. A **plugin** here is a connector, not a marketplace row | [ADR 0004](../adr/0004-connectors-over-browser.md) · [connectors.md](../connectors.md) |
 | **Cloud Eng** | Isolated code on an extra machine: one goal, one repo, one PR. Desktop CoS keeps the board and the merge gate | [ADR 0006](../adr/0006-cloud-agents-for-code.md) · [when-to-use-cloud-agent.md](when-to-use-cloud-agent.md) |
 | **HITL gates** | Pause · persist · resume on merge · deploy · secrets · messaging-as-user | [ADR 0003](../adr/0003-hitl-on-side-effects.md) · [hitl.md](../crew/hitl.md) |
+| **Reusable skills library** | Host-level `SKILL.md` recipes any specialist can load — not agents; do not bypass HITL | [skills.md](../skills.md) |
 
 Reads and **local drafts** may be optimistic. That is not a send, merge, or pay.
 
