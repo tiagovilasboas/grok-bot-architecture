@@ -2,7 +2,7 @@
 
 Cloud / remote agents are **extra machines** for isolated code, not a second Inbox. [ADR 0006](../adr/0006-cloud-agents-for-code.md). The desktop chief-of-staff keeps the board and the merge gate.
 
-Grok Bot / Cursor Cloud is the **example mapping**. The decision is host-agnostic: long isolated implementation leaves the shared desktop session. Do not confuse the Mac session with the box ([failure-modes.md](failure-modes.md) — Mac vs box).
+The decision is host-agnostic: long isolated implementation runs in a scoped worker. Keep the local session, shared state, and remote worker distinct ([failure-modes.md](failure-modes.md) — Local session vs remote worker).
 
 ## Use a cloud agent when all of these hold
 
@@ -15,14 +15,14 @@ Grok Bot / Cursor Cloud is the **example mapping**. The decision is host-agnosti
 ## Keep it on the desktop when
 
 - The human must watch (API shape taste, local device, design).
-- The job needs Inbox, Quinto, or Vitrine connectors.
+- The job needs Inbox, Finance, or Publishing connectors.
 - The change is small enough that dispatch costs more than the edit.
 - You cannot state `done_when` without a conversation.
-- You were about to send a cloud agent at **production** with deploy keys. That is Eng packaging + HITL (CoS / human), not cloud.
+- You were about to send a cloud agent at **production** with deploy keys. That is Engineering packaging + HITL (CoS / human), not cloud.
 
 ## Dispatch contract
 
-Chief-of-staff (or Eng) writes a card the remote job can execute without the chat:
+Chief-of-staff (or Engineering) writes a card the remote job can execute without the chat:
 
 | Field | Cloud job needs |
 |---|---|
@@ -36,9 +36,9 @@ The cloud agent **does not** merge, rotate secrets, or mail the user. It may pus
 
 ## After it returns
 
-1. Eng or the chief-of-staff attaches PR / SHA refs to the board.
+1. Engineering or the chief-of-staff attaches PR / SHA refs to the board.
 2. Review happens like any other change (a human, or a written review contract in your tree).
-3. Eng → CoS + HITL for merge/deploy.
+3. Engineering → CoS + HITL for merge/deploy.
 
 If the remote job opened a PR and also merged it, the gate failed — treat it as an incident, not a speed win.
 
@@ -48,4 +48,4 @@ You pay for a **clean window**. That is often cheaper than stuffing a SWE loop i
 
 ## Vendor leak check
 
-If this cookbook only works when the host string is “Cursor Cloud”, rewrite the mapping sentence and keep the five tests. The OS does not require that product.
+If this cookbook only works when the host string is “a remote code runner”, rewrite the mapping sentence and keep the five tests. The OS does not require that product.

@@ -7,7 +7,7 @@ Accepted
 “Desktop agent” is sold as the product. Staff need the machine: a filesystem, a board, interrupt records, connector credentials, and a browser that is not the architecture. Confusing the chat surface with the computer makes host lock-in look like design.
 
 ## Decision
-The OS is a **shared computer**: working tree, `examples/`-shaped board, persistable interrupts, and connector config. A **desktop session** (Grok Bot / Cursor or another host) is one way to sit at that computer. Cloud agents ([ADR 0006](0006-cloud-agents-for-code.md)) are extra machines with a narrower write-boundary, not a second OS. Layers stay vendor-agnostic so a host swap does not rewrite the domain.
+The OS is a **shared computer**: working tree, `examples/`-shaped board, persistable interrupts, and connector config. A **desktop session** (a desktop agent host or another host) is one way to sit at that computer. Cloud agents ([ADR 0006](0006-cloud-agents-for-code.md)) are extra machines with a narrower write-boundary, not a second OS. Layers stay vendor-agnostic so a host swap does not rewrite the domain.
 
 ## Consequences
 + Host is replaceable; the board and gates survive
@@ -16,4 +16,4 @@ The OS is a **shared computer**: working tree, `examples/`-shaped board, persist
 − Shared FS is a trust boundary: specialists still do not share every secret
 
 ## See
-[architecture.md](../architecture.md) (Desktop session · Shared FS). Mac vs box: [cookbook/failure-modes.md](../cookbook/failure-modes.md).
+[architecture.md](../architecture.md) (Desktop session · Shared FS). Local session vs remote worker: [cookbook/failure-modes.md](../cookbook/failure-modes.md).

@@ -1,0 +1,14 @@
+{
+  "example_only": true,
+  "max_parallel_remote_workers": 2,
+  "remote_worker_start": "explicit_approval",
+  "external_contribution_batch_limit": 5,
+  "outbound_messages": "explicit_approval",
+  "force_push": "explicit_approval",
+  "default_branch_merge": "explicit_approval",
+  "purchases_and_payments": "explicit_approval",
+  "routine_state": "disabled_until_configured",
+  "summary_max_lines": 5,
+  "public_data_policy": "fictional_examples_only",
+  "enforced_by": "consuming_host"
+}

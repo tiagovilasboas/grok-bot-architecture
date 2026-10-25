@@ -31,7 +31,7 @@ Row 1 is the usual refuse. Rows 2–3 are already machine-checked. If you cannot
 ## Limit
 
 - **Pattern / reference.** ADRs + contracts + checkers. Not a hosted OS you log into.
-- **Host is replaceable.** Grok Bot / Cursor is the example mapping. A host swap must not rewrite the domain ([architecture.md](../architecture.md)).
+- **Host is replaceable.** a desktop agent host is the example mapping. A host swap must not rewrite the domain ([architecture.md](../architecture.md)).
 - **No product CLI.** The proof is `node scripts/validate-all.mjs`.
 - **External pattern refs only.** MCP, Anthropic agents, LangGraph HITL, OWASP agentic, AGENTS.md, 12-factor — not a catalog of other trees.
 

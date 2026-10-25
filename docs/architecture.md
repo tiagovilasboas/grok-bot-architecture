@@ -1,6 +1,6 @@
 # Architecture
 
-This repository is a **pattern / reference**, not a hosted OS. Layers are portable. Grok Bot (Cursor) is one replaceable host mapping.
+This repository is a **pattern / reference**, not a hosted OS. Layers are portable. a desktop agent host is one replaceable host mapping.
 
 ## Layers
 
@@ -10,22 +10,22 @@ flowchart TB
     User["User<br/>goals · decisions · allowlists"]
   end
 
-  subgraph mesa [Mesa · Staff crew]
+  subgraph mesa [Core team · Staff crew]
     CoS["Chief-of-staff<br/>plan · route · interrupt · board"]
     Inbox["Inbox"]
-    Eng["Eng"]
-    Vitrine["Vitrine"]
-    Cibersec["Cibersec"]
-    Carreira["Carreira"]
+    Engineering["Engineering"]
+    Publishing["Publishing"]
+    Security["Security"]
+    Career["Career"]
   end
 
-  subgraph apps [Apps hub · not Staff Mesa]
-    Quinto["Quinto"]
-    LotRace["LotRace"]
+  subgraph apps [Apps hub · not Staff Core team]
+    Finance["Finance"]
+    Product["Product"]
   end
 
   subgraph hobby [Hobby · optional]
-    IronToy["IronToy"]
+    Hobby["Hobby"]
   end
 
   subgraph edge [Edge]
@@ -34,30 +34,30 @@ flowchart TB
   end
 
   subgraph machine [Host computer]
-    Desktop["Desktop session<br/>example: Grok Bot / Cursor"]
+    Desktop["Desktop session<br/>example: a desktop agent host"]
     Files["Shared FS<br/>board · interrupts · working tree"]
     Cloud["Cloud agent<br/>isolated code · branch · PR"]
   end
 
   User -->|"goal / HITL resume"| CoS
   CoS --> Inbox
-  CoS --> Eng
-  CoS --> Vitrine
-  CoS --> Cibersec
-  CoS --> Carreira
-  CoS --> Quinto
-  CoS --> LotRace
-  CoS -.->|"optional"| IronToy
+  CoS --> Engineering
+  CoS --> Publishing
+  CoS --> Security
+  CoS --> Career
+  CoS --> Finance
+  CoS --> Product
+  CoS -.->|"optional"| Hobby
   Inbox --> Conn
-  Vitrine --> Conn
-  Carreira --> Conn
-  Quinto --> Conn
-  LotRace --> Conn
-  Cibersec --> Conn
-  IronToy -.-> Conn
+  Publishing --> Conn
+  Career --> Conn
+  Finance --> Conn
+  Product --> Conn
+  Security --> Conn
+  Hobby -.-> Conn
   Inbox -.->|"exception · ADR 0004"| Browser
-  Vitrine -.->|"exception · ADR 0004"| Browser
-  Eng -->|"ADR 0006"| Cloud
+  Publishing -.->|"exception · ADR 0004"| Browser
+  Engineering -->|"ADR 0006"| Cloud
   CoS --- Files
   Desktop --- Files
   Cloud -->|"PR + refs · ADR 0006"| Files
@@ -73,11 +73,11 @@ flowchart TB
 | User ↔ CoS (`goal / HITL resume`, `HITL`) | [ADR 0003](adr/0003-hitl-on-side-effects.md) |
 | Specialists → Connectors; Browser `exception` | [ADR 0004](adr/0004-connectors-over-browser.md) |
 | Hops as refs, not blobs (envelope, not drawn) | [ADR 0005](adr/0005-token-thrift.md) · [context-engineering.md](context-engineering.md) |
-| Eng → Cloud; Cloud → Files (`PR + refs`) | [ADR 0006](adr/0006-cloud-agents-for-code.md) |
+| Engineering → Cloud; Cloud → Files (`PR + refs`) | [ADR 0006](adr/0006-cloud-agents-for-code.md) |
 
 Index: [adr/README.md](adr/README.md). When the loop feels fast and wrong: [cookbook/failure-modes.md](cookbook/failure-modes.md).
 
-Ship / merge / deploy stay **HITL**. On the example host, Eng owns the PR; CoS / human merge. **Entrega** is not drawn as a Mesa specialist — optional ship role; packaging folds into Eng + HITL ([roles.md](crew/roles.md)).
+Ship / merge / deploy stay **HITL**. On the example host, Engineering owns the PR; CoS / human merge. **Release** is not drawn as a Core team specialist — optional ship role; packaging folds into Engineering + HITL ([roles.md](crew/roles.md)).
 
 | Layer | Owns | Must not |
 |---|---|---|
@@ -87,7 +87,7 @@ Ship / merge / deploy stay **HITL**. On the example host, Eng owns the PR; CoS /
 | **Connectors** | Schema’d tools and resources | Become the architecture; dump the catalog into context |
 | **Host computer** | Session, FS, optional cloud machine | Be confused with the OS (see [ADR 0002](adr/0002-shared-computer-vs-desktop.md)) |
 
-Vendor-agnostic rule: if you swap the example host (Grok Bot / Cursor) for another desktop harness, the table above still holds. Only the **mapping** (where the board file lives, how MCP is attached, how a cloud job is spawned) changes. A host swap must not force a domain rewrite.
+Vendor-agnostic rule: if you swap the example host (a desktop agent host) for another desktop harness, the table above still holds. Only the **mapping** (where the board file lives, how MCP is attached, how a cloud job is spawned) changes. A host swap must not force a domain rewrite.
 
 Reusable host skills (recipes, not agents): [skills.md](skills.md).
 
@@ -121,7 +121,7 @@ If a specialist can see (2) and (3) and reach (4), you have the [lethal trifecta
 3. Specialist works **only** that card. Tools come from its connector allowlist. Skills may be loaded as recipes — they do not bypass HITL.
 4. Handoff is a typed envelope ([crew/handoffs.md](crew/handoffs.md)), not a transcript paste. What may enter the window: [context-engineering.md](context-engineering.md).
 5. Privileged write → interrupt → human `decision` ([crew/hitl.md](crew/hitl.md)).
-6. Cibersec records outcome (trace id, tokens if known, residual risk). No invented prod numbers.
+6. Security records outcome (trace id, tokens if known, residual risk). No invented prod numbers.
 
 Routines are the same loop on a schedule ([routines.md](routines.md)).
 
@@ -130,7 +130,7 @@ Routines are the same loop on a schedule ([routines.md](routines.md)).
 - **Not a hosted OS.** This repository is a pattern / reference (ADRs, contracts, checkers). You map it onto a host you already sit at.
 - Not a single chat with every tool. That is the problem the crew solves ([ADR 0001](adr/0001-crew-of-agents.md)).
 - Not an open multi-agent **swarm** of peers spawning peers. This pattern is **crew + HITL + typed handoffs**.
-- Not a vendor SDK, a product CLI, or a host-only playbook. Grok Bot / Cursor is one **replaceable** mapping.
+- Not a vendor SDK, a product CLI, or a host-only playbook. a desktop agent host is one **replaceable** mapping.
 - Not an eval harness or an AppSec review kit. Measure and review in your tree; this log keeps the board and the gates.
 - Not a private prompt pack. If a sentence only works as a secret system prompt, it does not belong here.
 

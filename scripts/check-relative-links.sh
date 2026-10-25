@@ -26,7 +26,7 @@ extract_targets() {
 }
 
 files=()
-for required in README.md AGENTS.md CONTRIBUTING.md; do
+for required in README.md AGENTS.md CONTRIBUTING.md SECURITY.md SUPPORT.md CODE_OF_CONDUCT.md CHANGELOG.md; do
   if [[ ! -f "${required}" ]]; then
     fail "missing scan target: ${required}"
   else
@@ -37,7 +37,7 @@ done
 
 while IFS= read -r rel; do
   files+=("${rel}")
-done < <(find docs examples -type f \( -name '*.md' -o -name '*.txt' \) | sort)
+done < <(find docs examples skills -type f \( -name '*.md' -o -name '*.txt' \) | sort)
 
 for rel in "${files[@]}"; do
   dir="$(dirname "${rel}")"
@@ -56,7 +56,7 @@ for rel in "${files[@]}"; do
     path_part="${target%%#*}"
     [[ -z "${path_part}" ]] && continue
 
-    resolved="$(realpath -m "${dir}/${path_part}")"
+    resolved="$(node -e 'process.stdout.write(require("node:path").resolve(process.argv[1]))' "${dir}/${path_part}")"
     if [[ ! -e "${resolved}" ]]; then
       fail "${rel} -> ${target}"
     fi

@@ -28,6 +28,6 @@ If you propose an ADR: one decision per PR, Status starts as `Proposed`, and the
 
 ## Guardrails
 
-- [ ] Example host (Grok Bot / Cursor) stays an example
+- [ ] Example host (a desktop agent host) stays an example
 - [ ] No private system prompts, client IP, or invented screenshots
 - [ ] HITL stays fail-closed on merge / deploy / secrets / messaging-as-user
