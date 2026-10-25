@@ -1,13 +1,13 @@
-# Grok Bot Architecture: Multi-Agent Reference Architecture
+# Grok Bot Architecture: AI Agent Teams, Skills, MCP & Human Approval
 
 [![CI](https://github.com/tiagovilasboas/grok-bot-architecture/actions/workflows/ci.yml/badge.svg)](https://github.com/tiagovilasboas/grok-bot-architecture/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-An open-source reference architecture for **AI agent orchestration**, **human-in-the-loop approval**, and **MCP connectors** on a shared workspace. Use typed handoffs, explicit tool permissions, and persisted approval requests to coordinate specialists across local and remote agent hosts.
+**Grok Bot Architecture** is an independent, MIT-licensed reference for organizing **AI agent teams** with reusable **agent skills**, **MCP connectors**, and **human-in-the-loop approval**. Start with a chief-of-staff and scoped specialists, then use typed handoffs and persisted approval requests to coordinate work across local and remote hosts.
 
-The repository name is historical. The architecture works independently of any model, vendor, IDE, operating system, or agent framework. No model API key is needed to run the contract examples.
+Looking for **Grok Bot multi-agent architecture**, **Grok Bot skills**, or a **chief-of-staff AI agent** pattern? This community project explains those design choices with portable role contracts and examples. It is not affiliated with xAI or Cursor and does not contain the Grok Bot product's source code. The architecture is model- and framework-independent; no API key is needed to validate its examples.
 
-[Quick start](#quick-start) · [Walkthrough](examples/walkthrough.md) · [Architecture](docs/architecture.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+[Quick start](#quick-start) · [Walkthrough](examples/walkthrough.md) · [Architecture](docs/architecture.md) · [Grok Bot FAQ](docs/grok-bot-faq.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
 
 ## What you can use today
 
@@ -53,24 +53,59 @@ Use the [decision guide](docs/cookbook/when-to-use-this-pattern.md) before addin
 
 ```mermaid
 flowchart TB
-  User["User: goals and approval decisions"]
-  CoS["Chief-of-staff: plan, assign, persist interrupts"]
-  Specialists["Specialists: scoped work and typed handoffs"]
-  Connectors["MCP connectors or first-party APIs"]
-  Store["Shared workspace: board, references, interrupts"]
-  Worker["Optional isolated remote code worker"]
+  Human["Human operator<br/>Goals, scope and approval decisions"]
 
-  User --> CoS
-  CoS --> Specialists
-  Specialists --> Connectors
-  CoS --- Store
-  Specialists --- Store
-  Specialists --> Worker
-  Worker -->|"branch and review references"| Store
-  CoS -->|"request approval"| User
+  subgraph Core["Core team"]
+    direction TB
+    CoS["Chief-of-staff<br/>Scope · assign · review"]
+    Engineering["Engineering<br/>Code · PRs · CI"]
+    Publishing["Publishing<br/>Documentation · public content"]
+    Security["Security<br/>AppSec · privacy review"]
+    Inbox["Inbox<br/>Triage · drafts · scheduling proposals"]
+    Career["Career<br/>Opportunity screening · application drafts"]
+    CoS --> Engineering
+    CoS --> Publishing
+    CoS --> Security
+    CoS --> Inbox
+    CoS --> Career
+  end
+
+  subgraph Domain["Domain specialists · optional"]
+    direction LR
+    Finance["Finance<br/>Finance workflows · reconciliation drafts"]
+    Product["Product<br/>Requirements · acceptance · previews"]
+    Hobby["Hobby<br/>Research · comparisons · shortlists"]
+  end
+
+  subgraph Host["Host adapter · vendor and framework independent"]
+    State["Shared state<br/>Board · typed handoffs · references"]
+    Skills["Role skills<br/>Nine reusable SKILL.md recipes"]
+    Tools["Scoped tool access<br/>Per-role permissions · budgets"]
+    Approval["Approval gate<br/>Authenticate · bind action and revision<br/>No decision: wait"]
+    Connectors["MCP connectors / first-party APIs<br/>Authorized reads · drafts · approved actions"]
+    Worker["Optional isolated code worker<br/>Branch + review evidence"]
+  end
+
+  Human -->|"goal and constraints"| CoS
+  CoS --> Finance
+  CoS --> Product
+  CoS --> Hobby
+  Core --- State
+  Domain --- State
+  Skills -.->|"task-specific instructions"| Core
+  Skills -.->|"task-specific instructions"| Domain
+  Core --> Tools
+  Domain --> Tools
+  Tools -->|"authorized reads and drafts"| Connectors
+  Tools -->|"privileged action request"| Approval
+  Approval -->|"request decision"| Human
+  Human -->|"explicit decision"| Approval
+  Approval -->|"approved action within scope"| Connectors
+  Engineering -->|"scoped implementation"| Worker
+  Worker -->|"branch and PR references"| State
 ```
 
-The coordinator owns assignments and the board. Specialists receive scoped tools and references. The host enforces permissions; a persisted interrupt records a privileged action while the human decides.
+Chief-of-staff coordinates five other Core team roles and three optional Domain specialists. Each role loads its own skill and works through scoped host permissions. Shared state carries assignments and evidence; privileged actions require an authenticated decision bound to the action and revision. Isolated code workers return review artifacts through Engineering.
 
 See [architecture and trust boundaries](docs/architecture.md) and the [host integration contract](docs/host-integration.md).
 
@@ -117,6 +152,30 @@ The current checkers validate individual records. They do not implement a workfl
 | [Connectors](docs/connectors.md) | MCP/API boundaries and least privilege |
 | [Security design](docs/security.md) | Untrusted inputs and privileged operations |
 | [Context engineering](docs/context-engineering.md) | References, budgets, and bounded context |
+
+## Grok Bot questions
+
+### What is Grok Bot?
+
+The [official Grok Bot overview](https://docs.x.ai/grok-bot/overview) describes persistent AI teammates that work across connected apps and a shared computer. This repository is an independent architecture reference for organizing that kind of work. Product installation, pricing, and account support belong in the official documentation.
+
+### Is this an open-source Grok Bot implementation?
+
+This reference architecture, its nine role skills, and its local validators are open source under MIT. They are not the Grok Bot service, its backend, an official SDK, or a reverse-engineered implementation.
+
+### How do I organize a Grok Bot team?
+
+Start with Chief-of-staff plus the specialist needed for one task. Define its scope, references, permitted actions, and completion criteria. Use the [nine role contracts](docs/crew/roles.md) and [skill library](docs/skills.md) as recipes; map them to the host's supported tools and approval mechanisms.
+
+### Can I use the agent skills with another model or framework?
+
+Yes. The files are portable instructions and contracts. Adapt tool names, state storage, and skill loading to your host. Compatibility with a specific host needs verification; copying a skill does not install an integration or enforce permissions.
+
+### Do separate bots isolate secrets and tool access?
+
+Role names alone do not create isolation. The host must enforce permissions and data boundaries. On a shared computer, review which files, credentials, and sessions each bot can actually reach. See [host integration](docs/host-integration.md) and the [Grok Bot FAQ](docs/grok-bot-faq.md).
+
+More questions: [Grok Bot skills, MCP, routines, and approval FAQ](docs/grok-bot-faq.md).
 
 ## Contribute and get help
 

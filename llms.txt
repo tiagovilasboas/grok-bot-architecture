@@ -1,6 +1,6 @@
 # Grok Bot Architecture
 
-Pattern / reference (not a hosted OS): crew, shared computer, routines, connectors, HITL. Example host: a desktop agent host. Host is replaceable; layers stay vendor-agnostic.
+Independent, MIT-licensed reference for Grok Bot-style AI agent teams: nine role skills, multi-agent orchestration, MCP connectors, typed handoffs, and human-in-the-loop approval. Not affiliated with xAI or Cursor; not the Grok Bot product source or an official integration. Host, model, and framework independent. JSON validation does not authenticate or enforce approvals.
 
 Prove the contracts:
 
@@ -9,6 +9,8 @@ node scripts/validate-all.mjs
 ```
 
 ## Docs
+
+- [Grok Bot FAQ: agent teams, skills, MCP, routines, approvals](docs/grok-bot-faq.md)
 
 - [Architecture](docs/architecture.md)
 - [ADRs](docs/adr/README.md)
