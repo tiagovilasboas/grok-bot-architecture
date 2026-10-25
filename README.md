@@ -1,163 +1,136 @@
-# Grok Bot Architecture
+# Grok Bot Architecture: Multi-Agent Reference Architecture
 
-**Decision this repo helps you make:** whether a desktop assistant should be a **crew on a shared computer** — typed handoffs, fail-closed HITL, connectors over the browser, token thrift — or a single chat with every tool.
+[![CI](https://github.com/tiagovilasboas/grok-bot-architecture/actions/workflows/ci.yml/badge.svg)](https://github.com/tiagovilasboas/grok-bot-architecture/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Staff ADRs and crew contracts. The proof is the validators, not a product CLI.
+An open-source reference architecture for **AI agent orchestration**, **human-in-the-loop approval**, and **MCP connectors** on a shared workspace. Use typed handoffs, explicit tool permissions, and persisted approval requests to coordinate specialists across local and remote agent hosts.
 
-```text
+The repository name is historical. The architecture works independently of any model, vendor, IDE, operating system, or agent framework. No model API key is needed to run the contract examples.
+
+[Quick start](#quick-start) · [Walkthrough](examples/walkthrough.md) · [Architecture](docs/architecture.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+
+## What you can use today
+
+- **Six architecture decisions** covering specialist boundaries, shared state, approvals, connectors, context budgets, and isolated remote work.
+- **Reusable role contracts** with a job, objective, and write boundary for every specialist.
+- **Nine ready-to-load role skills** with procedures, output contracts, and quality review: [skill library](docs/skills.md).
+- **Dependency-free JavaScript validators** for handoff and interrupt JSON records, with accepted and rejected examples.
+- **Adoption guides** for a first week, failure modes, and deciding when multiple agents are justified.
+- **CI checks** for contract fixtures and relative documentation links.
+
+This is a reference architecture with executable contract checks. A consuming host must implement tool authorization, authenticated approvals, durable storage, and execution limits. Passing a JSON validator alone does not authorize an action or prove that a human approved it.
+
+## Quick start
+
+Requirements: Git and Node.js 20 or newer. The optional documentation link check additionally uses Bash; path resolution uses Node.js on both Linux and macOS.
+
+```bash
+git clone https://github.com/tiagovilasboas/grok-bot-architecture.git
+cd grok-bot-architecture
 node scripts/validate-all.mjs
 ```
 
-Broken fixtures under `examples/*.broken.json` must be **rejected**. Fixed fixtures must be **accepted**. CI runs the same command (and the two checkers it wraps).
+No package installation, external services, or credentials are required. The command checks the bundled examples: intentionally broken records must be rejected and corrected records accepted. It exits nonzero when those expectations fail.
 
-### Sample pass
+Check your own records separately:
 
-```text
-self-test: OK
-examples/handoff.broken.json: REJECTED (expected)
-  - done_when must be a non-empty string
-  - from must be a role, not "the agent"
-  - refs must be an array of pointers (paths, SHAs, issue ids, URLs — not a transcript blob)
-  - write_policy must be read | draft | hitl:<merge|deploy|secrets|messaging-as-user> | allowlist:<name>
-  - decision / decided_by belong on the interrupt record; do not invent a resume on the hop
-examples/handoff.fixed.json: ACCEPTED (expected)
-OK
-self-test: OK
-examples/interrupt.broken.json: REJECTED (expected)
-  - gate must be one of merge, deploy, secrets, messaging-as-user (got undefined)
-  - default_on_timeout must be "wait" (got "approve")
-  - decided_by must be a human identifier; never invent a specialist or model
-examples/interrupt.fixed.json: ACCEPTED (expected)
-OK
+```bash
+node scripts/validate-handoff.mjs /path/to/handoff.json
+node scripts/validate-interrupt.mjs /path/to/interrupt.json
 ```
 
-### Sample fail
+These commands only validate files. They do not call connectors or execute the described action. Read the [complete walkthrough](examples/walkthrough.md) to follow a task from assignment to a pending approval and a rejected request.
 
-A broken fixture the checker accepts (or a fixed fixture it rejects) fails the run:
+## When this architecture helps
 
-```text
-examples/handoff.broken.json: ACCEPTED (expected REJECTED)
-Handoff fixture expectations failed.
-```
+Use it when several jobs share infrastructure and their context, credentials, or write permissions need different boundaries: for example, inbox triage alongside engineering and publishing.
 
-That is the contract: ghost owners, transcript `refs`, invented `decision`, and `default_on_timeout: approve` do not ship.
+Start with a coordinator and one specialist. Add another role only when a concrete boundary justifies it. For one person working on one repository with one tool set, a single agent may be sufficient.
 
-## Judgment
-
-**Do not use a crew** when **one human, one repo, one chat** is enough. That is a sitting, not an OS. A second specialist without a secrets / write-boundary / window collision is ceremony.
-
-If you run this pattern, the checkers above are the gate — not a vibe:
-
-| Rule | Fail closed |
-|---|---|
-| Timeout | `default_on_timeout` must be **`wait`**. Never `approve`. If nobody answers, the write stays paused. |
-| Owners | Ghost owners fail closed. `from` / `to` are roles (`Chief-of-staff`, `Eng`), not `"the agent"` or `"the model"`. |
-| Resume | Invented `decision` / `decided_by` on a hop is a failed gate. Resume lives on the interrupt record; only a human fills it. |
-
-A vs B filter: [`docs/cookbook/when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md).
-
-## Limit
-
-This repository is a **pattern / reference** — ADRs, crew contracts, and `node scripts/validate-all.mjs`. It is **not** a hosted OS you log into, a product CLI, or a vendor SDK.
-
-The **host is replaceable**. Grok Bot / Cursor is the example mapping. Swap the desktop harness; keep user · chief-of-staff · specialists · connectors · shared computer.
-
-Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agentic AI
+Use the [decision guide](docs/cookbook/when-to-use-this-pattern.md) before adding coordination.
 
 ## Architecture
 
 ```mermaid
 flowchart TB
-  User["User"]
-  CoS["Chief-of-staff<br/>plan · route · interrupt"]
-  Specs["Specialists<br/>Mesa: Inbox · Eng · Vitrine · Cibersec · Carreira<br/>Apps: Quinto · LotRace · Hobby: IronToy"]
-  Conn["Connectors<br/>MCP · APIs"]
-  Host["Host computer<br/>desktop session · files · browser last"]
+  User["User: goals and approval decisions"]
+  CoS["Chief-of-staff: plan, assign, persist interrupts"]
+  Specialists["Specialists: scoped work and typed handoffs"]
+  Connectors["MCP connectors or first-party APIs"]
+  Store["Shared workspace: board, references, interrupts"]
+  Worker["Optional isolated remote code worker"]
 
-  User -->|"goal / decision"| CoS
-  CoS -->|"typed handoff"| Specs
-  Specs -->|"tool contract"| Conn
-  CoS -.->|"shared FS · board · interrupts"| Host
-  Specs -.-> Host
-  Conn -.-> Host
-  CoS -->|"HITL on side effects"| User
+  User --> CoS
+  CoS --> Specialists
+  Specialists --> Connectors
+  CoS --- Store
+  Specialists --- Store
+  Specialists --> Worker
+  Worker -->|"branch and review references"| Store
+  CoS -->|"request approval"| User
 ```
 
-| Layer | Meaning |
-|---|---|
-| **Pattern** | User → chief-of-staff → specialists → connectors on one host computer |
-| **Example host** | Grok Bot (Cursor). Replaceable. Layers stay vendor-agnostic. |
+The coordinator owns assignments and the board. Specialists receive scoped tools and references. The host enforces permissions; a persisted interrupt records a privileged action while the human decides.
 
-Layers and trust boundaries: [`docs/architecture.md`](docs/architecture.md) · ADRs: [`docs/adr/README.md`](docs/adr/README.md)
+See [architecture and trust boundaries](docs/architecture.md) and the [host integration contract](docs/host-integration.md).
 
-| ADR | Decision |
-|---|---|
-| [0001](docs/adr/0001-crew-of-agents.md) | Crew of specialists, not a monolith |
-| [0002](docs/adr/0002-shared-computer-vs-desktop.md) | Shared computer ≠ “a desktop chat” |
-| [0003](docs/adr/0003-hitl-on-side-effects.md) | Fail closed on merge / deploy / secrets / messaging-as-user |
-| [0004](docs/adr/0004-connectors-over-browser.md) | Connectors over browser |
-| [0005](docs/adr/0005-token-thrift.md) | Token thrift is a control |
-| [0006](docs/adr/0006-cloud-agents-for-code.md) | Cloud agents for isolated code work |
+## Roles
 
-## Crew
+Keep the role that fits the work; the examples below do not imply that every installation needs the full crew.
 
-Example labels are **pattern names**, not a product hiring plan. Keep job · objective · write-boundary.
-
-**Mesa (Staff):** Chief-of-staff (Chefe/Principal), Eng, Vitrine, Cibersec, Inbox, Carreira.
-**Apps hub (not Staff Mesa):** Quinto, LotRace.
-**Hobby (optional):** IronToy.
-Ship/merge/deploy stay HITL; Eng owns the PR and CoS/human merge. Entrega is not a first-class Mesa seat on the example host (packaging folds into Eng + HITL).
-
-| Role | Job | Writes |
+| Role | Job | Write boundary |
 |---|---|---|
-| **Chief-of-staff** | Plan, route, interrupt | Board + interrupts |
-| **Inbox** | Triage inbound | Drafts; send-as-user → HITL |
-| **Eng** | Repo change + package for review | Branch / cloud PR; merge/deploy → HITL |
-| **Vitrine** | Public surface | Draft / PR; publish → HITL |
-| **Cibersec** | AppSec / LGPD · light obs | Notes; mute prod → HITL |
-| **Carreira** | Career / public professional surface | Drafts; messaging/publish → HITL |
-| **Quinto** (Apps) | Finance close | Ledger drafts; pay → HITL |
-| **LotRace** (Apps) | App product loop | App drafts; merge/prod → HITL |
-| **IronToy** (Hobby) | Optional side product | Same fail-closed gates |
+| **Chief-of-staff** | Plan, route, interrupt | Board and interrupt records |
+| **Inbox** | Triage inbound | Drafts; send-as-user requires approval |
+| **Engineering** | Repository changes and review packaging | Branches; merge and deploy require approval |
+| **Publishing** | Public surface | Drafts and previews; publish requires approval |
+| **Security** | AppSec, privacy, and operational evidence | Notes; production changes require approval |
+| **Career** | Career and professional surface | Drafts; messaging and publishing require approval |
+| **Finance** (Apps) | Finance close | Ledger drafts; payments require approval |
+| **Product** (Apps) | App product loop | App drafts; merge and production require approval |
+| **Hobby** (Hobby, optional) | Side-product loop | Same scoped write and approval rules |
 
-[`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md) · [`skills.md`](docs/skills.md)
+The roles and their names are reusable example labels. No real accounts, financial records, schedules, or personal workspace configuration are required. Full contracts: [roles](docs/crew/roles.md), [handoffs](docs/crew/handoffs.md), and [human-in-the-loop approvals](docs/crew/hitl.md).
 
-Machine-checked envelopes: [`examples/`](examples/) · `node scripts/validate-handoff.mjs` · `node scripts/validate-interrupt.mjs` · `node scripts/validate-all.mjs`.
+## Contract guarantees and limits
 
-## Start
-
-| # | Read | Why |
+| Check | Current behavior | Host responsibility |
 |---|---|---|
-| 1 | [`docs/architecture.md`](docs/architecture.md) | Layers and trust |
-| 2 | [`docs/adr/README.md`](docs/adr/README.md) | Accepted decisions (0001–0006) |
-| 3 | [`docs/crew/roles.md`](docs/crew/roles.md) · [`handoffs.md`](docs/crew/handoffs.md) · [`hitl.md`](docs/crew/hitl.md) · [`skills.md`](docs/skills.md) | Job · objective · write-boundary · host skills |
-| 4 | [`docs/cookbook/capabilities-and-controls.md`](docs/cookbook/capabilities-and-controls.md) | What the crew can do vs controls that fail closed |
-| 5 | [`docs/cookbook/first-week.md`](docs/cookbook/first-week.md) · [`when-to-use-this-pattern.md`](docs/cookbook/when-to-use-this-pattern.md) · [`failure-modes.md`](docs/cookbook/failure-modes.md) | Stand up; A vs B; loops that look fast and go wrong |
-| 6 | [`docs/context-engineering.md`](docs/context-engineering.md) | What enters the window; thrift; fail-closed |
+| Handoff structure | Requires an owner, goal, completion condition, references, and a recognized write-policy shape | Resolve roles, references, and actual tool permissions |
+| Approval record | Checks gate, timeout policy, decision fields, and known non-human role labels | Authenticate the approver and bind approval to the exact action |
+| Timeout declaration | Requires `default_on_timeout: wait` | Actually pause execution and preserve state |
+| References | Requires an array of non-empty strings | Enforce allowed reference schemes, access, and data minimization |
+| Remote work | Documents isolated code work and review handoff | Isolate credentials, files, processes, and network access |
 
-Then: [`routines.md`](docs/routines.md) · [`connectors.md`](docs/connectors.md) · [`security.md`](docs/security.md) · [`token-economy.md`](docs/token-economy.md).
+The current checkers validate individual records. They do not implement a workflow engine, authenticate identities, prevent replay, or guarantee safe concurrent execution.
 
-A **plugin** here is a **connector** (schema’d MCP/API with allowlist and write-boundary), not a marketplace catalog — [connectors.md](docs/connectors.md#plugin--connector).
+## Documentation
 
-## Pattern refs
+| Start here | What you get |
+|---|---|
+| [Architecture](docs/architecture.md) | Layers, ownership, and trust boundaries |
+| [ADRs](docs/adr/README.md) | Six decisions and their tradeoffs |
+| [Walkthrough](examples/walkthrough.md) | A complete fictional task lifecycle |
+| [Host integration](docs/host-integration.md) | What an adapter must enforce |
+| [First week](docs/cookbook/first-week.md) | Adopt a small crew progressively |
+| [Failure modes](docs/cookbook/failure-modes.md) | Context waste, excess delegation, and silent approval |
+| [Connectors](docs/connectors.md) | MCP/API boundaries and least privilege |
+| [Security design](docs/security.md) | Untrusted inputs and privileged operations |
+| [Context engineering](docs/context-engineering.md) | References, budgets, and bounded context |
 
-External patterns, not SDKs and not a sibling farm:
+## Contribute and get help
 
-- [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture)
-- [Anthropic — building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
-- [Anthropic — effective context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
-- [LangGraph HITL](https://docs.langchain.com/oss/python/langgraph/interrupts)
-- [OWASP Top 10 for Agentic Applications (2026)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
-- [AGENTS.md](https://agents.md/)
-- [12-factor agents](https://github.com/humanlayer/12-factor-agents)
-- [OTel GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/)
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). Small documentation fixes, anonymized adoption reports, and missing negative fixtures are useful contributions. Propose architecture changes through an ADR; use branches and pull requests.
 
-## Contributing
+- [Report a bug or improve the docs](https://github.com/tiagovilasboas/grok-bot-architecture/issues/new/choose)
+- [Support](SUPPORT.md) and [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Report a security concern privately](SECURITY.md)
+- [Changes and follow-up priorities](CHANGELOG.md)
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+Stars and forks indicate interest, not verified production adoption. The repository does not publish measured productivity, security, or cost improvements without supporting evidence.
 
 ## License
 
-[MIT](LICENSE)
+[MIT License](LICENSE), copyright © 2026 Tiago Vilas Boas. You may use, modify, and redistribute the project, including commercially, under the license terms.
 
-Agent notes: [`AGENTS.md`](AGENTS.md).
+Maintained by [Tiago Vilas Boas](https://github.com/tiagovilasboas). Contributions are welcome from any agent ecosystem.

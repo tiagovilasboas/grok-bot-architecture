@@ -8,7 +8,7 @@
 |---|---|---|
 | **Typed handoff** | Hop with `from` / `to` roles, `goal`, `refs`, `write_policy` — not a transcript dump | [handoffs.md](../crew/handoffs.md) · `examples/` |
 | **Connectors** | Schema’d MCP / APIs with auth and a write-boundary. Browser last. A **plugin** here is a connector, not a marketplace row | [ADR 0004](../adr/0004-connectors-over-browser.md) · [connectors.md](../connectors.md) |
-| **Cloud Eng** | Isolated code on an extra machine: one goal, one repo, one PR. Desktop CoS keeps the board and the merge gate | [ADR 0006](../adr/0006-cloud-agents-for-code.md) · [when-to-use-cloud-agent.md](when-to-use-cloud-agent.md) |
+| **Cloud Engineering** | Isolated code on an extra machine: one goal, one repo, one PR. Desktop CoS keeps the board and the merge gate | [ADR 0006](../adr/0006-cloud-agents-for-code.md) · [when-to-use-cloud-agent.md](when-to-use-cloud-agent.md) |
 | **HITL gates** | Pause · persist · resume on merge · deploy · secrets · messaging-as-user | [ADR 0003](../adr/0003-hitl-on-side-effects.md) · [hitl.md](../crew/hitl.md) |
 | **Reusable skills library** | Host-level `SKILL.md` recipes any specialist can load — not agents; do not bypass HITL | [skills.md](../skills.md) |
 
@@ -40,4 +40,4 @@ Machine-check the envelopes: `node scripts/validate-all.mjs`. Ghost owners, tran
 
 ## Limit
 
-This page is a **decision + limit** map for the pattern. It is not a product CLI, a host SDK, or a sibling-repo farm. Host is replaceable; Grok Bot / Cursor is the example mapping. A vs B: [when-to-use-this-pattern.md](when-to-use-this-pattern.md). When the loop already feels fast and wrong: [failure-modes.md](failure-modes.md).
+This page is a **decision + limit** map for the pattern. It is not a product CLI, a host SDK, or a sibling-repo farm. Host is replaceable; a desktop agent host is the example mapping. A vs B: [when-to-use-this-pattern.md](when-to-use-this-pattern.md). When the loop already feels fast and wrong: [failure-modes.md](failure-modes.md).

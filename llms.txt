@@ -1,6 +1,6 @@
 # Grok Bot Architecture
 
-Pattern / reference (not a hosted OS): crew, shared computer, routines, connectors, HITL. Example host: Grok Bot (Cursor). Host is replaceable; layers stay vendor-agnostic.
+Pattern / reference (not a hosted OS): crew, shared computer, routines, connectors, HITL. Example host: a desktop agent host. Host is replaceable; layers stay vendor-agnostic.
 
 Prove the contracts:
 
@@ -15,6 +15,9 @@ node scripts/validate-all.mjs
 - [Roles](docs/crew/roles.md) · [Handoffs](docs/crew/handoffs.md) · [HITL](docs/crew/hitl.md)
 - [Cookbook](docs/cookbook/first-week.md) · [When to use this pattern](docs/cookbook/when-to-use-this-pattern.md)
 - [Examples](examples/README.md)
+- [Role skills](docs/skills.md)
+- [Host integration](docs/host-integration.md)
+- [Walkthrough](examples/walkthrough.md)
 - [AGENTS.md](AGENTS.md) · [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Pattern refs

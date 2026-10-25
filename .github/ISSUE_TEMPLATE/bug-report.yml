@@ -1,0 +1,18 @@
+name: Report a validator bug
+description: Report a reproducible contract-checking problem
+title: "bug: "
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Commit, Node.js version, operating system, and command
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Redacted reproduction
+      description: Fictional input, expected result, and actual result. Do not paste credentials or personal data.
+    validations:
+      required: true

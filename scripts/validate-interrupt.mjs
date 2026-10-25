@@ -26,11 +26,14 @@ const ISO_UTC = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
 const SPECIALIST_ROLES = new Set([
   "chief-of-staff",
   "inbox",
-  "eng",
-  "vitrine",
-  "quinto",
-  "entrega",
-  "cibersec",
+  "engineering",
+  "publishing",
+  "finance",
+  "release",
+  "security",
+  "career",
+  "product",
+  "hobby",
 ]);
 const NON_HUMAN = /^(the\s+)?agents?$|^models?$|^assistants?$/i;
 
@@ -168,11 +171,24 @@ export function validateInterrupt(record) {
 function selfTestFailures() {
   const failures = [];
 
+  // Every public role is an agent label, never evidence of a human identity.
+  for (const actor of SPECIALIST_ROLES) {
+    const errors = validateInterrupt({
+      id: "role-denial", gate: "merge", asked_at: "2026-09-10T14:02:00Z",
+      asked_by: "Engineering", summary: "Fictional review request", refs: [],
+      default_on_timeout: "wait", decision: "approve", decided_by: actor,
+      decided_at: "2026-09-10T14:03:00Z",
+    });
+    if (!errors.some((error) => error.includes("decided_by"))) {
+      failures.push(`role ${actor} must not be accepted as a human approver`);
+    }
+  }
+
   const timeoutApprove = validateInterrupt({
     id: "interrupt-self-timeout",
     gate: "merge",
     asked_at: "2026-09-10T14:02:00Z",
-    asked_by: "Eng",
+    asked_by: "Engineering",
     summary: "Merge a docs PR.",
     refs: ["pr://example/1"],
     default_on_timeout: "approve",
@@ -184,7 +200,7 @@ function selfTestFailures() {
   const missingGate = validateInterrupt({
     id: "interrupt-self-gate",
     asked_at: "2026-09-10T14:02:00Z",
-    asked_by: "Eng",
+    asked_by: "Engineering",
     summary: "Merge a docs PR.",
     refs: ["pr://example/1"],
     default_on_timeout: "wait",
@@ -197,12 +213,12 @@ function selfTestFailures() {
     id: "interrupt-self-decider",
     gate: "merge",
     asked_at: "2026-09-10T14:02:00Z",
-    asked_by: "Eng",
+    asked_by: "Engineering",
     summary: "Merge a docs PR.",
     refs: ["pr://example/1"],
     default_on_timeout: "wait",
     decision: "approve",
-    decided_by: "Eng",
+    decided_by: "Engineering",
     decided_at: "2026-09-10T14:03:00Z",
   });
   if (!invented.some((error) => error.includes("decided_by"))) {
@@ -213,7 +229,7 @@ function selfTestFailures() {
     id: "interrupt-self-empty-human",
     gate: "merge",
     asked_at: "2026-09-10T14:02:00Z",
-    asked_by: "Eng",
+    asked_by: "Engineering",
     summary: "Merge a docs PR.",
     refs: ["pr://example/1"],
     default_on_timeout: "wait",
@@ -229,7 +245,7 @@ function selfTestFailures() {
     id: "interrupt-self-open",
     gate: "merge",
     asked_at: "2026-09-10T14:02:00Z",
-    asked_by: "Eng",
+    asked_by: "Engineering",
     summary: "Merge a docs PR.",
     refs: ["pr://example/1"],
     default_on_timeout: "wait",
