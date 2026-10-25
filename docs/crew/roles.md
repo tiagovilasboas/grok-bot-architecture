@@ -1,6 +1,6 @@
 # Role contracts
 
-Nine reusable English roles organized into a **Core team** and optional **Domain specialists**. Deploy only roles justified by a real context, expertise, or permission boundary. Names describe responsibilities, not real people, accounts, products, or organizations.
+Nine reusable English roles organized into a **Core team** and optional **Domain specialists**. Deploy only roles justified by a real context, expertise, or permission boundary. The structure grew from the maintainer's personal agent-team use; the public names and resources are generalized. Customize responsibilities, names, groups, skills, and policies for your own workflow. See [customization](../customization.md).
 
 | Group | Role | Mission | Skill |
 |---|---|---|---|
