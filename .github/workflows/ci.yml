@@ -35,3 +35,16 @@ jobs:
 
       - name: Check relative markdown links
         run: bash scripts/check-relative-links.sh
+
+  approval-runtime:
+    name: check approval runtime reference
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Exercise approval lifecycle
+        run: node --test examples/approval-runtime/runtime.test.mjs
+
+      - name: Run simulated walkthrough
+        run: node examples/approval-runtime/demo.mjs

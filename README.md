@@ -19,12 +19,13 @@ This is a personal approach shared with the community under MIT, rather than a c
 
 ## What you can use today
 
-- **Six architecture decisions** covering specialist boundaries, shared state, approvals, connectors, context budgets, and isolated remote work.
+- **Six accepted architecture decisions**, plus proposed ADR 0007 for the approval-runtime spike.
 - **Reusable role contracts** with a job, objective, and write boundary for every specialist.
 - **Nine ready-to-load role skills** with procedures, output contracts, and quality review: [skill library](docs/skills.md).
 - **Dependency-free JavaScript validators** for handoff and interrupt JSON records, with accepted and rejected examples.
+- **Executable approval-runtime spike** that demonstrates one local, host-conformance lifecycle without a model or external service.
 - **Adoption guides** for a first week, failure modes, and deciding when multiple agents are justified.
-- **CI checks** for contract fixtures and relative documentation links.
+- **CI checks** for contract fixtures, the approval lifecycle example, and relative documentation links.
 
 This is a reference architecture with executable contract checks. A consuming host must implement tool authorization, authenticated approvals, durable storage, and execution limits. Passing a JSON validator alone does not authorize an action or prove that a human approved it.
 
@@ -36,9 +37,11 @@ Requirements: Git and Node.js 20 or newer. The optional documentation link check
 git clone https://github.com/tiagovilasboas/grok-bot-architecture.git
 cd grok-bot-architecture
 node scripts/validate-all.mjs
+node examples/approval-runtime/demo.mjs
+node --test examples/approval-runtime/runtime.test.mjs
 ```
 
-No package installation, external services, or credentials are required. The command checks the bundled examples: intentionally broken records must be rejected and corrected records accepted. It exits nonzero when those expectations fail.
+No package installation, external services, or credentials are required. The validator checks the bundled examples: intentionally broken records must be rejected and corrected records accepted. The demo is simulated, and the lifecycle tests use only temporary local files.
 
 Check your own records separately:
 
@@ -277,12 +280,20 @@ Use the [full role contracts](docs/crew/roles.md), [handoff format](docs/crew/ha
 | Check | Current behavior | Host responsibility |
 |---|---|---|
 | Handoff structure | Requires an owner, goal, completion condition, references, and a recognized write-policy shape | Resolve roles, references, and actual tool permissions |
-| Approval record | Checks gate, timeout policy, decision fields, and known non-human role labels | Authenticate the approver and bind approval to the exact action |
+| Approval record | Validator checks record shape; runtime spike binds a decision to an action digest and host-supplied identity | Authenticate and authorize the approver; enforce revision preconditions at the point of the side effect |
 | Timeout declaration | Requires `default_on_timeout: wait` | Actually pause execution and preserve state |
+| Resume replay | Spike serializes calls in one runtime instance and consumes an approved record before execution | Use transactional storage or connector idempotency across processes and crashes |
+| Lifecycle persistence | Spike stores local JSON records and recovers ambiguous execution as `outcome_unknown` | Protect records and use a concurrency-safe durable store |
 | References | Requires an array of non-empty strings | Enforce allowed reference schemes, access, and data minimization |
 | Remote work | Documents isolated code work and review handoff | Isolate credentials, files, processes, and network access |
 
-The current checkers validate individual records. They do not implement a workflow engine, authenticate identities, prevent replay, or guarantee safe concurrent execution.
+The JSON checkers validate individual records. They do not implement a workflow engine or authenticate identities. The runtime spike exercises only a bounded local lifecycle; it is not a production authorization boundary and does not guarantee safe concurrent execution across processes.
+
+## Approval runtime spike
+
+The [runtime roadmap](docs/runtime-roadmap.md) tracks the next step beyond record validation. The [local reference example](examples/approval-runtime/README.md) demonstrates persisted approval state, a host-supplied human identity, approval bound to an exact action revision, fail-closed cancellation and expiry, and one-shot resume within one runtime instance.
+
+It is an educational host-conformance example, not a production runtime or security boundary. Its local file store is single-process; authentication, resource authorization, multi-process transactions, connector idempotency, and reconciliation remain responsibilities of a consuming host. The example does not call a model or perform a real external side effect.
 
 ## Documentation
 
@@ -292,6 +303,8 @@ The current checkers validate individual records. They do not implement a workfl
 | [ADRs](docs/adr/README.md) | Six decisions and their tradeoffs |
 | [Walkthrough](examples/walkthrough.md) | A complete fictional task lifecycle |
 | [Host integration](docs/host-integration.md) | What an adapter must enforce |
+| [Approval runtime example](examples/approval-runtime/README.md) | Local host-conformance lifecycle spike |
+| [Runtime roadmap](docs/runtime-roadmap.md) | Current spike, limits, and ordered follow-up tasks |
 | [Customize your setup](docs/customization.md) | Adapt roles, skills, tools, routines and policies |
 | [Agent contributor instructions](AGENTS.md) | Shared repository workflow; Claude entry point in [CLAUDE.md](CLAUDE.md) |
 | [First week](docs/cookbook/first-week.md) | Adopt a small crew progressively |

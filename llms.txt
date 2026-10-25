@@ -1,6 +1,6 @@
 # Grok Bot Architecture
 
-Independent, MIT-licensed reference for Grok Bot-style AI agent teams: nine role skills, multi-agent orchestration, MCP connectors, typed handoffs, and human-in-the-loop approval. Not affiliated with xAI or Cursor; not the Grok Bot product source or an official integration. Host, model, and framework independent. JSON validation does not authenticate or enforce approvals.
+Independent, MIT-licensed reference for Grok Bot-style AI agent teams: nine role skills, multi-agent orchestration, MCP connectors, typed handoffs, and human-in-the-loop approval. Not affiliated with xAI or Cursor; not the Grok Bot product source or an official integration. Host, model, and framework independent. JSON validation does not authenticate approvals; the local runtime example delegates identity and authorization to host callbacks and is not production-ready.
 
 Prove the contracts:
 
@@ -19,6 +19,8 @@ node scripts/validate-all.mjs
 - [Examples](examples/README.md)
 - [Role skills](docs/skills.md)
 - [Host integration](docs/host-integration.md)
+- [Approval runtime conformance example](examples/approval-runtime/README.md)
+- [Runtime roadmap](docs/runtime-roadmap.md)
 - [Walkthrough](examples/walkthrough.md)
 - [AGENTS.md](AGENTS.md) · [CONTRIBUTING.md](CONTRIBUTING.md)
 
