@@ -53,24 +53,59 @@ Use the [decision guide](docs/cookbook/when-to-use-this-pattern.md) before addin
 
 ```mermaid
 flowchart TB
-  User["User: goals and approval decisions"]
-  CoS["Chief-of-staff: plan, assign, persist interrupts"]
-  Specialists["Specialists: scoped work and typed handoffs"]
-  Connectors["MCP connectors or first-party APIs"]
-  Store["Shared workspace: board, references, interrupts"]
-  Worker["Optional isolated remote code worker"]
+  Human["Human operator<br/>Goals, scope and approval decisions"]
 
-  User --> CoS
-  CoS --> Specialists
-  Specialists --> Connectors
-  CoS --- Store
-  Specialists --- Store
-  Specialists --> Worker
-  Worker -->|"branch and review references"| Store
-  CoS -->|"request approval"| User
+  subgraph Core["Core team"]
+    direction TB
+    CoS["Chief-of-staff<br/>Scope · assign · review"]
+    Engineering["Engineering<br/>Code · PRs · CI"]
+    Publishing["Publishing<br/>Documentation · public content"]
+    Security["Security<br/>AppSec · privacy review"]
+    Inbox["Inbox<br/>Triage · drafts · scheduling proposals"]
+    Career["Career<br/>Opportunity screening · application drafts"]
+    CoS --> Engineering
+    CoS --> Publishing
+    CoS --> Security
+    CoS --> Inbox
+    CoS --> Career
+  end
+
+  subgraph Domain["Domain specialists · optional"]
+    direction LR
+    Finance["Finance<br/>Finance workflows · reconciliation drafts"]
+    Product["Product<br/>Requirements · acceptance · previews"]
+    Hobby["Hobby<br/>Research · comparisons · shortlists"]
+  end
+
+  subgraph Host["Host adapter · vendor and framework independent"]
+    State["Shared state<br/>Board · typed handoffs · references"]
+    Skills["Role skills<br/>Nine reusable SKILL.md recipes"]
+    Tools["Scoped tool access<br/>Per-role permissions · budgets"]
+    Approval["Approval gate<br/>Authenticate · bind action and revision<br/>No decision: wait"]
+    Connectors["MCP connectors / first-party APIs<br/>Authorized reads · drafts · approved actions"]
+    Worker["Optional isolated code worker<br/>Branch + review evidence"]
+  end
+
+  Human -->|"goal and constraints"| CoS
+  CoS --> Finance
+  CoS --> Product
+  CoS --> Hobby
+  Core --- State
+  Domain --- State
+  Skills -.->|"task-specific instructions"| Core
+  Skills -.->|"task-specific instructions"| Domain
+  Core --> Tools
+  Domain --> Tools
+  Tools -->|"authorized reads and drafts"| Connectors
+  Tools -->|"privileged action request"| Approval
+  Approval -->|"request decision"| Human
+  Human -->|"explicit decision"| Approval
+  Approval -->|"approved action within scope"| Connectors
+  Engineering -->|"scoped implementation"| Worker
+  Worker -->|"branch and PR references"| State
 ```
 
-The coordinator owns assignments and the board. Specialists receive scoped tools and references. The host enforces permissions; a persisted interrupt records a privileged action while the human decides.
+Chief-of-staff coordinates five other Core team roles and three optional Domain specialists. Each role loads its own skill and works through scoped host permissions. Shared state carries assignments and evidence; privileged actions require an authenticated decision bound to the action and revision. Isolated code workers return review artifacts through Engineering.
 
 See [architecture and trust boundaries](docs/architecture.md) and the [host integration contract](docs/host-integration.md).
 
