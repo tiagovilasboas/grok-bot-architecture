@@ -14,6 +14,7 @@ How to propose a new record: [CONTRIBUTING.md](../../CONTRIBUTING.md). When to u
 | [0004](0004-connectors-over-browser.md) | Accepted | Connectors over browser | Prefer MCP / APIs. Browser is last resort and untrusted content. |
 | [0005](0005-token-thrift.md) | Accepted | Token thrift | Context budget is a control: refs not dumps, split when windows collide. |
 | [0006](0006-cloud-agents-for-code.md) | Accepted | Cloud agents for code | Isolated, long-running code work leaves the desktop session. |
+| [0007](0007-reference-approval-runtime.md) | Proposed | Reference approval runtime | Execute lifecycle invariants in a local host-conformance example, not a hosted OS. |
 
 ## Status lifecycle
 
