@@ -12,16 +12,16 @@ This repository has **no first-party prod numbers**. Anthropic’s public multi-
 |---|---|---|
 | Handoff | Paste of the whole thread | Envelope + `refs` only |
 | Inbox | Last 500 mails in context | Connector query + filter; card, not dump |
-| Eng | Full-repo grep every hop | Card names likely paths; cloud agent gets a fresh window |
+| Engineering | Full-repo grep every hop | Card names likely paths; cloud agent gets a fresh window |
 | Browser | Pixels / DOM as “context” | Don’t; connector first ([ADR 0004](adr/0004-connectors-over-browser.md)) |
 | Routines | Polling “in case” | Trigger + `budget` + `stop` ([routines.md](routines.md)) |
 | Chief-of-staff | Union of every tool schema | Per-role allowlist |
-| Cibersec | Replaying bodies into traces | Span ids, not payloads |
+| Security | Replaying bodies into traces | Span ids, not payloads |
 
 ## Rules that survive a host swap
 
 1. **Refs, not blobs.** Path, SHA, issue id, interrupt id. The receiver fetches.
-2. **One job in the window.** If Inbox and Quinto share a session, you are paying for both and leaking both.
+2. **One job in the window.** If Inbox and Finance share a session, you are paying for both and leaking both.
 3. **Split on collision, not on org-chart aesthetics.** [when-to-split-an-agent.md](cookbook/when-to-split-an-agent.md).
 4. **Long isolated code leaves the desktop.** [ADR 0006](adr/0006-cloud-agents-for-code.md) — you buy a clean window, not a second personality.
 5. **Budgets have a stop.** A routine that “keeps going until it feels done” is a runaway loop. AISVS C09 calls this out as orchestration control; we just enforce it.
@@ -29,7 +29,7 @@ This repository has **no first-party prod numbers**. Anthropic’s public multi-
 
 ## Chief-of-staff discipline
 
-The orchestrator is the cheapest place to waste money: it sees every card and wants every tool. Keep it **thin** — board, interrupts, routing. If it needs the mail body to route, Inbox writes a one-line summary + ref. If it needs the diff to route, Eng writes `what / why / risk` + PR url.
+The orchestrator is the cheapest place to waste money: it sees every card and wants every tool. Keep it **thin** — board, interrupts, routing. If it needs the mail body to route, Inbox writes a one-line summary + ref. If it needs the diff to route, Engineering writes `what / why / risk` + PR url.
 
 ## What “thrift” is not
 
@@ -41,5 +41,5 @@ The orchestrator is the cheapest place to waste money: it sees every card and wa
 
 - First week: stay at two roles until a window collides ([first-week.md](cookbook/first-week.md)).
 - Cloud: pay the remote job when the desktop window would otherwise hold a 40-minute SWE loop ([when-to-use-cloud-agent.md](cookbook/when-to-use-cloud-agent.md)).
-- Token burn / fan-out / Mac vs box / silent approval: [failure-modes.md](cookbook/failure-modes.md).
+- Token burn / fan-out / Local session vs remote worker / silent approval: [failure-modes.md](cookbook/failure-modes.md).
 - Window assembly (poison / oversize / evals): [context-engineering.md](context-engineering.md).

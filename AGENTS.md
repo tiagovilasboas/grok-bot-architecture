@@ -1,13 +1,13 @@
 # Agents
 
-Harness-agnostic source of truth for this **desktop / multi-agent assistant OS** pattern. [Grok Bot](https://cursor.com) (Cursor) is the example host, not the architecture.
+Harness-agnostic source of truth for this **desktop / multi-agent assistant OS** pattern. a desktop agent host is the example host, not the architecture.
 
 ## Layout
 
 ```text
 docs/architecture.md          layers: user · chief-of-staff · specialists · connectors · host computer
 docs/adr/                     Nygard decision log (Accepted)
-docs/crew/roles.md            job · objective · write-boundary (Mesa · Apps · Hobby)
+docs/crew/roles.md            job · objective · write-boundary (Core team · Apps · Hobby)
 docs/crew/handoffs.md         typed hops (refs, not transcripts)
 docs/crew/hitl.md             fail-closed interrupts
 docs/skills.md                host-level reusable skills (recipes, not agents)
@@ -19,6 +19,7 @@ docs/token-economy.md         context budget as a control
 docs/cookbook/                first week · capabilities/controls · split · cloud · failure modes · when to use
 examples/                     markdown shapes + JSON fixtures (broken/fixed)
 scripts/validate-*.mjs        zero-dep; CI in .github/workflows/ci.yml
+skills/                      nine public role recipes; docs/skills.md indexes them
 ```
 
 ## Pattern vs example host
@@ -26,7 +27,7 @@ scripts/validate-*.mjs        zero-dep; CI in .github/workflows/ci.yml
 | Layer | Meaning |
 |---|---|
 | Pattern | Crew of specialists, one shared computer, routines, connectors, HITL |
-| Example host | Grok Bot on Cursor. Swap the host; keep roles, gates, and connector contracts |
+| Example host | a desktop agent host. Swap the host; keep roles, gates, and connector contracts |
 | Limit | Pattern / reference, not a hosted OS. The host is replaceable. |
 
 ## Do

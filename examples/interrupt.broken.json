@@ -1,7 +1,7 @@
 {
   "id": "interrupt-2026-09-10-00",
   "asked_at": "2026-09-10T14:02:00Z",
-  "asked_by": "Eng",
+  "asked_by": "Engineering",
   "card": "card-2026-09-10-01",
   "summary": "Merge the Harbor Lights docs PR to the default branch",
   "refs": [
@@ -12,5 +12,5 @@
   "decision": "approve",
   "decided_by": "",
   "decided_at": "2026-09-10T14:03:00Z",
-  "notes": "Demo was waiting so Eng filled this in."
+  "notes": "Demo was waiting so Engineering filled this in."
 }

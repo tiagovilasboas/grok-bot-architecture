@@ -1,42 +1,27 @@
-# Skills
+# Reusable role skills
 
-## Decision
+Each role has a ready-to-load `SKILL.md` with a trigger, required context, procedure, authority boundary, output contract, and pre-handoff quality review. Skills are public, generic recipes licensed under MIT; they do not grant tool permissions or authenticate approvals.
 
-Host-level **skills** are reusable recipes (typically a `SKILL.md` library on the host) that any specialist can load for a job. They are **vendor-agnostic**: the pattern does not require a particular IDE, vault layout, or product path. Grok Bot / Cursor is the example host mapping only.
+| Role | Skill | Primary deliverable |
+|---|---|---|
+| Chief-of-staff | [chief-of-staff](../skills/chief-of-staff/SKILL.md) | Assignment card or acceptance review: owner, scope, hard constraints, done_when, evidence, status, blocker/next action. |
+| Engineering | [engineering](../skills/engineering/SKILL.md) | Reviewable branch or PR reference; behavior before/after; check results; residual risks; remaining approvals. |
+| Publishing | [publishing](../skills/publishing/SKILL.md) | Draft/preview reference; audience and goal; source-backed claims; validation summary; publication status. |
+| Security | [security](../skills/security/SKILL.md) | Findings with path:line or equivalent source reference; severity rationale; evidence; remediation; reviewed scope and limitations. |
+| Inbox | [inbox](../skills/inbox/SKILL.md) | Prioritized digest; item references; proposed dispositions; drafts; scheduling conflicts; approval status. |
+| Career | [career](../skills/career/SKILL.md) | Opportunity table with source/date, hard-constraint fit, gaps, recommendation, and application draft/status. |
+| Finance | [finance](../skills/finance/SKILL.md) | Requirements/acceptance criteria or reconciled draft; source totals; discrepancy list; assumptions; review status. |
+| Product | [product](../skills/product/SKILL.md) | Problem statement; prioritized increment; acceptance criteria; implementation handoff or preview; validation and next decision. |
+| Hobby | [hobby](../skills/hobby/SKILL.md) | Comparison with source/date, total-price assumptions, condition/authenticity evidence, tradeoffs, and recommendation. |
 
-## What a skill is
+## Load a skill
 
-| Skill | Agent |
-|---|---|
-| A named recipe with steps, checks, and refs | A role with job · objective · write-boundary |
-| Loaded into a specialist’s window when the card needs it | Owns a write-boundary and may hold connectors |
-| Does **not** bypass HITL | Still pauses on merge · deploy · secrets · messaging-as-user |
+Choose one role for the scoped task. Point your host's skill loader at its directory, or copy that directory into the host's documented skill location. If the host has no skill-loader convention, supply the file as task instructions. No vendor-specific installation path is required.
 
-Skills are **not** agents. They do not spawn peers, invent `decision` / `decided_by`, or widen a role’s connector allowlist by themselves.
+Read the consuming project's instructions and operator policy first. Give the role only the tools and references authorized for its card. Add host-specific tool mappings separately, and retain the public role boundaries.
 
-## Example house skills (public names only)
+## Quality bar
 
-Cite by **name**. Do not paste skill bodies or private host paths into this repository.
+These skills aim for reviewer-quality outputs: source-backed facts, explicit acceptance criteria, proportionate verification, visible uncertainty, and bounded actions. Their behavior has not been benchmarked across models or hosts; a numeric quality promise would require evaluation. Skills cannot make an unsafe tool configuration safe by themselves.
 
-| Skill name | Typical use (pattern) |
-|---|---|
-| `github-commit-as-owner` | Commit / PR hygiene as the repo owner on an allowlisted host mapping |
-| `showcase-readme-standard` | README density and Staff showcase bar for public repos |
-| `post-dev-to-like-montanha` | Draft / structure a public DEV.to-style post (publish still HITL) |
-| `write-for-dev-community` | Optional DEV.to editorial recipe (tone, structure, links) |
-| `repo-ai-assisted-house-style` | In-repo AI-assisted house style for docs and comments |
-| `mesa-bots-runbook` | How Mesa specialists load skills and hand off without swarming |
-| `ui-ux-master` | UI/UX review checklist for public surfaces (Vitrine / Apps) |
-
-Rename or omit on your host. Keep the rule: **recipe ≠ agent ≠ HITL bypass**.
-
-## How specialists use skills
-
-1. CoS cards the job with `write_policy` and `done_when`.
-2. The specialist loads zero or more skills by name for that card.
-3. Work stays inside the role’s write-boundary and connector allowlist.
-4. Privileged writes still open an interrupt ([crew/hitl.md](crew/hitl.md)).
-
-## Limit
-
-This page names a **pattern**: a host skills library. It is not a dump of private prompts, not a path map to any personal machine, and not a product SKU. If a skill only works as a secret system prompt or a private vault path, it does not belong in this repo. Crew contracts: [crew/roles.md](crew/roles.md). Architecture: [architecture.md](architecture.md).
+[Roles](crew/roles.md) · [host integration](host-integration.md) · [walkthrough](../examples/walkthrough.md)

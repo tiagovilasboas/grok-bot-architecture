@@ -35,13 +35,13 @@ Adding a server is a **host decision**. Do not paste catalogs into this repo. Of
 |---|---|---|
 | Chief-of-staff | Board, interrupt store, read-only status | Bank, deploy, mail send |
 | Inbox | Mail/chat **read** + draft | Send, calendar invite-as-user |
-| Eng | Git host, repo FS, test runner, cloud-agent spawn | Production deploy keys |
-| Vitrine | CMS / storefront **draft** APIs | Live publish |
-| Quinto | Ledger export **read**, local sheet | Payment rails |
-| Eng (ship packaging) | Staging refs, package registry (staging) | Prod deploy, customer mail |
-| Carreira | Career surface drafts | Messaging-as-user, profile publish |
-| LotRace / IronToy | App / hobby repo drafts | Prod deploy without HITL |
-| Cibersec | OTel / eval backends | Alert mute, log delete |
+| Engineering | Git host, repo FS, test runner, cloud-agent spawn | Production deploy keys |
+| Publishing | CMS / storefront **draft** APIs | Live publish |
+| Finance | Ledger export **read**, local sheet | Payment rails |
+| Engineering (ship packaging) | Staging refs, package registry (staging) | Prod deploy, customer mail |
+| Career | Career surface drafts | Messaging-as-user, profile publish |
+| Product / Hobby | App / hobby repo drafts | Prod deploy without HITL |
+| Security | OTel / eval backends | Alert mute, log delete |
 
 These are pattern examples. Write the real map on the shared computer.
 
@@ -58,10 +58,10 @@ Treat DOM/pixels as untrusted content. Do not “click Send” in a web UI to by
 ## Anti-patterns
 
 - **Tool soup.** If the window lists thirty tools, you are not routing — you are hoping.
-- **One server for the whole crew.** That is how Quinto secrets show up in Inbox context.
+- **One server for the whole crew.** That is how Finance secrets show up in Inbox context.
 - **Resource bodies in the hop.** Summarize + ref. The next agent can fetch.
 - **Custom auth schemes.** Prefer the MCP authorization model; do not invent a shared PAT in the board file.
 
 ## Host swap
 
-When you leave Grok Bot / Cursor, keep the **allowlist table** and replace the attachment mechanism. If a specialist cannot run without a vendor-specific tool name, the connector layer leaked into the domain. Fix the contract, not the README adjective.
+When you leave a desktop agent host, keep the **allowlist table** and replace the attachment mechanism. If a specialist cannot run without a vendor-specific tool name, the connector layer leaked into the domain. Fix the contract, not the README adjective.

@@ -1,11 +1,11 @@
 {
   "id": "card-2026-09-10-00",
   "from": "the agent",
-  "to": "Eng",
+  "to": "Engineering",
   "kind": "assign",
   "goal": "Ship the Harbor Lights docs PR.",
-  "refs": "Host chat. Eng: LGTM. I squash-merged to main because the demo was waiting.",
+  "refs": "Host chat. Engineering: LGTM. I squash-merged to main because the demo was waiting.",
   "write_policy": "approve",
   "decision": "approve",
-  "decided_by": "Eng"
+  "decided_by": "Engineering"
 }

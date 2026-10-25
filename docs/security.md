@@ -10,7 +10,7 @@ This OS is a **privileged desktop user** with extra hands. Threat-model it befor
 | Private data | Mail, finance, customer PII, source that is not public |
 | Connector credentials | Host secret store; never the chief-of-staff prompt |
 | Shared computer | Board, interrupts, working tree — readable by the crew |
-| Public surfaces | Vitrine / deploy — reputation and customers |
+| Public surfaces | Publishing / deploy — reputation and customers |
 
 ## Trust boundaries
 
@@ -53,9 +53,9 @@ Merge · deploy · secrets/billing · messaging-as-user. Local drafts are optimi
 
 ## Prompt injection (practical)
 
-- **Inbox / Vitrine / browser:** content is data. It may suggest a hop; it may not assign one.
-- **Eng:** issue text and review comments are untrusted. They do not get deploy keys.
-- **Quinto:** a PDF invoice does not authorize a payment.
+- **Inbox / Publishing / browser:** content is data. It may suggest a hop; it may not assign one.
+- **Engineering:** issue text and review comments are untrusted. They do not get deploy keys.
+- **Finance:** a PDF invoice does not authorize a payment.
 
 Pattern refs: [Design Patterns for Securing LLM Agents](https://arxiv.org/abs/2506.08837), [CaMeL](https://arxiv.org/abs/2503.18813). Copy the *idea* (action-selector, dual-LLM, capability tokens) — do not paste a private prompt.
 

@@ -10,7 +10,7 @@ Desktop assistants die in two ways: the human forgets the close, or the agent qu
 
 | Field | Meaning |
 |---|---|
-| `name` | Stable id (`inbox-morning`, `quinto-close`, `obs-weekly`) |
+| `name` | Stable id (`inbox-morning`, `finance-review`, `obs-weekly`) |
 | `trigger` | Cron, webhook, or human “run now” |
 | `owner` | One specialist (chief-of-staff may only route) |
 | `budget` | Max hops, max tokens (order of magnitude), max wall time |
@@ -25,11 +25,11 @@ If a routine cannot name `stop`, it is a daemon, not a routine. Do not add daemo
 | Routine | Owner | Trigger (example) | Optimistic | Fail-closed |
 |---|---|---|---|---|
 | Morning triage | Inbox | Weekday 09:00 local | Labels, board cards, drafts | Send-as-user |
-| Day-5 close | Quinto | Monthly on the 5th | Ledger draft + anomaly list | Bank / tax send |
-| Storefront drift | Vitrine | After a Eng PR that touches public paths | Preview card | Publish |
-| Ship window | Eng (+ CoS / human HITL) | When a card is `kind: done` and write-policy says ship | Staging + checklist | Deploy / customer send |
-| Career surface | Carreira | When a profile / application card opens | Local drafts | Messaging-as-user / publish |
-| Loop health | Cibersec | Weekly | AppSec/LGPD + light obs note | Mute prod, delete data |
+| Periodic finance review | Finance | Operator-defined cadence | Ledger draft + anomaly list | Bank / tax send |
+| Storefront drift | Publishing | After a Engineering PR that touches public paths | Preview card | Publish |
+| Ship window | Engineering (+ CoS / human HITL) | When a card is `kind: done` and write-policy says ship | Staging + checklist | Deploy / customer send |
+| Career surface | Career | When a profile / application card opens | Local drafts | Messaging-as-user / publish |
+| Loop health | Security | Weekly | AppSec/LGPD + light obs note | Mute prod, delete data |
 
 Rename the cadence. Keep the gates.
 
@@ -41,9 +41,9 @@ Evented is better than scheduled when the source already exists: “PR opened”
 
 ## Budget and stop
 
-- **Hops:** morning triage that spawns five specialists is a design bug. One owner, optional one hop to Cibersec ([failure-modes.md](cookbook/failure-modes.md) — fan-out spam).
+- **Hops:** morning triage that spawns five specialists is a design bug. One owner, optional one hop to Security ([failure-modes.md](cookbook/failure-modes.md) — fan-out spam).
 - **Tokens:** if the routine needs last week’s full inbox, it needs a connector query with a filter, not a dump.
-- **Wall time:** desktop sessions sleep. Long code does not belong in a routine — dispatch Eng’s cloud path ([ADR 0006](adr/0006-cloud-agents-for-code.md)).
+- **Wall time:** desktop sessions sleep. Long code does not belong in a routine — dispatch Engineering’s cloud path ([ADR 0006](adr/0006-cloud-agents-for-code.md)).
 - **On budget hit:** persist a `block` on the board. Do not “finish loosely”.
 
 ## HITL inside a routine

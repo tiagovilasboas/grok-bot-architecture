@@ -8,7 +8,7 @@ By Friday you have: a board, two write-boundaries, one HITL gate you have actual
 
 ## Day 0 — name the computer
 
-1. Pick the **example host** you actually sit at (Grok Bot / Cursor is ours; another desktop harness is fine).
+1. Pick the **example host** you actually sit at (a desktop agent host is ours; another desktop harness is fine).
 2. Create the shared FS corners: board file, interrupt file, a place for refs. Copy the shapes from [`examples/board.example.md`](../../examples/board.example.md) and [`examples/interrupt-record.example.md`](../../examples/interrupt-record.example.md). Blank the filled fields.
 3. Read [`AGENTS.md`](../../AGENTS.md) once. If the host wants extra rule files, they **only** point here (see `.cursor/rules` and `.github/copilot-instructions.md` in this repo).
 
@@ -19,9 +19,9 @@ Start with **Chief-of-staff + one specialist** that matches the pain:
 | If the pain is… | Specialist |
 |---|---|
 | Mail / mentions | Inbox |
-| A real repo | Eng |
-| A public page | Vitrine |
-| Money close | Quinto |
+| A real repo | Engineering |
+| A public page | Publishing |
+| Money close | Finance |
 
 Write job · objective · write-boundary on one page. Enable **one** fail-closed gate you will hit this week (usually messaging-as-user or merge). Leave the other gates documented but unused.
 
@@ -46,8 +46,8 @@ If you skipped step 4 because “it’s just us”, you did not finish the day.
 
 Pick **one**:
 
-- A tiny routine (morning triage **drafts only**, or a weekly Cibersec note) with a budget and a stop ([routines.md](../routines.md)), or
-- One isolated Eng job on a cloud agent ([when-to-use-cloud-agent.md](when-to-use-cloud-agent.md)).
+- A tiny routine (morning triage **drafts only**, or a weekly Security note) with a budget and a stop ([routines.md](../routines.md)), or
+- One isolated Engineering job on a cloud agent ([when-to-use-cloud-agent.md](when-to-use-cloud-agent.md)).
 
 Doing both in week one is how the board dies.
 

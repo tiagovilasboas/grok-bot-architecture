@@ -2,13 +2,13 @@
 
 Ways a working crew becomes an expensive toy. Each row is a **symptom**, the **mistake**, and the **control already in the OS**. Do not add a role to fix them.
 
-Pattern first: crew, shared computer, HITL, connectors. [Grok Bot](https://cursor.com) / Cursor is the example host mapping, not the decision.
+Pattern first: crew, shared computer, HITL, connectors. a desktop agent host is the example host mapping, not the decision.
 
 ## Token burn
 
 | Lens | What you see |
 |---|---|
-| **Symptom** | The board looks busy; quality and the bill both drop. Hops carry last week’s mail. Eng greps the whole tree. A routine “summarizes the inbox” every morning. |
+| **Symptom** | The board looks busy; quality and the bill both drop. Hops carry last week’s mail. Engineering greps the whole tree. A routine “summarizes the inbox” every morning. |
 | **Mistake** | Treating context as free and coordination as intelligence. Transcript dumps, union tool schemas on the chief-of-staff, browser pixels as “context”. |
 | **Control** | [ADR 0005](../adr/0005-token-thrift.md) · [context-engineering.md](../context-engineering.md) · [token-economy.md](../token-economy.md). Refs, not blobs. One job in the window. Routine `budget` + `stop`. Measure with traces; do not invent prod numbers here. |
 
@@ -18,23 +18,23 @@ Pattern first: crew, shared computer, HITL, connectors. [Grok Bot](https://curso
 
 | Lens | What you see |
 |---|---|
-| **Symptom** | One user sentence becomes five specialists, two cloud jobs, and a mesh of hops. Nobody owns `done_when`. Inbox pings Eng “just in case”. |
+| **Symptom** | One user sentence becomes five specialists, two cloud jobs, and a mesh of hops. Nobody owns `done_when`. Inbox pings Engineering “just in case”. |
 | **Mistake** | Orchestrator as a fan-out switch. Splitting for ceremony. Specialists spawning peers. |
-| **Control** | [ADR 0001](../adr/0001-crew-of-agents.md) · [when-to-split-an-agent.md](when-to-split-an-agent.md). Chief-of-staff assigns **one** specialist. Extra hops need a collision (secrets, write-boundary, window). Routines: one owner, optional one hop to Cibersec ([routines.md](../routines.md)). |
+| **Control** | [ADR 0001](../adr/0001-crew-of-agents.md) · [when-to-split-an-agent.md](when-to-split-an-agent.md). Chief-of-staff assigns **one** specialist. Extra hops need a collision (secrets, write-boundary, window). Routines: one owner, optional one hop to Security ([routines.md](../routines.md)). |
 
 **Stop doing:** “Notify the whole crew.” Evaluator-as-seventh-agent with no eval artifact. Cloud fan-out that fails the five tests in [when-to-use-cloud-agent.md](when-to-use-cloud-agent.md).
 
-## Mac vs box
+## Local session vs remote worker
 
 | Lens | What you see |
 |---|---|
 | **Symptom** | The laptop chat *is* the OS. Or the remote machine *is* a second OS that can merge, mail, and pay. HITL lives “wherever the model is running.” The only board is the thread. |
-| **Mistake** | Confusing the **desktop session** (the Mac you sit at) with the **shared computer** (board, interrupts, working tree) and with **extra rooms** (cloud / remote boxes). |
-| **Control** | [ADR 0002](../adr/0002-shared-computer-vs-desktop.md) · [ADR 0006](../adr/0006-cloud-agents-for-code.md). The OS is the shared computer. The Mac session is the keyboard. A box is an extra machine for isolated code. Merge / deploy / secrets / messaging-as-user stay on the human + desktop side. Cloud returns branch + PR **refs**, not a shipped product. |
+| **Mistake** | Confusing the **desktop session** (the local machine you use) with the **shared computer** (board, interrupts, working tree) and with **extra rooms** (cloud / remote boxes). |
+| **Control** | [ADR 0002](../adr/0002-shared-computer-vs-desktop.md) · [ADR 0006](../adr/0006-cloud-agents-for-code.md). The OS is the shared computer. The local session is the keyboard. A box is an extra machine for isolated code. Merge / deploy / secrets / messaging-as-user stay on the human + desktop side. Cloud returns branch + PR **refs**, not a shipped product. |
 
-**Stop doing:** Letting a cloud agent merge because the Mac is asleep. Keeping the board only in chat. Copying Inbox or Quinto connectors onto the box “so it can finish.”
+**Stop doing:** Letting a cloud agent merge because the local session is offline. Keeping the board only in chat. Copying Inbox or Finance connectors onto the box “so it can finish.”
 
-Grok Bot / Cursor Cloud is the mapping we use. Any desktop host + any remote code runner must keep the same split.
+a remote code runner is the mapping we use. Any desktop host + any remote code runner must keep the same split.
 
 ## Silent approval
 

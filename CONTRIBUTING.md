@@ -1,6 +1,6 @@
 # Contributing
 
-This repository documents a **harness-agnostic** desktop / multi-agent assistant OS: crew, shared computer, routines, connectors, HITL. Grok Bot (Cursor) is the example host. The same pattern should map onto another desktop harness without rewriting the domain.
+This repository documents a **harness-agnostic** desktop / multi-agent assistant OS: crew, shared computer, routines, connectors, HITL. a desktop agent host is the example host. The same pattern should map onto another desktop harness without rewriting the domain.
 
 Contributing language for this file, issue forms, and pull requests is **English**. Commands and paths stay in English fences.
 
@@ -87,7 +87,7 @@ For each role in `docs/crew/roles.md`, keep three things obvious:
 2. **Objective** — what “done” looks like.
 3. **Write boundary** — writes vs comment-only, and whether HITL is required.
 
-Example Mesa labels (`Inbox`, `Eng`, `Vitrine`, `Cibersec`, `Carreira`) plus Apps (`Quinto`, `LotRace`) and optional Hobby (`IronToy`) are pattern labels. Entrega is not a first-class Mesa seat on the example host. Prefer denser contracts over new names.
+Example Core team labels (`Inbox`, `Engineering`, `Publishing`, `Security`, `Career`) plus Apps (`Finance`, `Product`) and optional Hobby (`Hobby`) are pattern labels. Release is not a first-class Core team seat on the example host. Prefer denser contracts over new names.
 
 Handoffs (`docs/crew/handoffs.md`) are a message protocol: next owner + expected output. No silent hop.
 

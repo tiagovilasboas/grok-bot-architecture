@@ -40,7 +40,7 @@ body:
     attributes:
       label: Gap
       description: What a Staff reader cannot decide after reading the file.
-      placeholder: The Inbox → Entrega hop has no expected output, so a ship can start from a draft email.
+      placeholder: The Inbox → Release hop has no expected output, so a ship can start from a draft email.
     validations:
       required: true
   - type: textarea
