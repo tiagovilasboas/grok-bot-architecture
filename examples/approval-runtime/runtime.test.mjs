@@ -216,6 +216,36 @@ test("ambiguous connector failure is persisted and cannot be retried", async () 
   assert.equal(executed.length, 1);
 });
 
+test("ambiguous failure persists only error name and code as evidence", async () => {
+  const store = new MemoryStore();
+  const connectorError = Object.assign(new Error("token sk-secret-value in payload"), { name: "ConnectorError", code: "ECONNRESET" });
+  const { runtimePromise, executed } = setup({ store, executeAction: async () => { executed.push("called"); throw connectorError; } });
+  const runtime = await runtimePromise;
+  await request(runtime);
+  await approve(runtime);
+  await assert.rejects(runtime.resume({ id: "approval-1" }), { code: "outcome_unknown" });
+  const persisted = await store.get("approval-1");
+  assert.equal(persisted.status, "outcome_unknown");
+  assert.deepEqual(persisted.execution.error, { name: "ConnectorError", code: "ECONNRESET" });
+  assert.ok(!JSON.stringify(persisted).includes("sk-secret-value"));
+  assert.equal(executed.length, 1);
+});
+
+test("host-reported not_sent fails the approval terminally without retry", async () => {
+  const store = new MemoryStore();
+  const { runtimePromise, executed } = setup({ store, executeAction: async () => { executed.push("called"); throw Object.assign(new Error("rate limited, nothing sent"), { code: "not_sent" }); } });
+  const runtime = await runtimePromise;
+  await request(runtime);
+  await approve(runtime);
+  await assert.rejects(runtime.resume({ id: "approval-1" }), { code: "execution_failed" });
+  const persisted = await store.get("approval-1");
+  assert.equal(persisted.status, "failed");
+  assert.equal(persisted.execution.error.code, "not_sent");
+  assert.ok(persisted.execution.failedAt);
+  await assert.rejects(runtime.resume({ id: "approval-1" }), { code: "invalid_state" });
+  assert.equal(executed.length, 1);
+});
+
 test("serializes concurrent resume attempts in one runtime instance", async () => {
   const { runtimePromise, executed } = setup();
   const runtime = await runtimePromise;
