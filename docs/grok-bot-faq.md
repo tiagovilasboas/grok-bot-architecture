@@ -14,7 +14,7 @@ Chief-of-staff scopes, assigns, tracks, and reviews. A specialist owns a bounded
 
 This repository provides nine [SKILL.md recipes](skills.md) describing triggers, procedures, outputs, and review criteria. Use your host's documented skill mechanism and supported format. Treat the repository files as editable instructions; no automatic installation or vendor-specific loader compatibility is promised.
 
-See the [official skills and routines documentation](https://docs.x.ai/grok-bot/skills-and-routines) for the product's current mechanism.
+See the [official skills and routines documentation](https://docs.x.ai/grok-bot/skills-routines-and-automations) for the product's current mechanism.
 
 ## What is the difference between an agent, a skill, and a routine?
 
