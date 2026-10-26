@@ -1,6 +1,6 @@
 # Decision log
 
-Architectural Decision Records for this desktop / multi-agent assistant OS. One decision per file. Short form follows [Nygard's template](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) as described on [adr.github.io](https://adr.github.io/) (Status · Context · Decision · Consequences).
+Architectural Decision Records for this desktop / multi-agent assistant reference. One decision per file. Short form follows [Nygard's template](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) as described on [adr.github.io](https://adr.github.io/) (Status · Context · Decision · Consequences).
 
 How to propose a new record: [CONTRIBUTING.md](../../CONTRIBUTING.md). When to use this log: [cookbook/when-to-use-this-pattern.md](../cookbook/when-to-use-this-pattern.md). Machine-check the envelopes: `node scripts/validate-all.mjs`.
 
@@ -15,6 +15,7 @@ How to propose a new record: [CONTRIBUTING.md](../../CONTRIBUTING.md). When to u
 | [0005](0005-token-thrift.md) | Accepted | Token thrift | Context budget is a control: refs not dumps, split when windows collide. |
 | [0006](0006-cloud-agents-for-code.md) | Accepted | Cloud agents for code | Isolated, long-running code work leaves the desktop session. |
 | [0007](0007-reference-approval-runtime.md) | Proposed | Reference approval runtime | Execute lifecycle invariants in a local host-conformance example, not a hosted OS. |
+| [0008](0008-role-groups.md) | Accepted | Role groups | Core team and optional Domain specialists; supersedes ADR 0001's group labels only. |
 
 ## Status lifecycle
 
