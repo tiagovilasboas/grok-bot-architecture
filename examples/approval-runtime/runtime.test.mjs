@@ -153,6 +153,14 @@ test("approval that expires during host authorization cannot execute", async () 
   assert.equal(executed.length, 0);
 });
 
+test("a requester cannot approve their own request", async () => {
+  const { runtimePromise } = setup();
+  const runtime = await runtimePromise;
+  await request(runtime, { requestedBy: "reviewer-1" });
+  await assert.rejects(approve(runtime), { code: "self_approval" });
+  assert.equal((await runtime.get({ id: "approval-1" })).status, "pending");
+});
+
 test("cancellation after approval prevents resume", async () => {
   const { runtimePromise, executed } = setup();
   const runtime = await runtimePromise;

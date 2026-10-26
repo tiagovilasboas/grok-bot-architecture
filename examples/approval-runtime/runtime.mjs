@@ -277,6 +277,7 @@ export async function createApprovalRuntime({
         const principal = await requireHuman(credential);
         const record = await load(id);
         if (record.status !== "pending") fail("invalid_state", `Cannot decide an approval in state ${record.status}`);
+        if (principal.subject === record.requestedBy) fail("self_approval", "The requester cannot approve their own request");
         if (!(await authorizeApproval({ principal, approval: clone(record), operation: "decide" }))) {
           fail("not_authorized", "Host authorization rejected this approver for the request");
         }

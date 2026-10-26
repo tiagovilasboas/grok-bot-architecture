@@ -10,6 +10,7 @@ The reference supplies documentation, role skills, JSON validators, and a bounde
 | Persistence | Store state atomically and preserve pending decisions | Restart never auto-approves pending work |
 | Replay | Consume authorizations once or use idempotency | Repeated resume does not repeat the transaction |
 | Cancellation | Honor rejection and revocation before execution | Stale handoffs cannot revive a rejected action |
+| Separation of duties | Refuse approval by the principal who requested the action | Requester approving their own request is rejected (`self_approval`) |
 | Budgets | Enforce concurrency, tool calls, time, and spend | Exhaustion records a blocked card |
 | Data | Restrict reference resolution and trace contents | Cross-domain refs cannot bypass access control |
 
