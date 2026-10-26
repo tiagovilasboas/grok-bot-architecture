@@ -20,6 +20,10 @@ To try this pattern on Grok Bot:
 
 *(Note: Live Grok Bot integration paths are documented from official product facts and pending live account verification in task E1).*
 
+## Start in 10 minutes
+
+Paste-ready profiles, a budgeted routine example, and a 10-step setup from a new Bot to a first card with a human approval stop: [grok-bot/SETUP.md](grok-bot/SETUP.md). The reasoning behind the rules is in [a sanitized case study](docs/case-study.md).
+
 ## Agnostic quick start
 
 Validate contract fixtures and run the local reference approval lifecycle:
