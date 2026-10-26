@@ -27,6 +27,8 @@ Run them in this order, because later checks depend on earlier ones.
 
 ## Recording a result
 
+Use the [results template](results-template.md) for each run. It has one line per check, and it leaves a check as "Not run" when you did not run it.
+
 Each row in the report takes one status and one line. Use these statuses:
 
 - **Worked:** the check matched the text in this repository, and you saw it yourself.
