@@ -57,6 +57,13 @@ Coordinator: human
 
 Keep tokens, secrets, and raw chat logs off the board, as all Bots can read `/workspace`.
 
+If this repository is cloned in `/workspace`, you can also create, list, and validate cards from the terminal using [`scripts/board.mjs`](../../scripts/board.mjs):
+
+```bash
+node scripts/board.mjs check --file /workspace/board.md
+node scripts/board.mjs list --file /workspace/board.md
+```
+
 ## 4. Run the scoped task
 
 In the direct chat with the `Engineering` Bot, assign the card:

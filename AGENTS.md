@@ -47,6 +47,7 @@ Clearly distinguish proposed actions, emitted requests, observed results, and un
 ## Checks and change discipline
 - Single repository gate (matches CI and pre-push): `bash scripts/check.sh`
 - Contract/fixture changes: `node scripts/validate-all.mjs`
+- Markdown board CLI and validator: `node scripts/board.mjs check --file examples/board.example.md`
 - Plugin manifest and skills: `node scripts/validate-plugin.mjs`
 - Documentation coherence: `node scripts/check-coherence.mjs`
 - Documentation and skill links: `bash scripts/check-relative-links.sh`
