@@ -21,3 +21,7 @@ node scripts/validate-interrupt.mjs
 ```
 
 Every `examples/*.broken.json` must be rejected. Every `*.fixed.json` must be accepted.
+
+Walkthroughs:
+- [Agnostic task walkthrough](walkthrough.md): generic fictional task lifecycle.
+- [Grok Bot walkthrough](grok-bot/walkthrough.md): step-by-step from skill install to approval stop.
