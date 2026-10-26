@@ -12,6 +12,7 @@ step() {
 
 step "contracts and fixtures"
 node scripts/validate-all.mjs
+node scripts/board.mjs check
 
 step "plugin manifest and skills"
 node scripts/validate-plugin.mjs
@@ -19,8 +20,8 @@ node scripts/validate-plugin.mjs
 step "documentation coherence"
 node scripts/check-coherence.mjs
 
-step "approval runtime tests"
-node --test examples/approval-runtime/runtime.test.mjs examples/approval-runtime/store-contract.test.mjs
+step "approval runtime and board tests"
+node --test examples/approval-runtime/runtime.test.mjs examples/approval-runtime/store-contract.test.mjs scripts/board.test.mjs
 
 step "approval runtime walkthrough"
 node examples/approval-runtime/demo.mjs > /dev/null
