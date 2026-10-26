@@ -3,54 +3,43 @@
 [![CI](https://github.com/tiagovilasboas/grok-bot-architecture/actions/workflows/ci.yml/badge.svg)](https://github.com/tiagovilasboas/grok-bot-architecture/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**Grok Bot Architecture** is an independent, MIT-licensed reference for organizing **AI agent teams** with reusable **agent skills**, **MCP connectors**, and **human-in-the-loop approval**. Start with a chief-of-staff and scoped specialists, then use typed handoffs and persisted approval requests to coordinate work across local and remote hosts.
+An independent, MIT-licensed reference architecture for organizing **AI agent teams** with reusable **agent skills**, **MCP connectors**, and **human-in-the-loop (HITL) approval**. Start with a chief-of-staff and scoped specialists, then use typed handoffs and persisted approval requests to coordinate work across local and remote hosts.
 
-Looking for **Grok Bot multi-agent architecture**, **Grok Bot skills**, or a **chief-of-staff AI agent** pattern? This community project explains those design choices with portable role contracts and examples. It is not affiliated with xAI or Cursor and does not contain the Grok Bot product's source code. The architecture is model- and framework-independent; no API key is needed to validate its examples.
+Designed for engineers and operators structuring persistent AI teammates without granting unchecked ambient authority. The reference is model- and framework-independent; it is not affiliated with xAI or Cursor and does not contain the Grok Bot product's source code.
 
-[Quick start](#quick-start) · [Walkthrough](examples/walkthrough.md) · [Architecture](docs/architecture.md) · [Grok Bot FAQ](docs/grok-bot-faq.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+[Grok Bot quick path](#grok-bot-quick-path) · [Agnostic quick start](#agnostic-quick-start) · [Architecture](docs/architecture.md) · [FAQ](docs/grok-bot-faq.md) · [Contributing](CONTRIBUTING.md)
 
-## From my personal setup to your own agent team
+## Grok Bot quick path
 
-I built this reference from my personal use of a coordinated agent team: one role to scope and review work, specialists for engineering, publishing, security, inbox and career tasks, and optional roles for finance, product work and hobbies. The public examples use generic English names and fictional resources; my accounts, private projects and day-to-day data are not configuration requirements.
+To try this pattern on Grok Bot:
 
-The aim is to give you a useful starting point for your own work. **Everything in the setup is customizable:** role names and responsibilities, how many agents you run, skills, tools, models, frameworks, storage, routines, budgets, batch sizes, review criteria and approval policies. Start with the parts that solve a real problem for you, adapt their boundaries to your host, and leave the rest out.
+1. **Install skills:** Load the nine role skills via Cursor plugin or direct paste ([install guide](docs/hosts/grok-bot/install.md)).
+2. **Kickoff one Bot:** Create a Bot and set its initial job and approval boundary ([kickoff prompts](examples/grok-bot/kickoff/README.md)).
+3. **Run the walkthrough:** Follow an end-to-end task from board assignment to an approval stop ([Grok Bot walkthrough](examples/grok-bot/walkthrough.md)).
+4. **Configure approval policy:** Map the four repository gates to personal Auto Review rules ([approval policy](docs/hosts/grok-bot/approval-policy.md)).
 
-This is a personal approach shared with the community under MIT, rather than a claim that nine agents are the right structure for everyone. See the [customization guide](docs/customization.md) for an adoption path and a reusable role template.
+*(Note: Live Grok Bot integration paths are documented from official product facts and pending live account verification in task E1).*
 
-## What you can use today
+## Agnostic quick start
 
-- **Seven accepted architecture decisions**, plus proposed ADR 0007 for the approval-runtime spike.
-- **Reusable role contracts** with a job, objective, and write boundary for every specialist.
-- **Nine ready-to-load role skills** with procedures, output contracts, and quality review: [skill library](docs/skills.md).
-- **Dependency-free JavaScript validators** for handoff and interrupt JSON records, with accepted and rejected examples.
-- **Executable approval-runtime spike** that demonstrates one local, host-conformance lifecycle without a model or external service.
-- **Adoption guides** for a first week, failure modes, and deciding when multiple agents are justified.
-- **CI checks** for contract fixtures, the approval lifecycle example, and relative documentation links.
-
-This is a reference architecture with executable contract checks. A consuming host must implement tool authorization, authenticated approvals, durable storage, and execution limits. Passing a JSON validator alone does not authorize an action or prove that a human approved it.
-
-## Quick start
-
-Requirements: Git and Node.js 20 or newer. The optional documentation link check additionally uses Bash; path resolution uses Node.js on both Linux and macOS.
+Validate contract fixtures and run the local reference approval lifecycle:
 
 ```bash
 git clone https://github.com/tiagovilasboas/grok-bot-architecture.git
 cd grok-bot-architecture
-node scripts/validate-all.mjs
-node examples/approval-runtime/demo.mjs
-node --test examples/approval-runtime/runtime.test.mjs
+bash scripts/check.sh
 ```
 
-No package installation, external services, or credentials are required. The validator checks the bundled examples: intentionally broken records must be rejected and corrected records accepted. The demo is simulated, and the lifecycle tests use only temporary local files.
+No external packages, credentials, or API keys are required. The check exercises JSON validators, plugin packaging rules, documentation coherence, link checks, and 27 approval runtime lifecycle tests.
 
-Check your own records separately:
+Check individual handoff or interrupt records separately:
 
 ```bash
 node scripts/validate-handoff.mjs /path/to/handoff.json
 node scripts/validate-interrupt.mjs /path/to/interrupt.json
 ```
 
-These commands only validate files. They do not call connectors or execute the described action. Read the [complete walkthrough](examples/walkthrough.md) to follow a task from assignment to a pending approval and a rejected request.
+These checkers validate file shapes; they do not authenticate human approvers or execute side effects. Read the [agnostic walkthrough](examples/walkthrough.md) for a general task lifecycle.
 
 ## When this architecture helps
 
@@ -301,9 +290,11 @@ It is an educational host-conformance example, not a production runtime or secur
 |---|---|
 | [Architecture](docs/architecture.md) | Layers, ownership, and trust boundaries |
 | [ADRs](docs/adr/README.md) | Seven accepted decisions and one proposed runtime spike |
-| [Walkthrough](examples/walkthrough.md) | A complete fictional task lifecycle |
+| [Grok Bot walkthrough](examples/grok-bot/walkthrough.md) | From skill install to an approval stop on Grok Bot |
+| [Agnostic walkthrough](examples/walkthrough.md) | A complete fictional task lifecycle |
 | [Host integration](docs/host-integration.md) | What an adapter must enforce |
 | [Grok Bot host mapping](docs/hosts/grok-bot/mapping.md) | What Grok Bot enforces and what stays a convention |
+| [Grok Bot approval policy](docs/hosts/grok-bot/approval-policy.md) | Map repository gates to Auto Review Ask first rules |
 | [Approval runtime example](examples/approval-runtime/README.md) | Local host-conformance lifecycle spike |
 | [Runtime roadmap](docs/runtime-roadmap.md) | Current spike, limits, and ordered follow-up tasks |
 | [Customize your setup](docs/customization.md) | Adapt roles, skills, tools, routines and policies |

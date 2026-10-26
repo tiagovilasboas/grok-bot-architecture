@@ -1,6 +1,8 @@
 # Search intent research: Grok Bot Architecture
 
-Reviewed: 2026-10-25. These are editorial hypotheses, not measured keyword rankings or traffic predictions.
+> **Archive note:** This document preserves early editorial research (2026-10-25) into search intent. It is kept for historical context; active guidance lives in [docs/architecture.md](../architecture.md) and [docs/hosts/grok-bot/mapping.md](../hosts/grok-bot/mapping.md).
+
+These are editorial hypotheses, not measured keyword rankings or traffic predictions.
 
 ## Google Trends attempt
 
