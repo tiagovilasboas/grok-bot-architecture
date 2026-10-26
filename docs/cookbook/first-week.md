@@ -1,6 +1,6 @@
 # Cookbook — first week
 
-Stand up a **thin** assistant OS. Do not hire seven specialists on Monday.
+Stand up a **thin** assistant team. Do not hire seven specialists on Monday.
 
 ## Goal
 

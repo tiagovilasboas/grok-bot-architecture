@@ -87,7 +87,7 @@ For each role in `docs/crew/roles.md`, keep three things obvious:
 2. **Objective** — what “done” looks like.
 3. **Write boundary** — writes vs comment-only, and whether HITL is required.
 
-Example Core team labels (`Inbox`, `Engineering`, `Publishing`, `Security`, `Career`) plus Apps (`Finance`, `Product`) and optional Hobby (`Hobby`) are pattern labels. Release is not a first-class Core team seat on the example host. Prefer denser contracts over new names.
+Example Core team labels (`Inbox`, `Engineering`, `Publishing`, `Security`, `Career`) plus Domain specialists (`Finance`, `Product`, and optional `Hobby`) are pattern labels. See [ADR 0008](docs/adr/0008-role-groups.md). Release is not a first-class Core team seat on the example host. Prefer denser contracts over new names.
 
 Handoffs (`docs/crew/handoffs.md`) are a message protocol: next owner + expected output. No silent hop.
 

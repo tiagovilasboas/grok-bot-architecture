@@ -1,7 +1,7 @@
 # ADR 0001 — Crew of agents
 
 ## Status
-Accepted
+Accepted. Group labels superseded by [ADR 0008](0008-role-groups.md); the decision is unchanged.
 
 ## Context
 A single desktop agent with every tool mixes planning, inbox, code, money, and ship in one window. Secrets leak across jobs. HITL becomes a shrug. Evals cannot score a role that does five things. An open swarm of peers spawning peers has the same failure mode with more hops.

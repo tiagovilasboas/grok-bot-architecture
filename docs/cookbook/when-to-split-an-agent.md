@@ -32,7 +32,7 @@ If you cannot fill that table, do not add a role.
 4. Cut the connector allowlist to what that job needs.
 5. Add **one** hop on [handoffs.md](../crew/handoffs.md). If you need a mesh, you over-split.
 
-Example Core team labels (`Inbox`, `Engineering`, `Publishing`, `Security`, `Career`) plus Apps (`Finance`, `Product`) and optional Hobby (`Hobby`) are labels for those collisions — not a hiring plan. Release is not a first-class Core team seat on the example host.
+Example Core team labels (`Inbox`, `Engineering`, `Publishing`, `Security`, `Career`) plus Domain specialists (`Finance`, `Product`, and optional `Hobby`) are labels for those collisions — not a hiring plan. Release is not a first-class Core team seat on the example host.
 
 ## Refusals
 
