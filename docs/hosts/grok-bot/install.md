@@ -34,4 +34,4 @@ Status: not yet verified on an account.
 
 If the skill does not appear, [platform-facts.md](platform-facts.md) does not say whether a private skill needs enabling for each Bot. Look for an enabling setting on that Bot before concluding that the save failed.
 
-Saving a skill does not change what a Bot may do. Approvals and Auto Review still apply ([mapping.md](mapping.md)). The role bodies are not yet rewritten to the six-element shape for useful skills; that is tracked in the roadmap as G3 to G5.
+Saving a skill does not change what a Bot may do. Approvals and Auto Review still apply ([mapping.md](mapping.md)). All nine role skills follow the v2 six-element shape.
