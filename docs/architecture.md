@@ -1,6 +1,6 @@
 # Architecture
 
-This repository is a **pattern / reference**, not a hosted OS. Layers are portable. a desktop agent host is one replaceable host mapping.
+This repository is a **pattern / reference**, not a hosted OS. Layers are portable. A desktop agent host is one replaceable host mapping.
 
 ## Layers
 
@@ -10,7 +10,7 @@ flowchart TB
     User["User<br/>goals · decisions · allowlists"]
   end
 
-  subgraph mesa [Core team · Staff crew]
+  subgraph core [Core team]
     CoS["Chief-of-staff<br/>plan · route · interrupt · board"]
     Inbox["Inbox"]
     Engineering["Engineering"]
@@ -19,12 +19,9 @@ flowchart TB
     Career["Career"]
   end
 
-  subgraph apps [Apps hub · not Staff Core team]
+  subgraph domain [Domain specialists · optional]
     Finance["Finance"]
     Product["Product"]
-  end
-
-  subgraph hobby [Hobby · optional]
     Hobby["Hobby"]
   end
 
@@ -121,7 +118,7 @@ If a specialist can see (2) and (3) and reach (4), you have the [lethal trifecta
 3. Specialist works **only** that card. Tools come from its connector allowlist. Skills may be loaded as recipes — they do not bypass HITL.
 4. Handoff is a typed envelope ([crew/handoffs.md](crew/handoffs.md)), not a transcript paste. What may enter the window: [context-engineering.md](context-engineering.md).
 5. Privileged write → interrupt → human `decision` ([crew/hitl.md](crew/hitl.md)).
-6. Security records outcome (trace id, tokens if known, residual risk). No invented prod numbers.
+6. The owning specialist records the outcome and residual risk. Trace ids and token counts come from host telemetry, when available. No invented prod numbers.
 
 Routines are the same loop on a schedule ([routines.md](routines.md)).
 
@@ -130,7 +127,7 @@ Routines are the same loop on a schedule ([routines.md](routines.md)).
 - **Not a hosted OS.** This repository is a pattern / reference (ADRs, contracts, checkers). You map it onto a host you already sit at.
 - Not a single chat with every tool. That is the problem the crew solves ([ADR 0001](adr/0001-crew-of-agents.md)).
 - Not an open multi-agent **swarm** of peers spawning peers. This pattern is **crew + HITL + typed handoffs**.
-- Not a vendor SDK, a product CLI, or a host-only playbook. a desktop agent host is one **replaceable** mapping.
+- Not a vendor SDK, a product CLI, or a host-only playbook. A desktop agent host is one **replaceable** mapping.
 - Not an eval harness or an AppSec review kit. Measure and review in your tree; this log keeps the board and the gates.
 - Not a private prompt pack. If a sentence only works as a secret system prompt, it does not belong here.
 

@@ -25,11 +25,13 @@ Resume payload:
 
 ```text
 id:            <interrupt id>
-decision:      approve | reject | edit
+decision:      approve | reject
 decided_by:    <human>
 decided_at:    <iso-8601>
 notes:         <optional>
 ```
+
+There is no `edit` decision. Changing the action means a new request, so the approval binds to one exact action digest.
 
 **Never invent `decided_by`.** A model completing the form is a failed gate, not a clever agent. That is silent approval ([cookbook/failure-modes.md](../cookbook/failure-modes.md)). Machine-check: `node scripts/validate-interrupt.mjs` (or `node scripts/validate-all.mjs`).
 

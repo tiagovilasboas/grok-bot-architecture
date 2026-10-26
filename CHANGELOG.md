@@ -10,5 +10,6 @@
 - Add a fictional lifecycle walkthrough, operator policy example, and host integration responsibilities.
 - Add support, conduct, and security reporting guidance.
 - Align the non-human role denylist with the public roles.
+- Remove the `edit` interrupt decision (edits require a new request), re-check approval expiry after host authorization, and fix leftover role labels in the architecture docs.
 
 This changelog begins with this contribution and does not invent earlier releases.

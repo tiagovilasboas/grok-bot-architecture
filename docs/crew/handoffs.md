@@ -29,7 +29,7 @@ Unknown required fields **fail closed**. Chat-only hosts need a thin adapter tha
 | Engineering → Chief-of-staff | Diff / PR ref + residual risk; merge still HITL | Board update; CoS / human decide merge |
 | Engineering → Publishing | Public-path PR / preview refs when publish is in scope | Preview card; **publish = HITL** |
 | Career → Chief-of-staff | Draft packet + refs; messaging/publish still HITL | Board update or interrupt |
-| Inbox → User (via CoS) | Draft + `hitl:messaging-as-user` | Explicit send / edit / drop |
+| Inbox → User (via CoS) | Draft + `hitl:messaging-as-user` | Explicit send / drop (an edited draft is a new request) |
 | Any specialist → Security | Outcome refs | Trace note; no rewrite of the work |
 | Any → User | `interrupt` record | `resume` with `decision` + `decided_by` |
 | User → Chief-of-staff | `resume` | Continue or close the card |
