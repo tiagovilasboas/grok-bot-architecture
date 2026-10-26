@@ -91,7 +91,7 @@ flowchart TB
   subgraph Host["Host adapter · vendor and framework independent"]
     State["Shared state<br/>Board · typed handoffs · references"]
     Skills["Role skills<br/>Nine reusable SKILL.md recipes"]
-    Tools["Scoped tool access<br/>Per-role permissions · budgets"]
+    Tools["Scoped tool access<br/>Host-enforced permissions · budgets"]
     Approval["Approval gate<br/>Authenticate · bind action and revision<br/>No decision: wait"]
     Connectors["MCP connectors / first-party APIs<br/>Authorized reads · drafts · approved actions"]
     Worker["Optional isolated code worker<br/>Branch + review evidence"]
@@ -303,6 +303,7 @@ It is an educational host-conformance example, not a production runtime or secur
 | [ADRs](docs/adr/README.md) | Six decisions and their tradeoffs |
 | [Walkthrough](examples/walkthrough.md) | A complete fictional task lifecycle |
 | [Host integration](docs/host-integration.md) | What an adapter must enforce |
+| [Grok Bot host mapping](docs/hosts/grok-bot/mapping.md) | What Grok Bot enforces and what stays a convention |
 | [Approval runtime example](examples/approval-runtime/README.md) | Local host-conformance lifecycle spike |
 | [Runtime roadmap](docs/runtime-roadmap.md) | Current spike, limits, and ordered follow-up tasks |
 | [Customize your setup](docs/customization.md) | Adapt roles, skills, tools, routines and policies |
