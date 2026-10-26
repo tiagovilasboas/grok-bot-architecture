@@ -19,6 +19,7 @@ import {
   reportFixtureBatch,
   reportSelfTests,
 } from "./lib/fixtures.mjs";
+import { handoffSelfTests } from "./lib/validator-self-tests.mjs";
 
 const KINDS = new Set([
   "assign",
@@ -145,94 +146,7 @@ export function validateHandoff(envelope) {
  * @returns {string[]}
  */
 function selfTestFailures() {
-  const failures = [];
-
-  const ghost = validateHandoff({
-    id: "card-self-ghost",
-    from: "the agent",
-    to: "Engineering",
-    kind: "assign",
-    goal: "Ship a docs heading.",
-    refs: ["docs/crew/handoffs.md"],
-    write_policy: "draft",
-    done_when: "PR ref exists.",
-  });
-  if (!ghost.some((error) => error.includes("role"))) {
-    failures.push("ghost owner must be rejected");
-  }
-
-  const invented = validateHandoff({
-    id: "card-self-decision",
-    from: "Chief-of-staff",
-    to: "Engineering",
-    kind: "assign",
-    goal: "Ship a docs heading.",
-    refs: ["docs/crew/handoffs.md"],
-    write_policy: "draft",
-    done_when: "PR ref exists.",
-    decision: "approve",
-    decided_by: "Engineering",
-  });
-  if (!invented.some((error) => error.includes("decision"))) {
-    failures.push("invented decision on the hop must be rejected");
-  }
-
-  const blobRefs = validateHandoff({
-    id: "card-self-refs",
-    from: "Chief-of-staff",
-    to: "Engineering",
-    kind: "assign",
-    goal: "Ship a docs heading.",
-    refs: "Host chat. Engineering: LGTM.",
-    write_policy: "draft",
-    done_when: "PR ref exists.",
-  });
-  if (!blobRefs.some((error) => error.includes("refs"))) {
-    failures.push("string refs blob must be rejected");
-  }
-
-  const badPolicy = validateHandoff({
-    id: "card-self-policy",
-    from: "Chief-of-staff",
-    to: "Engineering",
-    kind: "assign",
-    goal: "Ship a docs heading.",
-    refs: ["docs/crew/handoffs.md"],
-    write_policy: "approve",
-    done_when: "PR ref exists.",
-  });
-  if (!badPolicy.some((error) => error.includes("write_policy"))) {
-    failures.push("write_policy approve must be rejected");
-  }
-
-  const missingDone = validateHandoff({
-    id: "card-self-done",
-    from: "Chief-of-staff",
-    to: "Engineering",
-    kind: "assign",
-    goal: "Ship a docs heading.",
-    refs: ["docs/crew/handoffs.md"],
-    write_policy: "draft",
-  });
-  if (!missingDone.some((error) => error.includes("done_when"))) {
-    failures.push("missing done_when must be rejected");
-  }
-
-  const ok = validateHandoff({
-    id: "card-self-ok",
-    from: "Chief-of-staff",
-    to: "Engineering",
-    kind: "assign",
-    goal: "Ship a docs heading.",
-    refs: ["docs/crew/handoffs.md"],
-    write_policy: "hitl:merge",
-    done_when: "PR ref exists; merge stays an interrupt.",
-  });
-  if (ok.length > 0) {
-    failures.push(`valid envelope must be accepted (${ok.join("; ")})`);
-  }
-
-  return failures;
+  return handoffSelfTests(validateHandoff);
 }
 
 /**
