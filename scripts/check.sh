@@ -13,6 +13,9 @@ step() {
 step "contracts and fixtures"
 node scripts/validate-all.mjs
 
+step "documentation coherence"
+node scripts/check-coherence.mjs
+
 step "approval runtime tests"
 node --test examples/approval-runtime/runtime.test.mjs
 
