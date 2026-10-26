@@ -20,9 +20,9 @@ The demo creates a temporary local record and prints a simulated preview action.
 3. Record approve or reject against the still-pending request and its expiry.
 4. Before resume, resolve the current action again, compare its digest, and ask the host to authorize it.
 5. Persist `executing` with a stable idempotency key before calling the host's action callback.
-6. Persist completion, or mark an ambiguous callback failure as `outcome_unknown`. Do not retry automatically.
+6. Persist completion. A callback error that carries `code: "not_sent"` moves the approval to `failed`, a terminal state where the host confirmed nothing was sent; create a new approval to retry. Any other callback failure is `outcome_unknown`. Do not retry automatically. `execution.error` holds only the error `name` and `code`, never its message or stack.
 
-The state machine fails closed for expired, rejected, canceled, stale, unauthorized, replayed, or uncertain requests. Editing an action requires a new approval.
+The state machine fails closed for expired, rejected, canceled, stale, unauthorized, failed (host reported not sent), replayed, or uncertain requests. Editing an action requires a new approval.
 
 ## Trust boundary and limits
 

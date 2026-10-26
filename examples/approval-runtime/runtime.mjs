@@ -43,6 +43,14 @@ function clone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+// Only the error name and code are kept: messages and stacks may carry secrets or payload fragments.
+function errorEvidence(error) {
+  return {
+    name: typeof error?.name === "string" ? error.name : "Error",
+    code: typeof error?.code === "string" ? error.code : null,
+  };
+}
+
 function digest(value) {
   return createHash("sha256").update(JSON.stringify(jsonValue(value))).digest("hex");
 }
@@ -344,7 +352,14 @@ export async function createApprovalRuntime({
           record.execution.completedAt = timestamp(clock).iso;
           await store.put(record);
           return { id: record.id, status: record.status, result };
-        } catch {
+        } catch (error) {
+          record.execution.error = errorEvidence(error);
+          if (record.execution.error.code === "not_sent") {
+            record.status = "failed";
+            record.execution.failedAt = timestamp(clock).iso;
+            await store.put(record);
+            fail("execution_failed", "Host reported that the action was not sent; create a new approval to retry");
+          }
           record.status = "outcome_unknown";
           record.execution.outcomeUnknownAt = timestamp(clock).iso;
           await store.put(record);
