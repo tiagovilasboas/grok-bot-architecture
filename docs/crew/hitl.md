@@ -33,7 +33,7 @@ notes:         <optional>
 
 There is no `edit` decision. Changing the action means a new request, so the approval binds to one exact action digest.
 
-**Never invent `decided_by`.** A model completing the form is a failed gate, not a clever agent. That is silent approval ([cookbook/failure-modes.md](../cookbook/failure-modes.md)). Machine-check: `node scripts/validate-interrupt.mjs` (or `node scripts/validate-all.mjs`).
+**Never invent `decided_by`.** A model completing the form is a failed gate, not a clever agent. That is silent approval ([cookbook/failure-modes.md](../cookbook/failure-modes.md)). Machine-check: `node scripts/validate-interrupt.mjs` (or `node scripts/validate-all.mjs`). The validator only rejects obvious agent labels such as a specialist name. It cannot prove that a person decided. Identity comes from the host's authenticated principal ([host integration](../host-integration.md)).
 
 ## Allowlists
 
