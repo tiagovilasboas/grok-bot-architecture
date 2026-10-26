@@ -93,6 +93,16 @@ Handoffs (`docs/crew/handoffs.md`) are a message protocol: next owner + expected
 
 HITL (`docs/crew/hitl.md`) fails closed on merge, deploy, secrets, and messaging-as-user. If nobody answers, **wait**.
 
+## Local gate
+
+Install the git hooks once per clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+`pre-commit` runs the contract validators and link check. `pre-push` runs `scripts/check.sh`, the same gate CI runs. To run it by hand, use `bash scripts/check.sh`.
+
 ## Pull requests
 
 - Branch from `main`; never push commits to `main`.

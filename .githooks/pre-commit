@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Fast checks before each commit. The full gate runs on push (.githooks/pre-push).
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "${ROOT}"
+
+node scripts/validate-all.mjs
+bash scripts/check-relative-links.sh
