@@ -19,7 +19,7 @@ This is a personal approach shared with the community under MIT, rather than a c
 
 ## What you can use today
 
-- **Six accepted architecture decisions**, plus proposed ADR 0007 for the approval-runtime spike.
+- **Seven accepted architecture decisions**, plus proposed ADR 0007 for the approval-runtime spike.
 - **Reusable role contracts** with a job, objective, and write boundary for every specialist.
 - **Nine ready-to-load role skills** with procedures, output contracts, and quality review: [skill library](docs/skills.md).
 - **Dependency-free JavaScript validators** for handoff and interrupt JSON records, with accepted and rejected examples.
@@ -300,7 +300,7 @@ It is an educational host-conformance example, not a production runtime or secur
 | Start here | What you get |
 |---|---|
 | [Architecture](docs/architecture.md) | Layers, ownership, and trust boundaries |
-| [ADRs](docs/adr/README.md) | Six decisions and their tradeoffs |
+| [ADRs](docs/adr/README.md) | Seven accepted decisions and one proposed runtime spike |
 | [Walkthrough](examples/walkthrough.md) | A complete fictional task lifecycle |
 | [Host integration](docs/host-integration.md) | What an adapter must enforce |
 | [Grok Bot host mapping](docs/hosts/grok-bot/mapping.md) | What Grok Bot enforces and what stays a convention |

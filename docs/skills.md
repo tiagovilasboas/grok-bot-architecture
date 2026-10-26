@@ -1,6 +1,6 @@
 # Reusable role skills
 
-Each role has a ready-to-load `SKILL.md`. Skills marked as v2 follow the [template below](#template-v2); the others keep the earlier layout (trigger, required context, procedure, safety and authority, output contract, quality review) until they are converted. Skills are public, generic recipes licensed under MIT; they do not grant tool permissions or authenticate approvals.
+Each role has a ready-to-load `SKILL.md`. All nine role skills follow the [v2 template below](#template-v2) with zero shared boilerplate lines across role procedures. Skills are public, generic recipes licensed under MIT; they do not grant tool permissions or authenticate approvals.
 
 | Role | Skill | Primary deliverable |
 |---|---|---|
