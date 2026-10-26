@@ -53,7 +53,7 @@ Token burn and fan-out are the same failure when the window is the dump ([cookbo
 
 ## Security / evals
 
-**Security** makes the loop inspectable: what entered, whether a budget stopped the run, residual risk. Log tool name, decision, interrupt id. Do not log secrets or bodies ([crew/roles.md](crew/roles.md#cibersec)).
+**Security** makes the loop inspectable: what entered, whether a budget stopped the run, residual risk. Log tool name, decision, interrupt id. Do not log secrets or bodies ([crew/roles.md](crew/roles.md#security)).
 
 **Evals** are not this OS. Suites, named metrics, and markdown reports live in your tree. Measure; do not train. Example fills are not prod scores.
 
