@@ -30,16 +30,18 @@ cd grok-bot-architecture
 bash scripts/check.sh
 ```
 
-No external packages, credentials, or API keys are required. The check exercises JSON validators, plugin packaging rules, documentation coherence, link checks, and 27 approval runtime lifecycle tests.
+No external packages, credentials, or API keys are required. The check exercises JSON validators, Markdown board validation, plugin packaging rules, documentation coherence, link checks, and 31 runtime and board unit tests.
 
-Check individual handoff or interrupt records separately:
+Check individual handoff or interrupt records, or inspect and validate a Markdown board:
 
 ```bash
 node scripts/validate-handoff.mjs /path/to/handoff.json
 node scripts/validate-interrupt.mjs /path/to/interrupt.json
+node scripts/board.mjs list --file examples/board.example.md
+node scripts/board.mjs check --file examples/board.example.md
 ```
 
-These checkers validate file shapes; they do not authenticate human approvers or execute side effects. Read the [agnostic walkthrough](examples/walkthrough.md) for a general task lifecycle.
+These checkers validate file shapes; they do not authenticate human approvers or execute side effects. Read the [agnostic walkthrough](examples/walkthrough.md) for a general task lifecycle or the [repository self-audit case study](examples/case-study-self-audit.md) for a real walkthrough backed by this repository's commit history.
 
 ## When this architecture helps
 
@@ -291,6 +293,7 @@ It is an educational host-conformance example, not a production runtime or secur
 | [Architecture](docs/architecture.md) | Layers, ownership, and trust boundaries |
 | [ADRs](docs/adr/README.md) | Seven accepted decisions and one proposed runtime spike |
 | [Grok Bot walkthrough](examples/grok-bot/walkthrough.md) | From skill install to an approval stop on Grok Bot |
+| [Repository self-audit case study](examples/case-study-self-audit.md) | Real multi-PR audit walkthrough verified in git history |
 | [Agnostic walkthrough](examples/walkthrough.md) | A complete fictional task lifecycle |
 | [Host integration](docs/host-integration.md) | What an adapter must enforce |
 | [Grok Bot host mapping](docs/hosts/grok-bot/mapping.md) | What Grok Bot enforces and what stays a convention |

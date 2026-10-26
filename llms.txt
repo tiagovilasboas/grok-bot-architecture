@@ -26,6 +26,8 @@ bash scripts/check.sh
 - [Host integration](docs/host-integration.md)
 - [Approval runtime conformance example](examples/approval-runtime/README.md)
 - [Runtime roadmap](docs/runtime-roadmap.md)
+- [Grok Bot walkthrough](examples/grok-bot/walkthrough.md)
+- [Repository self-audit case study](examples/case-study-self-audit.md)
 - [Walkthrough](examples/walkthrough.md)
 - [AGENTS.md](AGENTS.md) · [CONTRIBUTING.md](CONTRIBUTING.md)
 

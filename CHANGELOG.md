@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.3.0 - 2026-10-26
+
+### Added
+- **Zero-dependency Markdown board CLI and validator:** [`scripts/board.mjs`](scripts/board.mjs) and [`scripts/lib/board.mjs`](scripts/lib/board.mjs) let operators and agents `list`, `check`, `add`, and update `status` on Markdown board cards from the terminal while enforcing ADR-0001 and [`docs/crew/handoffs.md`](docs/crew/handoffs.md) invariants.
+- **Board unit test suite:** [`scripts/board.test.mjs`](scripts/board.test.mjs) adds unit coverage for board parsing, ghost-owner rejection, invented-decision rejection, `done` without `output_refs`, and card lifecycle updates (31 total tests in `bash scripts/check.sh`).
+- **Real-world case study:** [`examples/case-study-self-audit.md`](examples/case-study-self-audit.md) documents the repository's own multi-PR audit and milestone closure (`#57`–`#63`) with verifiable commits and `scripts/board.mjs` commands.
+- **Validator modularity:** extracted self-test suites from `scripts/validate-handoff.mjs` and `scripts/validate-interrupt.mjs` into [`scripts/lib/validator-self-tests.mjs`](scripts/lib/validator-self-tests.mjs) so every JavaScript module in the repository stays under 300 lines.
+
 ## v0.2.0 - 2026-10-26
 
 Milestone: Grok Bot ready.
