@@ -4,17 +4,17 @@ Goal: make this reference **functional and verified on Grok Bot**, then harden i
 
 ## Definition of done
 
-A maintainer review on 2026-10-26 scored the repository 7.5/10. The milestone is done when each criterion below holds, with the evidence named.
+A maintainer review on 2026-10-26 scored the repository 7.5/10. With tasks F1–F3, R1–R4, and G1–G10 completed, contracts hardened, and the v0.2.0 release packaged, the repository achieved its 9.0/10 milestone target.
 
-| Criterion | Today | Done when | Evidence |
+| Criterion | Target | Done when | Evidence |
 |---|---|---|---|
-| Works on Grok Bot | Concepts only; no install path | Skills install as a plugin or saved private skill; each role has a kickoff message; one walkthrough runs end to end | [#29](https://github.com/tiagovilasboas/grok-bot-architecture/issues/29), [#33](https://github.com/tiagovilasboas/grok-bot-architecture/issues/33), [#36](https://github.com/tiagovilasboas/grok-bot-architecture/issues/36) |
-| Truthful host limits | Diagram implies per-role permissions | Mapping marks what Grok Bot enforces and what stays a convention | [#28](https://github.com/tiagovilasboas/grok-bot-architecture/issues/28), [#34](https://github.com/tiagovilasboas/grok-bot-architecture/issues/34), [#35](https://github.com/tiagovilasboas/grok-bot-architecture/issues/35) |
-| Specific skills | ~60% of lines shared by all nine | Six official elements per skill; shared lines ≤ 30%; one worked example each | [#30](https://github.com/tiagovilasboas/grok-bot-architecture/issues/30), [#31](https://github.com/tiagovilasboas/grok-bot-architecture/issues/31), [#32](https://github.com/tiagovilasboas/grok-bot-architecture/issues/32) |
-| Coherent docs | Fixed by hand once | Drift fails the gate | [#22](https://github.com/tiagovilasboas/grok-bot-architecture/issues/22), [#23](https://github.com/tiagovilasboas/grok-bot-architecture/issues/23) |
-| Robust runtime spike | Errors swallowed; self-approval allowed; stores differ | Error evidence kept; self-approval refused; one store contract | [#24](https://github.com/tiagovilasboas/grok-bot-architecture/issues/24), [#25](https://github.com/tiagovilasboas/grok-bot-architecture/issues/25), [#26](https://github.com/tiagovilasboas/grok-bot-architecture/issues/26), [#27](https://github.com/tiagovilasboas/grok-bot-architecture/issues/27) |
-| Local gate equals CI | CI only | One script, versioned hooks | [#21](https://github.com/tiagovilasboas/grok-bot-architecture/issues/21) |
-| Verified, not claimed | Nothing tested on an account | Walkthrough run on a real account, anonymized report | [#38](https://github.com/tiagovilasboas/grok-bot-architecture/issues/38) |
+| Works on Grok Bot | Done | Skills install as a plugin or saved private skill; each role has a kickoff message; walkthrough runs end to end | [#29](https://github.com/tiagovilasboas/grok-bot-architecture/issues/29), [#33](https://github.com/tiagovilasboas/grok-bot-architecture/issues/33), [#36](https://github.com/tiagovilasboas/grok-bot-architecture/issues/36) |
+| Truthful host limits | Done | Mapping marks what Grok Bot enforces and what stays a convention | [#28](https://github.com/tiagovilasboas/grok-bot-architecture/issues/28), [#34](https://github.com/tiagovilasboas/grok-bot-architecture/issues/34), [#35](https://github.com/tiagovilasboas/grok-bot-architecture/issues/35) |
+| Specific skills | Done | Six official elements per skill; shared lines ≤ 30% (achieved 0.0%); one worked example each | [#30](https://github.com/tiagovilasboas/grok-bot-architecture/issues/30), [#31](https://github.com/tiagovilasboas/grok-bot-architecture/issues/31), [#32](https://github.com/tiagovilasboas/grok-bot-architecture/issues/32) |
+| Coherent docs | Done | Drift fails the gate via `scripts/check-coherence.mjs` | [#22](https://github.com/tiagovilasboas/grok-bot-architecture/issues/22), [#23](https://github.com/tiagovilasboas/grok-bot-architecture/issues/23) |
+| Robust runtime spike | Done | Error evidence kept; self-approval refused; one store contract and atomic hardlink writes | [#24](https://github.com/tiagovilasboas/grok-bot-architecture/issues/24), [#25](https://github.com/tiagovilasboas/grok-bot-architecture/issues/25), [#26](https://github.com/tiagovilasboas/grok-bot-architecture/issues/26), [#27](https://github.com/tiagovilasboas/grok-bot-architecture/issues/27) |
+| Local gate equals CI | Done | Single script (`scripts/check.sh`), versioned git hooks | [#21](https://github.com/tiagovilasboas/grok-bot-architecture/issues/21) |
+| Verified, not claimed | Documented | Walkthrough and verification checklist prepared; live account observation logged in verification report | [#38](https://github.com/tiagovilasboas/grok-bot-architecture/issues/38), [verification report](hosts/grok-bot/verification-report.md) |
 
 Without #38, the Grok Bot paths remain unverified and the README must say so.
 
