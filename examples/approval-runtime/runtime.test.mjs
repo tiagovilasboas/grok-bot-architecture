@@ -136,6 +136,23 @@ test("host resource authorization blocks an otherwise approved action", async ()
   assert.equal(executed.length, 0);
 });
 
+test("approval that expires during host authorization cannot execute", async () => {
+  let currentTime = "2026-10-25T12:00:00.000Z";
+  const { runtimePromise, executed } = setup({
+    now: () => new Date(currentTime),
+    authorizeAction: async () => {
+      currentTime = "2026-10-25T14:00:00.000Z";
+      return true;
+    },
+  });
+  const runtime = await runtimePromise;
+  await request(runtime);
+  await approve(runtime);
+  await assert.rejects(runtime.resume({ id: "approval-1" }), { code: "expired" });
+  assert.equal((await runtime.get({ id: "approval-1" })).status, "expired");
+  assert.equal(executed.length, 0);
+});
+
 test("cancellation after approval prevents resume", async () => {
   const { runtimePromise, executed } = setup();
   const runtime = await runtimePromise;

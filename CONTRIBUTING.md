@@ -1,6 +1,6 @@
 # Contributing
 
-This repository documents a **harness-agnostic** desktop / multi-agent assistant OS: crew, shared computer, routines, connectors, HITL. a desktop agent host is the example host. The same pattern should map onto another desktop harness without rewriting the domain.
+This repository documents a **harness-agnostic** pattern for a desktop / multi-agent assistant team: crew, shared computer, routines, connectors, HITL. A desktop agent host is the example host. The same pattern should map onto another desktop harness without rewriting the domain.
 
 Contributing language for this file, issue forms, and pull requests is **English**. Commands and paths stay in English fences.
 

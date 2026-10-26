@@ -225,6 +225,15 @@ export async function createApprovalRuntime({
     return record;
   }
 
+  async function expireIfDue(record, message) {
+    const now = timestamp(clock);
+    if (Date.parse(record.expiresAt) > now.milliseconds) return;
+    record.status = "expired";
+    record.expiredAt = now.iso;
+    await store.put(record);
+    fail("expired", message);
+  }
+
   return Object.freeze({
     request({ id = randomUUID(), gate, action, requestedBy, expiresAt }) {
       return serialize(async () => {
@@ -300,14 +309,9 @@ export async function createApprovalRuntime({
       return serialize(async () => {
         const record = await load(id);
         if (record.status !== "approved") fail("invalid_state", `Cannot resume an approval in state ${record.status}`);
-        const now = timestamp(clock);
-        if (Date.parse(record.expiresAt) <= now.milliseconds) {
-          record.status = "expired";
-          record.expiredAt = now.iso;
-          await store.put(record);
-          fail("expired", "Approval expired before execution");
-        }
+        await expireIfDue(record, "Approval expired before execution");
 
+        const now = timestamp(clock);
         const currentAction = validateAction(await resolveCurrentAction(clone(record)));
         if (digest(currentAction) !== record.actionDigest) {
           record.status = "stale";
@@ -322,9 +326,12 @@ export async function createApprovalRuntime({
           fail("not_authorized", "Host authorization rejected this action");
         }
 
+        // Host callbacks are async: the approval may expire while they run.
+        await expireIfDue(record, "Approval expired before execution");
+
         const idempotencyKey = `approval:${record.id}:${record.actionDigest}`;
         record.status = "executing";
-        record.execution = { idempotencyKey, startedAt: now.iso };
+        record.execution = { idempotencyKey, startedAt: timestamp(clock).iso };
         await store.put(record);
 
         try {

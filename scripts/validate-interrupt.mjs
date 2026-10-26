@@ -21,7 +21,7 @@ import {
 } from "./lib/fixtures.mjs";
 
 const GATES = new Set(["merge", "deploy", "secrets", "messaging-as-user"]);
-const DECISIONS = new Set(["approve", "reject", "edit"]);
+const DECISIONS = new Set(["approve", "reject"]);
 const ISO_UTC = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
 const SPECIALIST_ROLES = new Set([
   "chief-of-staff",

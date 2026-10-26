@@ -10,7 +10,7 @@ Desktop assistants die in two ways: the human forgets the close, or the agent qu
 
 | Field | Meaning |
 |---|---|
-| `name` | Stable id (`inbox-morning`, `finance-review`, `obs-weekly`) |
+| `name` | Stable id (`inbox-morning`, `finance-review`, `security-weekly`) |
 | `trigger` | Cron, webhook, or human “run now” |
 | `owner` | One specialist (chief-of-staff may only route) |
 | `budget` | Max hops, max tokens (order of magnitude), max wall time |
