@@ -1,0 +1,11 @@
+{
+  "name": "grok-bot-architecture-roles",
+  "description": "Nine role skills (career, chief-of-staff, engineering, finance, hobby, inbox, product, publishing, security) from the grok-bot-architecture reference, for Cursor and Grok Bot.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Tiago Vilas Boas"
+  },
+  "homepage": "https://github.com/tiagovilasboas/grok-bot-architecture",
+  "repository": "https://github.com/tiagovilasboas/grok-bot-architecture",
+  "license": "MIT"
+}
