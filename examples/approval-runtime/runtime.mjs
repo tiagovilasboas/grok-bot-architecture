@@ -105,9 +105,12 @@ export class MemoryStore {
 /** Local demonstration store. It is not safe for multiple processes or workers. */
 export class JsonFileStore {
   #directory;
+  #linkFile;
 
-  constructor(directory) {
+  // linkFile is injectable so tests can simulate filesystems without hard links.
+  constructor(directory, { linkFile = link } = {}) {
     this.#directory = path.resolve(directory);
+    this.#linkFile = linkFile;
   }
 
   #file(id) {
@@ -148,18 +151,22 @@ export class JsonFileStore {
     try {
       // link() creates the final name atomically and fails if it already exists;
       // rename() would replace an existing approval on POSIX systems.
-      await link(temporary, target);
+      await this.#linkFile(temporary, target);
       await unlink(temporary);
     } catch (error) {
       await unlink(temporary).catch(() => {});
       if (error.code === "EEXIST" || error.code === "ENOTEMPTY") {
         fail("already_exists", `Approval ${record.id} already exists`);
       }
+      if (["EPERM", "ENOTSUP", "EOPNOTSUPP"].includes(error.code)) {
+        fail("store_unsupported", "The filesystem does not support hard links, which this store needs");
+      }
       throw error;
     }
   }
 
   async put(record) {
+    if (!(await this.get(record.id))) fail("not_found", `Approval ${record.id} does not exist`);
     await mkdir(this.#directory, { recursive: true, mode: 0o700 });
     const target = this.#file(record.id);
     const temporary = path.join(this.#directory, `.${record.id}.${randomUUID()}.tmp`);
