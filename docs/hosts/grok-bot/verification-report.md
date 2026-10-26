@@ -8,6 +8,7 @@ This report records what is documented for each path and, where a maintainer or 
 
 | Path | Doc reference | Plan tested | Date | Status | Notes |
 |---|---|---|---|---|---|
+| Role crew: coordinator Bot, specialist Bots, group chats | [mapping.md](mapping.md#mapping) | Premium (reported by maintainer) | 2026-10-26 | Worked | Observed on the maintainer's account: a pinned coordinator Bot, specialist Bots for engineering, security, inbox and career, and two group chats (core team and domain). The maintainer's own Bot names differ from the generic names in this repository. Skills, kickoffs and plugin from this repository were not part of that observation. |
 | Cursor plugin (Team Marketplace) | [install.md](install.md#a-team-marketplace) | — | 2026-10-26 | Documented, not observed | Requires Cursor dashboard organization with marketplace plugin import enabled. |
 | Cursor plugin (Local folder) | [install.md](install.md#b-local-plugin) | — | 2026-10-26 | Documented, not observed | Local plugin discovery directory in Cursor desktop needs observation. |
 | Paste-and-save private skill | [install.md](install.md#c-paste-and-save) | — | 2026-10-26 | Documented, not observed | Direct paste into Bot conversation with `/` composer completion check. |
