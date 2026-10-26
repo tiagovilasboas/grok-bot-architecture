@@ -2,7 +2,7 @@
 
 This walkthrough guides a newcomer through one end-to-end path on Grok Bot: installing role skills, creating a Bot, writing a board card in `/workspace`, running a scoped task, scheduling a routine, and hitting a human-in-the-loop approval stop.
 
-**Verification status: not yet verified on a real account.** Steps involving Grok Bot UI actions and plugin installation reflect official documentation as recorded in [platform facts](../../docs/hosts/grok-bot/platform-facts.md) and [host mapping](../../docs/hosts/grok-bot/mapping.md). They await validation on a live account in task E1 ([issue #38](https://github.com/tiagovilasboas/grok-bot-architecture/issues/38)). All identifiers, repositories, and tasks below are fictional; no real credentials, tokens, or private data are required.
+**Documentation status: documented, not observed on a real account.** Steps involving Grok Bot UI actions and plugin installation reflect official documentation as recorded in [platform facts](../../docs/hosts/grok-bot/platform-facts.md) and [host mapping](../../docs/hosts/grok-bot/mapping.md). Running it on a live account is optional; see the [verification report](../../docs/hosts/grok-bot/verification-report.md). All identifiers, repositories, and tasks below are fictional; no real credentials, tokens, or private data are required.
 
 ---
 
