@@ -20,7 +20,7 @@ step "documentation coherence"
 node scripts/check-coherence.mjs
 
 step "approval runtime tests"
-node --test examples/approval-runtime/runtime.test.mjs
+node --test examples/approval-runtime/runtime.test.mjs examples/approval-runtime/store-contract.test.mjs
 
 step "approval runtime walkthrough"
 node examples/approval-runtime/demo.mjs > /dev/null
