@@ -14,7 +14,7 @@ A maintainer review on 2026-10-26 scored the repository 7.5/10. With tasks F1–
 | Coherent docs | Done | Drift fails the gate via `scripts/check-coherence.mjs` | [#22](https://github.com/tiagovilasboas/grok-bot-architecture/issues/22), [#23](https://github.com/tiagovilasboas/grok-bot-architecture/issues/23) |
 | Robust runtime spike | Done | Error evidence kept; self-approval refused; one store contract and atomic hardlink writes | [#24](https://github.com/tiagovilasboas/grok-bot-architecture/issues/24), [#25](https://github.com/tiagovilasboas/grok-bot-architecture/issues/25), [#26](https://github.com/tiagovilasboas/grok-bot-architecture/issues/26), [#27](https://github.com/tiagovilasboas/grok-bot-architecture/issues/27) |
 | Local gate equals CI | Done | Single script (`scripts/check.sh`), versioned git hooks | [#21](https://github.com/tiagovilasboas/grok-bot-architecture/issues/21) |
-| Verified, not claimed | Documented | Walkthrough and verification checklist prepared; live account observation logged in verification report | [#38](https://github.com/tiagovilasboas/grok-bot-architecture/issues/38), [verification report](hosts/grok-bot/verification-report.md) |
+| Verified, not claimed | Documented | Walkthrough and verification checklist prepared; live account observation logged in verification report | [verification report](hosts/grok-bot/verification-report.md) |
 
 Without #38, the Grok Bot paths remain unverified and the README must say so.
 
@@ -41,7 +41,7 @@ Story points use Fibonacci; no task exceeds 5. Each task is one PR that passes t
 | G8 Routines on Grok Bot | [#35](https://github.com/tiagovilasboas/grok-bot-architecture/issues/35) | 2 | G1 | Grok Bot |
 | G9 Grok Bot walkthrough | [#36](https://github.com/tiagovilasboas/grok-bot-architecture/issues/36) | 3 | G2, G6, G7, G8 | Grok Bot |
 | G10 README first screen | [#37](https://github.com/tiagovilasboas/grok-bot-architecture/issues/37) | 3 | G1, G2, G9 | Docs |
-| E1 Verify on a real account | [#38](https://github.com/tiagovilasboas/grok-bot-architecture/issues/38) | 3 | G9 | Maintainer |
+| E1 Verify on a real account (optional; issue deleted) | — | 3 | G9 | Maintainer |
 | E2 Release v0.2.0 | [#39](https://github.com/tiagovilasboas/grok-bot-architecture/issues/39) | 1 | all above | Maintainer |
 
 Total: 19 tasks, 51 story points.

@@ -1,6 +1,6 @@
 # Grok Bot verification report
 
-Reviewed: 2026-10-26 (task E1, [issue #38](https://github.com/tiagovilasboas/grok-bot-architecture/issues/38)).
+Reviewed: 2026-10-26 (task E1, the optional live check; its tracking issue was deleted).
 
 This report records what is documented for each path and, where a maintainer or contributor has run it, what was observed on a Grok Bot account. Live checks are a recommendation, not a release gate: each reader chooses which paths to check and records the result. Paths that have not been observed are shown as documented, not as working.
 
