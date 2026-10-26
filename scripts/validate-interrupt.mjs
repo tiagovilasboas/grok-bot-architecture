@@ -78,10 +78,12 @@ function normalizeActor(value) {
 }
 
 /**
+ * Heuristic only: rejects obvious agent labels. It cannot prove that a person
+ * decided; the host's authenticated principal is the source of identity.
  * @param {unknown} value
  * @returns {boolean}
  */
-function isHumanDecider(value) {
+function isNotObviousAgentLabel(value) {
   if (!isNonEmptyString(value)) {
     return false;
   }
@@ -154,8 +156,8 @@ export function validateInterrupt(record) {
         `decision must be empty or one of ${[...DECISIONS].join(", ")} (got ${JSON.stringify(record.decision)})`,
       );
     }
-    if (!isHumanDecider(record.decided_by)) {
-      errors.push("decided_by must be a human identifier; never invent a specialist or model");
+    if (!isNotObviousAgentLabel(record.decided_by)) {
+      errors.push("decided_by must not be an obvious agent label (specialist, model, or assistant)");
     }
     if (!isIsoUtc(record.decided_at)) {
       errors.push("decided_at must be an ISO-8601 UTC timestamp when decision is set");
