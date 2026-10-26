@@ -5,12 +5,17 @@ Independent, MIT-licensed reference for Grok Bot-style AI agent teams: nine role
 Prove the contracts:
 
 ```text
-node scripts/validate-all.mjs
+bash scripts/check.sh
 ```
 
 ## Docs
 
 - [Grok Bot FAQ: agent teams, skills, MCP, routines, approvals](docs/grok-bot-faq.md)
+- [Grok Bot platform facts](docs/hosts/grok-bot/platform-facts.md)
+- [Grok Bot host mapping](docs/hosts/grok-bot/mapping.md)
+- [Grok Bot approval policy](docs/hosts/grok-bot/approval-policy.md)
+- [Grok Bot install guide](docs/hosts/grok-bot/install.md)
+- [Grok Bot routines](docs/hosts/grok-bot/routines.md)
 
 - [Architecture](docs/architecture.md)
 - [ADRs](docs/adr/README.md)

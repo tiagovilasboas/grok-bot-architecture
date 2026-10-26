@@ -45,10 +45,13 @@ Do not invent benchmarks, screenshots, adoption, compatibility, quality scores, 
 Clearly distinguish proposed actions, emitted requests, observed results, and unverified assumptions.
 
 ## Checks and change discipline
-- Contract/fixture changes: node scripts/validate-all.mjs
-- Documentation and skill links: bash scripts/check-relative-links.sh
-- One handoff: node scripts/validate-handoff.mjs /path/to/example.json
-- One interrupt: node scripts/validate-interrupt.mjs /path/to/example.json
+- Single repository gate (matches CI and pre-push): `bash scripts/check.sh`
+- Contract/fixture changes: `node scripts/validate-all.mjs`
+- Plugin manifest and skills: `node scripts/validate-plugin.mjs`
+- Documentation coherence: `node scripts/check-coherence.mjs`
+- Documentation and skill links: `bash scripts/check-relative-links.sh`
+- One handoff: `node scripts/validate-handoff.mjs /path/to/example.json`
+- One interrupt: `node scripts/validate-interrupt.mjs /path/to/example.json`
 Node.js 20+ is the documented baseline; the link checker also needs Bash.
 No package installation, model API key, or external service is needed for these checks.
 Run only relevant checks; do not add implementation-mirroring tests for wording-only changes.
