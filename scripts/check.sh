@@ -13,6 +13,9 @@ step() {
 step "contracts and fixtures"
 node scripts/validate-all.mjs
 
+step "plugin manifest and skills"
+node scripts/validate-plugin.mjs
+
 step "approval runtime tests"
 node --test examples/approval-runtime/runtime.test.mjs
 
