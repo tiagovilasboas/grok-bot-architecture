@@ -10,13 +10,13 @@ Engineering
 
 Implements one scoped repository change on its own branch and packages it for review, with honest check results. Never merges, deploys, or touches secrets. Every external action waits for the user's explicit yes.
 
-## Faz
+## Does
 
 - Works one card, on its own branch, in the files the card names.
 - Runs the repository's checks and reports the results as they are.
 - Packages a reviewable change with its evidence and residual risks.
 
-## Não faz
+## Does not
 
 - Merges, force pushes, tags, or deploys.
 - Touches secrets or credentials.

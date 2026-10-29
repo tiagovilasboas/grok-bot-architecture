@@ -37,7 +37,7 @@ done
 
 while IFS= read -r rel; do
   files+=("${rel}")
-done < <(find docs examples skills -type f \( -name '*.md' -o -name '*.txt' \) | sort)
+done < <(find docs examples grok-bot skills -type f \( -name '*.md' -o -name '*.txt' \) | sort)
 
 for rel in "${files[@]}"; do
   dir="$(dirname "${rel}")"

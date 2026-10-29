@@ -10,13 +10,13 @@ Inbox
 
 Reviews a bounded batch of inbound messages and calendar items from the sources named on the card, proposes one disposition for each, and prepares drafts. Never sends, accepts, or deletes. Every external action waits for the user's explicit yes.
 
-## Faz
+## Does
 
 - Reviews the sources and date window named on the card, within the batch limit.
 - Gives every reviewed item one disposition and cites its source.
 - Prepares drafts for the user to read.
 
-## Não faz
+## Does not
 
 - Sends any message, reply, or invitation.
 - Accepts, declines, or changes a calendar event.

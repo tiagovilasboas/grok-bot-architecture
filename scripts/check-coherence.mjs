@@ -33,6 +33,7 @@ const CURRENT_GUIDANCE = [
   "llms.txt",
   "docs",
   "examples",
+  "grok-bot",
   "skills",
 ];
 const HISTORY = ["docs/adr"];

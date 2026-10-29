@@ -9,20 +9,16 @@ Designed for engineers and operators structuring persistent AI teammates without
 
 [Grok Bot quick path](#grok-bot-quick-path) · [Agnostic quick start](#agnostic-quick-start) · [Architecture](docs/architecture.md) · [FAQ](docs/grok-bot-faq.md) · [Contributing](CONTRIBUTING.md)
 
-## Grok Bot quick path
+## Grok Bot quick path (start in 10 minutes)
 
 To try this pattern on Grok Bot:
 
-1. **Install skills:** Load the nine role skills via Cursor plugin or direct paste ([install guide](docs/hosts/grok-bot/install.md)).
-2. **Kickoff one Bot:** Create a Bot and set its initial job and approval boundary ([kickoff prompts](examples/grok-bot/kickoff/README.md)).
-3. **Run the walkthrough:** Follow an end-to-end task from board assignment to an approval stop ([Grok Bot walkthrough](examples/grok-bot/walkthrough.md)).
-4. **Configure approval policy:** Map the four repository gates to personal Auto Review rules ([approval policy](docs/hosts/grok-bot/approval-policy.md)).
+1. **Follow the 10-step setup:** Create your coordinator and specialist Bots with paste-ready hard rules, a budgeted routine example, and a first approval stop ([grok-bot/SETUP.md](grok-bot/SETUP.md)).
+2. **Install skills & kickoffs:** Load the nine role skills via Cursor plugin or direct paste ([install guide](docs/hosts/grok-bot/install.md)) and use the full role kickoffs ([kickoff prompts](examples/grok-bot/kickoff/README.md)).
+3. **Configure approval policy:** Map the four repository gates to personal Auto Review rules ([approval policy](docs/hosts/grok-bot/approval-policy.md)).
+4. **Run the walkthrough & read the incident case study:** Follow an end-to-end task ([Grok Bot walkthrough](examples/grok-bot/walkthrough.md)) and see why routines require budgets and fail-closed stops ([sanitized case study](docs/case-study.md)).
 
-*(Note: Live Grok Bot integration paths are documented from official product facts and pending live account verification in task E1).*
-
-## Start in 10 minutes
-
-Paste-ready profiles, a budgeted routine example, and a 10-step setup from a new Bot to a first card with a human approval stop: [grok-bot/SETUP.md](grok-bot/SETUP.md). The reasoning behind the rules is in [a sanitized case study](docs/case-study.md).
+*(See the [verification report](docs/hosts/grok-bot/verification-report.md) for what has been observed on a live Grok Bot account versus documented from official product facts).*
 
 ## Agnostic quick start
 
