@@ -10,12 +10,15 @@ bash scripts/check.sh
 
 ## Docs
 
+- [Grok Bot 10-minute setup](grok-bot/SETUP.md)
 - [Grok Bot FAQ: agent teams, skills, MCP, routines, approvals](docs/grok-bot-faq.md)
 - [Grok Bot platform facts](docs/hosts/grok-bot/platform-facts.md)
 - [Grok Bot host mapping](docs/hosts/grok-bot/mapping.md)
 - [Grok Bot approval policy](docs/hosts/grok-bot/approval-policy.md)
 - [Grok Bot install guide](docs/hosts/grok-bot/install.md)
 - [Grok Bot routines](docs/hosts/grok-bot/routines.md)
+- [Grok Bot verification report](docs/hosts/grok-bot/verification-report.md) · [Optional live check runbook](docs/hosts/grok-bot/e1-runbook.md)
+- [Sanitized routine incident case study](docs/case-study.md)
 
 - [Architecture](docs/architecture.md)
 - [ADRs](docs/adr/README.md)

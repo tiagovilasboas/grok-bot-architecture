@@ -3,6 +3,8 @@
 ## v0.3.0 - 2026-10-26
 
 ### Added
+- **Plug-and-play Grok Bot setup & budgeted routines:** [`grok-bot/SETUP.md`](grok-bot/SETUP.md), paste-ready profiles in [`grok-bot/profiles/`](grok-bot/profiles/chief-of-staff.md), and [`grok-bot/routines/example-routine.md`](grok-bot/routines/example-routine.md) with explicit budget and stop rules.
+- **Sanitized routine incident case study & live check runbook:** [`docs/case-study.md`](docs/case-study.md) explaining the "list and wait" and routine budget rules, plus [`docs/hosts/grok-bot/e1-runbook.md`](docs/hosts/grok-bot/e1-runbook.md) and [`docs/hosts/grok-bot/results-template.md`](docs/hosts/grok-bot/results-template.md).
 - **Zero-dependency Markdown board CLI and validator:** [`scripts/board.mjs`](scripts/board.mjs) and [`scripts/lib/board.mjs`](scripts/lib/board.mjs) let operators and agents `list`, `check`, `add`, and update `status` on Markdown board cards from the terminal while enforcing ADR-0001 and [`docs/crew/handoffs.md`](docs/crew/handoffs.md) invariants.
 - **Board unit test suite:** [`scripts/board.test.mjs`](scripts/board.test.mjs) adds unit coverage for board parsing, ghost-owner rejection, invented-decision rejection, `done` without `output_refs`, and card lifecycle updates (31 total tests in `bash scripts/check.sh`).
 - **Real-world case study:** [`examples/case-study-self-audit.md`](examples/case-study-self-audit.md) documents the repository's own multi-PR audit and milestone closure (`#57`–`#63`) with verifiable commits and `scripts/board.mjs` commands.
