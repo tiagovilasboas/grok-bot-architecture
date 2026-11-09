@@ -153,7 +153,7 @@ See [architecture and trust boundaries](docs/architecture.md) and the [host inte
 <div align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/crew-dark.svg">
-  <img src="docs/assets/crew-light.svg" alt="Meet the crew: six Core team roles (Chief-of-staff, Engineering, Publishing, Security, Inbox, Career) and three optional Domain specialists (Finance, Product, Hobby), each drawn as the project mascot with a role prop" width="100%">
+  <img src="docs/assets/crew-light.svg" alt="Meet the crew: six Core team roles (Chief-of-staff, Engineering, Publishing, Security, Inbox, Career) and three optional Domain specialists (Finance, Product, Hobby), each shown as a colored avatar with a one-line job" width="100%">
 </picture>
 </div>
 
@@ -389,7 +389,7 @@ Stars and forks indicate interest, not verified production adoption. The reposit
 
 ## Support the project
 
-<img src="docs/assets/mascot-wave.svg" alt="Orbi, the project mascot, waving and holding a heart" width="120" align="right">
+<img src="docs/assets/mascot-wave.svg" alt="Orbi, the project mascot, with a heart" width="120" align="right">
 
 If this reference saves you time, [sponsoring](https://github.com/sponsors/tiagovilasboas) helps fund maintenance, new host mappings, and runtime work. Starring the repository also helps others find it.
 
