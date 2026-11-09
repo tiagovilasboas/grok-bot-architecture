@@ -1,7 +1,9 @@
 # Crew heads
 
 These are standalone SVGs of the nine crew role heads used in the README visuals, one file per role.
-Each file is a transparent 160 × 160 canvas that works on dark and light pages and carries a `<title>` for screen readers.
+Each file is a transparent 160 × 160 canvas with a `<title>` for screen readers.
+The pencil outline follows the viewer's color scheme (dark graphite on light pages, light graphite on dark pages).
+The eyes blink every few seconds, and the blink is turned off for viewers who prefer reduced motion.
 Like the rest of the repository, they are MIT-licensed. You can use them as agent avatars in your own host UI, or recolor and rename them to fit your roles.
 
 | Head | Role | Shape | Color | File |
