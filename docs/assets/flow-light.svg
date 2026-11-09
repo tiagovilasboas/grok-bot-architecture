@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 260" width="1280" height="260" role="img" aria-label="Flow: Goal, Coordinate, Execute, Approve">
+<title>Goal, Coordinate, Execute, Approve</title>
+<defs>
+<linearGradient id="fll-acc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C5CFF"/><stop offset="1" stop-color="#22D3EE"/></linearGradient>
+<radialGradient id="fll-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#7C5CFF" stop-opacity="0.16"/><stop offset="1" stop-color="#7C5CFF" stop-opacity="0"/></radialGradient>
+<pattern id="fll-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#0B0D12" stroke-opacity="0.05"/></pattern>
+</defs><rect width="1280" height="260" fill="#FFFFFF"/><rect width="1280" height="260" fill="url(#fll-grid)"/>
+<rect x="43" y="50" width="276" height="160" rx="16" fill="#F6F7FB" stroke="#E3E6EE" stroke-width="1"/>
+<text x="67" y="92" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="700" fill="#5B6478" letter-spacing="1">01</text>
+<rect x="67" y="106" width="28" height="3" rx="1.5" fill="#E3E6EE"/>
+<text x="67" y="148" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#0B0D12" letter-spacing="-0.5">Goal</text>
+<text x="67" y="180" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B6478">Human sets scope</text>
+<path d="M324 130.0H340M335 125.0L340 130.0L335 135.0" fill="none" stroke="#5B6478" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="349" y="50" width="276" height="160" rx="16" fill="#F6F7FB" stroke="#E3E6EE" stroke-width="1"/>
+<text x="373" y="92" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="700" fill="#5B6478" letter-spacing="1">02</text>
+<rect x="373" y="106" width="28" height="3" rx="1.5" fill="#E3E6EE"/>
+<text x="373" y="148" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#0B0D12" letter-spacing="-0.5">Coordinate</text>
+<text x="373" y="180" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B6478">Chief-of-staff assigns</text>
+<path d="M630 130.0H646M641 125.0L646 130.0L641 135.0" fill="none" stroke="#5B6478" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="655" y="50" width="276" height="160" rx="16" fill="#F6F7FB" stroke="#E3E6EE" stroke-width="1"/>
+<text x="679" y="92" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="700" fill="#5B6478" letter-spacing="1">03</text>
+<rect x="679" y="106" width="28" height="3" rx="1.5" fill="#E3E6EE"/>
+<text x="679" y="148" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#0B0D12" letter-spacing="-0.5">Execute</text>
+<text x="679" y="180" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B6478">Specialist with scoped tools</text>
+<path d="M936 130.0H952M947 125.0L952 130.0L947 135.0" fill="none" stroke="#5B6478" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="947" y="36" width="304" height="188" rx="26" fill="url(#fll-glow)"/>
+<rect x="961" y="50" width="276" height="160" rx="16" fill="#F6F7FB" stroke="url(#fll-acc)" stroke-width="2"/>
+<text x="985" y="92" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="700" fill="url(#fll-acc)" letter-spacing="1">04</text>
+<rect x="985" y="106" width="28" height="3" rx="1.5" fill="url(#fll-acc)"/>
+<text x="985" y="148" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#0B0D12" letter-spacing="-0.5">Approve</text>
+<text x="985" y="180" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B6478">Human gate, fail-closed</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" role="img" aria-label="Grok Bot Architecture: AI agent teams, skills, MCP, human approval">
+<title>Grok Bot Architecture</title>
+<defs>
+<linearGradient id="bnd-acc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C5CFF"/><stop offset="1" stop-color="#22D3EE"/></linearGradient>
+<radialGradient id="bnd-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#7C5CFF" stop-opacity="0.3"/><stop offset="1" stop-color="#7C5CFF" stop-opacity="0"/></radialGradient>
+<pattern id="bnd-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#FFFFFF" stroke-opacity="0.035"/></pattern>
+</defs><rect width="1280" height="420" fill="#0B0D12"/><rect width="1280" height="420" fill="url(#bnd-grid)"/>
+<circle cx="990" cy="210" r="260" fill="url(#bnd-glow)"/>
+<rect x="0.5" y="0.5" width="1279" height="419" fill="none" stroke="#232837"/>
+<line x1="990" y1="210" x2="844.3" y2="163.8" stroke="#232837" stroke-width="1.5"/>
+<line x1="990" y1="210" x2="1003.5" y2="75.5" stroke="#232837" stroke-width="1.5"/>
+<line x1="990" y1="210" x2="1089.6" y2="313.4" stroke="#232837" stroke-width="1.5"/>
+<line x1="990" y1="210" x2="880.4" y2="305.5" stroke="#232837" stroke-width="1.5"/>
+<line x1="990" y1="210" x2="1139.7" y2="175.1" stroke="url(#bnd-acc)" stroke-width="2"/>
+<circle cx="844.3" cy="163.8" r="17" fill="#12151C" stroke="#232837" stroke-width="1.5"/><circle cx="844.3" cy="163.8" r="4" fill="#8A93A6"/>
+<circle cx="1003.5" cy="75.5" r="17" fill="#12151C" stroke="#232837" stroke-width="1.5"/><circle cx="1003.5" cy="75.5" r="4" fill="#8A93A6"/>
+<circle cx="1139.7" cy="175.1" r="17" fill="#12151C" stroke="url(#bnd-acc)" stroke-width="1.5"/><circle cx="1139.7" cy="175.1" r="4" fill="#8A93A6"/>
+<circle cx="1089.6" cy="313.4" r="17" fill="#12151C" stroke="#232837" stroke-width="1.5"/><circle cx="1089.6" cy="313.4" r="4" fill="#8A93A6"/>
+<circle cx="880.4" cy="305.5" r="17" fill="#12151C" stroke="#232837" stroke-width="1.5"/><circle cx="880.4" cy="305.5" r="4" fill="#8A93A6"/>
+<circle cx="990" cy="210" r="34" fill="#12151C" stroke="url(#bnd-acc)" stroke-width="2"/><circle cx="990" cy="210" r="12" fill="url(#bnd-acc)"/>
+<g transform="translate(1064.9 192.5)"><rect x="-15" y="-15" width="30" height="30" rx="6" transform="rotate(45)" fill="#0B0D12" stroke="url(#bnd-acc)" stroke-width="2"/><rect x="-5" y="-1" width="10" height="8" rx="1.5" fill="url(#bnd-acc)"/><path d="M-3 -1V-4a3 3 0 0 1 6 0V-1" fill="none" stroke="url(#bnd-acc)" stroke-width="1.6"/></g>
+<text x="72" y="190" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#E6E8EE" letter-spacing="-1.5">Grok Bot Architecture</text>
+<rect x="72" y="212" width="64" height="4" rx="2" fill="url(#bnd-acc)"/>
+<text x="72" y="256" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" fill="#8A93A6">AI agent teams · skills · MCP · human approval</text>
+<text x="72" y="364" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#8A93A6" letter-spacing="0.3">MIT · model-agnostic · reference architecture</text>
+</svg>
