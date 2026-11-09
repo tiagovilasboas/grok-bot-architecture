@@ -90,59 +90,12 @@ Use the [decision guide](docs/cookbook/when-to-use-this-pattern.md) before addin
 
 ## Architecture
 
-```mermaid
-flowchart TB
-  Human["Human operator<br/>Goals, scope and approval decisions"]
-
-  subgraph Core["Core team"]
-    direction TB
-    CoS["Chief-of-staff<br/>Scope · assign · review"]
-    Engineering["Engineering<br/>Code · PRs · CI"]
-    Publishing["Publishing<br/>Documentation · public content"]
-    Security["Security<br/>AppSec · privacy review"]
-    Inbox["Inbox<br/>Triage · drafts · scheduling proposals"]
-    Career["Career<br/>Opportunity screening · application drafts"]
-    CoS --> Engineering
-    CoS --> Publishing
-    CoS --> Security
-    CoS --> Inbox
-    CoS --> Career
-  end
-
-  subgraph Domain["Domain specialists · optional"]
-    direction LR
-    Finance["Finance<br/>Finance workflows · reconciliation drafts"]
-    Product["Product<br/>Requirements · acceptance · previews"]
-    Hobby["Hobby<br/>Research · comparisons · shortlists"]
-  end
-
-  subgraph Host["Host adapter · vendor and framework independent"]
-    State["Shared state<br/>Board · typed handoffs · references"]
-    Skills["Role skills<br/>Nine reusable SKILL.md recipes"]
-    Tools["Scoped tool access<br/>Host-enforced permissions · budgets"]
-    Approval["Approval gate<br/>Authenticate · bind action and revision<br/>No decision: wait"]
-    Connectors["MCP connectors / first-party APIs<br/>Authorized reads · drafts · approved actions"]
-    Worker["Optional isolated code worker<br/>Branch + review evidence"]
-  end
-
-  Human -->|"goal and constraints"| CoS
-  CoS --> Finance
-  CoS --> Product
-  CoS --> Hobby
-  Core --- State
-  Domain --- State
-  Skills -.->|"task-specific instructions"| Core
-  Skills -.->|"task-specific instructions"| Domain
-  Core --> Tools
-  Domain --> Tools
-  Tools -->|"authorized reads and drafts"| Connectors
-  Tools -->|"privileged action request"| Approval
-  Approval -->|"request decision"| Human
-  Human -->|"explicit decision"| Approval
-  Approval -->|"approved action within scope"| Connectors
-  Engineering -->|"scoped implementation"| Worker
-  Worker -->|"branch and PR references"| State
-```
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/architecture-dark.svg">
+  <img src="docs/assets/architecture-light.svg" alt="Architecture diagram. The Human operator passes goals and constraints to the Chief-of-staff, which assigns work to the core team (Publishing, Security, Career, Inbox, Engineering) and the optional domain specialists (Finance, Product, Hobby). Below them, the vendor-independent host adapter holds Scoped tool access, an optional Isolated code worker, Shared state, Role skills, the Approval gate and MCP connectors / first-party APIs. Roles act through scoped tools; authorized reads and drafts go straight to connectors, while privileged action requests stop at the Approval gate, which asks the human and waits for an explicit decision before passing the approved action to the connectors. Engineering hands scoped implementation to the code worker, which returns branch and PR references to Shared state." width="100%">
+</picture>
+</div>
 
 Chief-of-staff coordinates five other Core team roles and three optional Domain specialists. Each role loads its own skill and works through scoped host permissions. Shared state carries assignments and evidence; privileged actions require an authenticated decision bound to the action and revision. Isolated code workers return review artifacts through Engineering.
 
