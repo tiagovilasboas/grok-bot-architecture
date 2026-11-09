@@ -157,6 +157,8 @@ See [architecture and trust boundaries](docs/architecture.md) and the [host inte
 </picture>
 </div>
 
+Each role's head is also available as a [standalone SVG](docs/assets/crew/README.md) that you can reuse as an agent avatar.
+
 My reference setup uses two groups: **Core team** (coordination and cross-cutting work) and optional **Domain specialists** (finance, product and hobby work). They are a menu to adapt, not a requirement to activate all nine agents.
 
 | Role | Day-to-day job | Expected deliverable |
