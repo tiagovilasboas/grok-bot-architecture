@@ -408,7 +408,7 @@ Maintained by [Tiago Vilas Boas](https://github.com/tiagovilasboas). Contributio
 <div align="center">
 
 <img src="docs/assets/mascot.svg" alt="Orbi, the project mascot" width="72"><br>
-<sub>Orbi, the project mascot · original artwork, not affiliated with xAI</sub><br>
+<sub>Orbi, the project mascot · original artwork inspired by the Grok Bot visual style · not affiliated with xAI</sub><br>
 <sub>[Back to top](#grok-bot-architecture-ai-agent-teams-skills-mcp--human-approval)</sub>
 
 </div>
