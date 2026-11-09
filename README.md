@@ -1,13 +1,50 @@
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.svg">
+  <img src="docs/assets/banner-light.svg" alt="Grok Bot Architecture — AI agent teams, skills, MCP and human approval" width="100%">
+</picture>
+
 # Grok Bot Architecture: AI Agent Teams, Skills, MCP & Human Approval
 
+**A reference architecture for AI agent teams with scoped roles, typed handoffs, and human approval before privileged actions.**
+
 [![CI](https://github.com/tiagovilasboas/grok-bot-architecture/actions/workflows/ci.yml/badge.svg)](https://github.com/tiagovilasboas/grok-bot-architecture/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/tiagovilasboas/grok-bot-architecture?style=flat-square)](https://github.com/tiagovilasboas/grok-bot-architecture/stargazers)
+![MCP-native](https://img.shields.io/badge/MCP-native-7C5CFF?style=flat-square)
+![zero dependencies](https://img.shields.io/badge/dependencies-zero-22D3EE?style=flat-square)
+[![Sponsor](https://img.shields.io/badge/sponsor-♥-ea4aaa?style=flat-square&logo=githubsponsors)](https://github.com/sponsors/tiagovilasboas)
+
+[Grok Bot quick path](#grok-bot-quick-path-start-in-10-minutes) · [Agnostic quick start](#agnostic-quick-start) · [Architecture](docs/architecture.md) · [FAQ](docs/grok-bot-faq.md) · [Contributing](CONTRIBUTING.md) · [Sponsor](#support-the-project)
+
+</div>
 
 An independent, MIT-licensed reference architecture for organizing **AI agent teams** with reusable **agent skills**, **MCP connectors**, and **human-in-the-loop (HITL) approval**. Start with a chief-of-staff and scoped specialists, then use typed handoffs and persisted approval requests to coordinate work across local and remote hosts.
 
 Designed for engineers and operators structuring persistent AI teammates without granting unchecked ambient authority. The reference is model- and framework-independent; it is not affiliated with xAI or Cursor and does not contain the Grok Bot product's source code.
 
-[Grok Bot quick path](#grok-bot-quick-path) · [Agnostic quick start](#agnostic-quick-start) · [Architecture](docs/architecture.md) · [FAQ](docs/grok-bot-faq.md) · [Contributing](CONTRIBUTING.md)
+## How it works
+
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/flow-dark.svg">
+  <img src="docs/assets/flow-light.svg" alt="Four steps: Goal (the human sets a goal), Coordinate (chief-of-staff assigns a scoped specialist), Execute (the specialist works with scoped tools and typed handoffs), Approve (a human decision bound to the action and revision)" width="100%">
+</picture>
+</div>
+
+## Why this exists
+
+<table>
+<tr>
+<td width="50%" valign="top"><strong>Scoped roles</strong><br>Nine role skills, each with its own job, context, deliverable and boundary. Roles describe responsibilities; the host enforces permissions.</td>
+<td width="50%" valign="top"><strong>Typed handoffs</strong><br>Every handoff requires an owner, goal, completion condition and references, so work moves between roles with evidence instead of chat history.</td>
+</tr>
+<tr>
+<td valign="top"><strong>Approval that fails closed</strong><br>A decision is bound to an exact action and revision. With no decision, execution waits (<code>default_on_timeout: wait</code>).</td>
+<td valign="top"><strong>Zero-dependency validators</strong><br>No external packages, credentials or API keys. One command, <code>bash scripts/check.sh</code>, runs the validators and 31 runtime and board unit tests.</td>
+</tr>
+</table>
 
 ## Grok Bot quick path (start in 10 minutes)
 
@@ -112,6 +149,15 @@ Chief-of-staff coordinates five other Core team roles and three optional Domain 
 See [architecture and trust boundaries](docs/architecture.md) and the [host integration contract](docs/host-integration.md).
 
 ## Roles: jobs, deliverables, and boundaries
+
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/crew-dark.svg">
+  <img src="docs/assets/crew-light.svg" alt="Meet the crew: six Core team roles (Chief-of-staff, Engineering, Publishing, Security, Inbox, Career) and three optional Domain specialists (Finance, Product, Hobby), each shown as a colored avatar with a one-line job" width="100%">
+</picture>
+</div>
+
+Each role's head is also available as a [standalone SVG](docs/assets/crew/README.md) that you can reuse as an agent avatar.
 
 My reference setup uses two groups: **Core team** (coordination and cross-cutting work) and optional **Domain specialists** (finance, product and hobby work). They are a menu to adapt, not a requirement to activate all nine agents.
 
@@ -343,8 +389,28 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md). Small documentation fixes, anonym
 
 Stars and forks indicate interest, not verified production adoption. The repository does not publish measured productivity, security, or cost improvements without supporting evidence.
 
+## Support the project
+
+<img src="docs/assets/mascot-wave.svg" alt="Orbi, the project mascot, with a heart" width="120" align="right">
+
+If this reference saves you time, [sponsoring](https://github.com/sponsors/tiagovilasboas) helps fund maintenance, new host mappings, and runtime work. Starring the repository also helps others find it.
+
+<div align="center">
+
+[![Sponsor on GitHub](https://img.shields.io/badge/sponsor-♥_on_GitHub-ea4aaa?style=for-the-badge&logo=githubsponsors)](https://github.com/sponsors/tiagovilasboas)
+
+</div>
+
 ## License
 
 [MIT License](LICENSE), copyright © 2026 Tiago Vilas Boas. You may use, modify, and redistribute the project, including commercially, under the license terms.
 
 Maintained by [Tiago Vilas Boas](https://github.com/tiagovilasboas). Contributions are welcome from any agent ecosystem.
+
+<div align="center">
+
+<img src="docs/assets/mascot.svg" alt="Orbi, the project mascot" width="72"><br>
+<sub>Orbi, the project mascot · original artwork inspired by the Grok Bot visual style · not affiliated with xAI</sub><br>
+<sub>[Back to top](#grok-bot-architecture-ai-agent-teams-skills-mcp--human-approval)</sub>
+
+</div>
